@@ -1,4 +1,4 @@
-# Postgresql vs TimescaleDB
+# PostgreSQL vs TimescaleDB
 
 ## 1. Benchmark setup
 
