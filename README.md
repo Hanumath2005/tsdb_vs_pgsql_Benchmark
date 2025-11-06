@@ -2,7 +2,7 @@
 
 ## 1. Benchmark setup
 
-[phase_1][phase_1/README.md]
+[phase_1](phase_1/README.md)
 
 ## 2. Query_latency
 
