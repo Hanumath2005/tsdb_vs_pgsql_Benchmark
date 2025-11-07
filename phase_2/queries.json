@@ -1,0 +1,315 @@
+{
+    "weather": [
+        {
+            "query": "avg_temp_all",
+            "sql": "SELECT AVG(temperature) FROM weather_data;"
+        },
+        {
+            "query": "min_max_temp",
+            "sql": "SELECT MIN(temperature), MAX(temperature) FROM weather_data;"
+        },
+        {
+            "query": "sum_precipitation",
+            "sql": "SELECT SUM(\"precipitation_mm\") FROM weather_data;"
+        },
+        {
+            "query": "count_all_rows",
+            "sql": "SELECT COUNT(*) FROM weather_data;"
+        },
+        {
+            "query": "count_1day",
+            "sql": "SELECT COUNT(*) FROM weather_data WHERE \"time\" BETWEEN '2020-01-01' AND '2020-01-02';"
+        },
+        {
+            "query": "count_1month",
+            "sql": "SELECT COUNT(*) FROM weather_data WHERE \"time\" BETWEEN '2020-01-01' AND '2020-02-01';"
+        },
+        {
+            "query": "count_1year",
+            "sql": "SELECT COUNT(*) FROM weather_data WHERE \"time\" BETWEEN '2020-01-01' AND '2021-01-01';"
+        },
+        {
+            "query": "avg_temp_2020",
+            "sql": "SELECT AVG(temperature) FROM weather_data WHERE \"time\" BETWEEN '2020-01-01' AND '2020-12-31';"
+        },
+        {
+            "query": "downsample_pg_day",
+            "sql": "SELECT date_trunc('day', \"time\") AS day, AVG(temperature) FROM weather_data WHERE \"time\" >= '2020-01-01' AND \"time\" < '2020-02-01' GROUP BY day ORDER BY day;"
+        },
+        {
+            "query": "downsample_ts_day",
+            "sql": "SELECT time_bucket('1 day', \"time\") AS day, AVG(temperature) FROM weather_data WHERE \"time\" >= '2020-01-01' AND \"time\" < '2020-02-01' GROUP BY day ORDER BY day;"
+        },
+        {
+            "query": "downsample_ts_hour", 
+            "sql": "SELECT time_bucket('1 hour', \"time\") AS hour, AVG(temperature) FROM weather_data WHERE \"time\" >= '2020-01-01' AND \"time\" < '2020-01-07' GROUP BY hour ORDER BY hour;"
+        },
+
+        {
+            "query": "humid_hot", 
+            "sql": "SELECT AVG(temperature) FROM weather_data WHERE relative_humidity > 80 AND temperature > 25 AND \"time\" BETWEEN '2020-06-01' AND '2020-06-30';"
+        },
+
+        {
+            "query": "humid_cold", 
+            "sql": "SELECT AVG(temperature) FROM weather_data WHERE relative_humidity > 85 AND temperature < 15 AND \"time\" BETWEEN '2020-01-01' AND '2020-01-31';"
+        },
+
+        {
+            "query": "rainy_days", 
+            "sql": "SELECT COUNT(*) FROM weather_data WHERE \"rain_mm\" > 5 AND \"time\" BETWEEN '2020-01-01' AND '2020-12-31';"
+        },
+
+        {
+            "query": "low_pressure", 
+            "sql": "SELECT COUNT(*) FROM weather_data WHERE \"pressure_msl_hpa\" < 1000 AND \"time\" BETWEEN '2020-01-01' AND '2020-12-31';"
+        },
+
+        {
+            "query": "rolling_10", 
+            "sql": "SELECT \"time\", AVG(temperature) OVER (ORDER BY \"time\" ROWS BETWEEN 9 PRECEDING AND CURRENT ROW) FROM weather_data ORDER BY \"time\" LIMIT 5000;"
+        },
+
+        {
+            "query": "rolling_humidity", 
+            "sql": "SELECT \"time\", AVG(relative_humidity) OVER (ORDER BY \"time\" ROWS BETWEEN 9 PRECEDING AND CURRENT ROW) FROM weather_data ORDER BY \"time\" LIMIT 5000;"
+        },
+
+        {
+            "query": "group_by_daynight", 
+            "sql": "SELECT is_day, AVG(temperature) AS avg_temp, MAX(relative_humidity) AS max_hum FROM weather_data GROUP BY is_day;"
+        },
+
+        {
+            "query": "group_by_humidity_range", 
+            "sql": "SELECT width_bucket(relative_humidity, 0, 100, 5) AS hum_bucket, AVG(temperature) AS avg_temp, COUNT(*) AS samples FROM weather_data GROUP BY hum_bucket ORDER BY hum_bucket;"
+        },
+
+        {
+            "query": "group_by_cloud_cover", 
+            "sql": "SELECT width_bucket(cloud_cover, 0, 100, 4) AS cloud_group, AVG(temperature), AVG(relative_humidity) FROM weather_data GROUP BY cloud_group ORDER BY cloud_group;"
+        },
+
+        {
+            "query": "last_point_query", 
+            "sql": "SELECT DISTINCT ON (date_trunc('day', \"time\")) \"time\", temperature FROM weather_data WHERE \"time\" BETWEEN '2020-01-01' AND '2020-02-01' ORDER BY date_trunc('day', \"time\"), \"time\" DESC;"
+        },
+
+        {
+            "query": "top_extreme_temp", 
+            "sql": "SELECT \"time\", temperature FROM weather_data WHERE \"time\" >= '2020-01-01' AND \"time\" < '2020-12-31' ORDER BY temperature DESC LIMIT 10;"
+        }
+    ],
+    "synthetic": [
+        {
+            "query": "avg_temp_all",
+            "sql": "SELECT AVG(temperature) FROM synthetic_data;"
+        },
+        {
+            "query": "min_max_temp",
+            "sql": "SELECT MIN(temperature), MAX(temperature) FROM synthetic_data;"
+        },
+        {
+            "query": "avg_battery_voltage",
+            "sql": "SELECT AVG(battery_voltage) FROM synthetic_data;"
+        },
+        {
+            "query": "count_all_rows",
+            "sql": "SELECT COUNT(*) FROM synthetic_data;"
+        },
+        {
+            "query": "count_1hour",
+            "sql": "SELECT COUNT(*) FROM synthetic_data WHERE time BETWEEN '2024-01-01 00:00:00' AND '2024-01-01 01:00:00';"
+        },
+        {
+            "query": "count_1day",
+            "sql": "SELECT COUNT(*) FROM synthetic_data WHERE time BETWEEN '2024-01-01' AND '2024-01-02';"
+        },
+        {
+            "query": "count_1week",
+            "sql": "SELECT COUNT(*) FROM synthetic_data WHERE time BETWEEN '2024-01-01' AND '2024-01-07';"
+        },
+        {
+            "query": "avg_temp_week",
+            "sql": "SELECT AVG(temperature) FROM synthetic_data WHERE time BETWEEN '2024-01-01' AND '2024-01-07';"
+        },
+        {
+            "query": "downsample_pg_hour",
+            "sql": "SELECT date_trunc('hour', time) AS hour, AVG(temperature) FROM synthetic_data WHERE time >= '2024-01-01' AND time < '2024-01-02' GROUP BY hour ORDER BY hour;"
+        },
+        {
+            "query": "downsample_ts_hour",
+            "sql": "SELECT time_bucket('1 hour', time) AS hour, AVG(temperature) FROM synthetic_data WHERE time >= '2024-01-01' AND time < '2024-01-02' GROUP BY hour ORDER BY hour;"
+        },
+        {
+            "query": "downsample_ts_day",
+            "sql": "SELECT time_bucket('1 day', time) AS day, AVG(temperature) FROM synthetic_data WHERE time >= '2024-01-01' AND time < '2024-02-01' GROUP BY day ORDER BY day;"
+        },
+        {
+            "query": "hot_high_pressure",
+            "sql": "SELECT AVG(temperature) FROM synthetic_data WHERE temperature > 35 AND pressure > 1020 AND time BETWEEN '2024-01-01' AND '2024-01-07';"
+        },
+        {
+            "query": "low_battery_warn",
+            "sql": "SELECT COUNT(*) FROM synthetic_data WHERE battery_voltage < 3.5 AND status = 'WARN';"
+        },
+        {
+            "query": "critical_failures",
+            "sql": "SELECT COUNT(*) FROM synthetic_data WHERE status = 'FAIL' AND time BETWEEN '2024-01-01' AND '2024-01-31';"
+        },
+        {
+            "query": "humid_and_hot",
+            "sql": "SELECT COUNT(*) FROM synthetic_data WHERE humidity > 85 AND temperature > 35;"
+        },
+        {
+            "query": "rolling_temp_avg",
+            "sql": "SELECT time, AVG(temperature) OVER (ORDER BY time ROWS BETWEEN 9 PRECEDING AND CURRENT ROW) FROM synthetic_data ORDER BY time LIMIT 5000;"
+        },
+        {
+            "query": "rolling_voltage_avg",
+            "sql": "SELECT time, AVG(battery_voltage) OVER (ORDER BY time ROWS BETWEEN 9 PRECEDING AND CURRENT ROW) FROM synthetic_data ORDER BY time LIMIT 5000;"
+        },
+        {
+            "query": "group_by_status",
+            "sql": "SELECT status, AVG(temperature) AS avg_temp, COUNT(*) AS records FROM synthetic_data GROUP BY status;"
+        },
+        {
+            "query": "group_by_device",
+            "sql": "SELECT device_id, AVG(temperature) AS avg_temp, MAX(humidity) AS max_hum FROM synthetic_data GROUP BY device_id LIMIT 20;"
+        },
+        {
+            "query": "group_by_humidity_range",
+            "sql": "SELECT width_bucket(humidity, 0, 100, 5) AS hum_bucket, AVG(temperature) AS avg_temp, COUNT(*) AS samples FROM synthetic_data GROUP BY hum_bucket ORDER BY hum_bucket;"
+        },
+        {
+            "query": "last_point_per_device",
+            "sql": "SELECT DISTINCT ON (device_id) time, device_id, temperature FROM synthetic_data ORDER BY device_id, time DESC;"
+        },
+        {
+            "query": "top_high_temps",
+            "sql": "SELECT time, device_id, temperature FROM synthetic_data ORDER BY temperature DESC LIMIT 10;"
+        },
+        {
+            "query": "lowest_voltages",
+            "sql": "SELECT time, device_id, battery_voltage FROM synthetic_data ORDER BY battery_voltage ASC LIMIT 10;"
+        }
+    ],
+    "nyc": [
+        {
+            "query": "avg_fare_all",
+            "sql": "SELECT AVG(fare_amount) FROM nyc_data;"
+        },
+        {
+            "query": "total_trips",
+            "sql": "SELECT COUNT(*) FROM nyc_data;"
+        },
+        {
+            "query": "avg_trip_distance",
+            "sql": "SELECT AVG(trip_distance) FROM nyc_data;"
+        },
+        {
+            "query": "avg_tip_amount",
+            "sql": "SELECT AVG(tip_amount) FROM nyc_data;"
+        },
+        {
+            "query": "total_revenue",
+            "sql": "SELECT SUM(total_amount) FROM nyc_data;"
+        },
+        {
+            "query": "count_1hour",
+            "sql": "SELECT COUNT(*) FROM nyc_data WHERE tpep_pickup_datetime BETWEEN '2015-01-15 19:00:00' AND '2015-01-15 20:00:00';"
+        },
+        {
+            "query": "count_1day",
+            "sql": "SELECT COUNT(*) FROM nyc_data WHERE tpep_pickup_datetime BETWEEN '2015-01-10' AND '2015-01-11';"
+        },
+        {
+            "query": "count_1week",
+            "sql": "SELECT COUNT(*) FROM nyc_data WHERE tpep_pickup_datetime BETWEEN '2015-01-01' AND '2015-01-07';"
+        },
+        {
+            "query": "avg_fare_week",
+            "sql": "SELECT AVG(fare_amount) FROM nyc_data WHERE tpep_pickup_datetime BETWEEN '2015-01-01' AND '2015-01-07';"
+        },
+        {
+            "query": "max_tip_week",
+            "sql": "SELECT MAX(tip_amount) FROM nyc_data WHERE tpep_pickup_datetime BETWEEN '2015-01-01' AND '2015-01-07';"
+        },
+        {
+            "query": "downsample_pg_hour",
+            "sql": "SELECT date_trunc('hour', tpep_pickup_datetime) AS hour, AVG(total_amount) AS avg_revenue FROM nyc_data WHERE tpep_pickup_datetime >= '2015-01-01' AND tpep_pickup_datetime < '2015-01-02' GROUP BY hour ORDER BY hour;"
+        },
+        {
+            "query": "downsample_ts_hour",
+            "sql": "SELECT time_bucket('1 hour', tpep_pickup_datetime) AS hour, AVG(total_amount) AS avg_revenue FROM nyc_data WHERE tpep_pickup_datetime >= '2015-01-01' AND tpep_pickup_datetime < '2015-01-02' GROUP BY hour ORDER BY hour;"
+        },
+        {
+            "query": "downsample_ts_day",
+            "sql": "SELECT time_bucket('1 day', tpep_pickup_datetime) AS day, SUM(total_amount) AS daily_revenue FROM nyc_data WHERE tpep_pickup_datetime >= '2015-01-01' AND tpep_pickup_datetime < '2015-02-01' GROUP BY day ORDER BY day;"
+        },
+        {
+            "query": "avg_distance_per_day",
+            "sql": "SELECT time_bucket('1 day', tpep_pickup_datetime) AS day, AVG(trip_distance) AS avg_distance FROM nyc_data WHERE tpep_pickup_datetime >= '2015-01-01' AND tpep_pickup_datetime < '2015-02-01' GROUP BY day ORDER BY day;"
+        },
+        {
+            "query": "long_trips_night",
+            "sql": "SELECT COUNT(*) FROM nyc_data WHERE trip_distance > 5 AND EXTRACT(HOUR FROM tpep_pickup_datetime) BETWEEN 22 AND 5;"
+        },
+        {
+            "query": "high_tips_cash",
+            "sql": "SELECT COUNT(*) FROM nyc_data WHERE tip_amount > 10 AND payment_type = 2;"
+        },
+        {
+            "query": "rainy_day_proxy",
+            "sql": "SELECT COUNT(*) FROM nyc_data WHERE extra > 0.5 AND total_amount > 20;"
+        },
+        {
+            "query": "airport_trips",
+            "sql": "SELECT COUNT(*) FROM nyc_data WHERE RateCodeID = 2;"
+        },
+        {
+            "query": "short_fare_low_tip",
+            "sql": "SELECT COUNT(*) FROM nyc_data WHERE trip_distance < 2 AND tip_amount < 1;"
+        },
+        {
+            "query": "rolling_avg_fare",
+            "sql": "SELECT tpep_pickup_datetime, AVG(fare_amount) OVER (ORDER BY tpep_pickup_datetime ROWS BETWEEN 9 PRECEDING AND CURRENT ROW) FROM nyc_data ORDER BY tpep_pickup_datetime LIMIT 5000;"
+        },
+        {
+            "query": "rolling_avg_trip_distance",
+            "sql": "SELECT tpep_pickup_datetime, AVG(trip_distance) OVER (ORDER BY tpep_pickup_datetime ROWS BETWEEN 9 PRECEDING AND CURRENT ROW) FROM nyc_data ORDER BY tpep_pickup_datetime LIMIT 5000;"
+        },
+        {
+            "query": "group_by_vendor",
+            "sql": "SELECT VendorID, COUNT(*) AS total_trips, AVG(total_amount) AS avg_fare FROM nyc_data GROUP BY VendorID;"
+        },
+        {
+            "query": "group_by_payment_type",
+            "sql": "SELECT payment_type, AVG(tip_amount) AS avg_tip, COUNT(*) AS num_trips FROM nyc_data GROUP BY payment_type;"
+        },
+        {
+            "query": "group_by_passenger_count",
+            "sql": "SELECT passenger_count, AVG(total_amount) AS avg_total FROM nyc_data GROUP BY passenger_count ORDER BY passenger_count;"
+        },
+        {
+            "query": "group_by_ratecode",
+            "sql": "SELECT RateCodeID, COUNT(*) AS trips, AVG(total_amount) AS avg_fare FROM nyc_data GROUP BY RateCodeID ORDER BY RateCodeID;"
+        },
+        {
+            "query": "last_trip_per_vendor",
+            "sql": "SELECT DISTINCT ON (VendorID) tpep_pickup_datetime, VendorID, total_amount FROM nyc_data ORDER BY VendorID, tpep_pickup_datetime DESC;"
+        },
+        {
+            "query": "top_fare_trips",
+            "sql": "SELECT tpep_pickup_datetime, VendorID, total_amount FROM nyc_data ORDER BY total_amount DESC LIMIT 10;"
+        },
+        {
+            "query": "longest_trips",
+            "sql": "SELECT tpep_pickup_datetime, VendorID, trip_distance FROM nyc_data ORDER BY trip_distance DESC LIMIT 10;"
+        },
+        {
+            "query": "largest_tips",
+            "sql": "SELECT tpep_pickup_datetime, VendorID, tip_amount FROM nyc_data ORDER BY tip_amount DESC LIMIT 10;"
+        }
+    ]
+}
