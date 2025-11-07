@@ -1,0 +1,11 @@
+timestamp,db,scale,query_name,run_index,elapsed_ms,row_count
+2025-11-07T18:57:02.996186,ts,1,downsample_ts_day,1,16.144,11
+2025-11-07T18:57:02.997779,ts,1,downsample_ts_day,2,1.487,11
+2025-11-07T18:57:02.998899,ts,1,downsample_ts_day,3,1.041,11
+2025-11-07T18:57:02.999950,ts,1,downsample_ts_day,4,0.984,11
+2025-11-07T18:57:03.001061,ts,1,downsample_ts_day,5,1.040,11
+2025-11-07T18:57:03.002138,ts,1,downsample_ts_day,6,1.006,11
+2025-11-07T18:57:03.003177,ts,1,downsample_ts_day,7,0.974,11
+2025-11-07T18:57:03.004095,ts,1,downsample_ts_day,8,0.856,11
+2025-11-07T18:57:03.004898,ts,1,downsample_ts_day,9,0.780,11
+2025-11-07T18:57:03.005709,ts,1,downsample_ts_day,10,0.795,11
