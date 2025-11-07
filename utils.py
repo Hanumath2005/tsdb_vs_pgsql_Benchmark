@@ -1,9 +1,6 @@
 import subprocess
 import time
-import os
 import psycopg2
-
-
 
 def drop_caches():
     try:
@@ -15,6 +12,15 @@ def drop_caches():
         print(f"Error dropping caches: {e}")
         return False
 
+def run_explain(conn, query, outfile):
+    cursor = conn.cursor()
+    explain_query = f"EXPLAIN (ANALYZE, BUFFERS) {query}"
+    cursor.execute(explain_query)
+    explain_result = cursor.fetchall()
+    with open(outfile, "w") as f:
+        for row in explain_result:
+            f.write(row[0] + "\n")
+            f.write("\n".join(row[1:]) + "\n")
 
 def run_query(conn, query):
     start_time = time.time()
@@ -27,15 +33,3 @@ def run_query(conn, query):
         rowcount = 0
     end_time = time.time()
     return (end_time - start_time) * 1000, rowcount
-
-def run_explain(conn, query, outfile):
-    cursor = conn.cursor()
-    explain_query = f"EXPLAIN (ANALYZE, BUFFERS) {query}"
-    cursor.execute(explain_query)
-    explain_result = cursor.fetchall()
-    with open(outfile, "w") as f:
-        for row in explain_result:
-            f.write(row[0] + "\n")
-            f.write("\n".join(row[1:]) + "\n")
-
-
