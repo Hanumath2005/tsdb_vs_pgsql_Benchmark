@@ -1,0 +1,664 @@
+Finalize Aggregate  (cost=380.12..380.13 rows=1 width=8) (actual time=1.537..1.568 rows=1 loops=1)
+
+  Buffers: shared hit=220
+
+  ->  Append  (cost=6.94..379.99 rows=54 width=8) (actual time=0.044..1.553 rows=54 loops=1)
+
+        Buffers: shared hit=220
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.043..0.044 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2088_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.040..0.041 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.030..0.030 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2089_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.029..0.029 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.028..0.028 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2090_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.027..0.027 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.027..0.028 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2091_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.027..0.027 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.028..0.029 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2092_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.028..0.028 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.028..0.029 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2093_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.027..0.028 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.028..0.028 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2094_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.027..0.027 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.029..0.029 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2095_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.028..0.028 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.028..0.029 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2096_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.028..0.028 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.029..0.029 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2097_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.028..0.028 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.032..0.033 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2098_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.032..0.032 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.030..0.030 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2099_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.029..0.029 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.029..0.030 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2100_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.029..0.029 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.029..0.029 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2101_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.028..0.028 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.026..0.027 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2102_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.025..0.025 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.028..0.028 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2103_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.027..0.027 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.026..0.026 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2104_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.025..0.025 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.036..0.036 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2105_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.035..0.035 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.027..0.028 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2106_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.027..0.027 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.028..0.028 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2107_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.027..0.027 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.027..0.028 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2108_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.026..0.027 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.028..0.028 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2109_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.027..0.027 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.96..6.97 rows=1 width=8) (actual time=0.032..0.033 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2110_chunk  (cost=0.00..6.94 rows=7 width=0) (actual time=0.026..0.029 rows=9 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 159
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.026..0.026 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2111_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.025..0.025 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.027..0.027 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2112_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.026..0.026 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=8.94..8.95 rows=1 width=8) (actual time=0.028..0.028 rows=1 loops=1)
+
+              Buffers: shared hit=6
+
+              ->  Seq Scan on _hyper_1_2113_chunk  (cost=0.00..8.94 rows=1 width=0) (actual time=0.027..0.027 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=6
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.026..0.027 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2114_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.026..0.026 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.99..7.00 rows=1 width=8) (actual time=0.032..0.033 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2115_chunk  (cost=0.00..6.94 rows=19 width=0) (actual time=0.012..0.029 rows=21 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 147
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.026..0.027 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2116_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.025..0.025 rows=1 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 167
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.97..6.98 rows=1 width=8) (actual time=0.028..0.028 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2117_chunk  (cost=0.00..6.94 rows=12 width=0) (actual time=0.004..0.026 rows=14 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 154
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.026..0.027 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2118_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.025..0.026 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=7.08..7.09 rows=1 width=8) (actual time=0.037..0.038 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2119_chunk  (cost=0.00..6.94 rows=55 width=0) (actual time=0.018..0.031 rows=56 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 112
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=7.00..7.01 rows=1 width=8) (actual time=0.031..0.031 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2120_chunk  (cost=0.00..6.94 rows=24 width=0) (actual time=0.003..0.028 rows=25 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 143
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.025..0.026 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2121_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.024..0.025 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.024..0.025 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2122_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.024..0.024 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=8.94..8.95 rows=1 width=8) (actual time=0.026..0.026 rows=1 loops=1)
+
+              Buffers: shared hit=6
+
+              ->  Seq Scan on _hyper_1_2123_chunk  (cost=0.00..8.94 rows=1 width=0) (actual time=0.025..0.025 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=6
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.025..0.026 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2124_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.024..0.025 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.025..0.025 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2125_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.024..0.024 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.95..6.96 rows=1 width=8) (actual time=0.026..0.026 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2126_chunk  (cost=0.00..6.94 rows=2 width=0) (actual time=0.017..0.025 rows=4 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 164
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.025..0.025 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2127_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.024..0.024 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.024..0.025 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2128_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.024..0.024 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.025..0.025 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2129_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.024..0.024 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.031..0.032 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2130_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.031..0.031 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.025..0.025 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2131_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.024..0.024 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.025..0.025 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2132_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.024..0.025 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.025..0.026 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2133_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.024..0.024 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.025..0.025 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2134_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.024..0.024 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.025..0.025 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2135_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.024..0.024 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.025..0.026 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2136_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.024..0.025 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.025..0.025 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2137_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.024..0.024 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.025..0.025 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2138_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.024..0.024 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.025..0.026 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2139_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.025..0.025 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.026..0.026 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2140_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.025..0.026 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.030..0.031 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2141_chunk  (cost=0.00..6.94 rows=1 width=0) (actual time=0.030..0.030 rows=0 loops=1)
+
+                    Filter: ((pressure_msl_hpa < '1000'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 168
+
+                    Buffers: shared hit=4
+
+Planning:
+
+  Buffers: shared hit=1245 read=14
+
+Planning Time: 13.127 ms
+
+Execution Time: 1.971 ms
+

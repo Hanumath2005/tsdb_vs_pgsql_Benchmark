@@ -1,0 +1,28 @@
+Limit  (cost=0.43..379.54 rows=5000 width=16) (actual time=0.022..12.510 rows=5000 loops=1)
+
+  Buffers: shared hit=5014
+
+  ->  WindowAgg  (cost=0.43..303291.42 rows=4000000 width=16) (actual time=0.021..12.039 rows=5000 loops=1)
+
+        Buffers: shared hit=5014
+
+        ->  Custom Scan (ChunkAppend) on synthetic_data  (cost=0.43..243291.42 rows=4000000 width=16) (actual time=0.012..3.582 rows=5001 loops=1)
+
+              Order: synthetic_data."time"
+
+              Buffers: shared hit=5014
+
+              ->  Index Scan Backward using _hyper_1_1_chunk_synthetic_data_time_idx on _hyper_1_1_chunk  (cost=0.43..105044.10 rows=1728000 width=16) (actual time=0.011..3.112 rows=5001 loops=1)
+
+                    Buffers: shared hit=5014
+
+              ->  Index Scan Backward using _hyper_1_2_chunk_synthetic_data_time_idx on _hyper_1_2_chunk  (cost=0.43..138247.32 rows=2272000 width=16) (never executed)
+
+Planning:
+
+  Buffers: shared hit=20
+
+Planning Time: 0.227 ms
+
+Execution Time: 12.813 ms
+

@@ -1,0 +1,344 @@
+Limit  (cost=582.66..582.69 rows=10 width=16) (actual time=4.882..4.898 rows=10 loops=1)
+
+  Buffers: shared hit=219
+
+  ->  Sort  (cost=582.66..604.56 rows=8760 width=16) (actual time=4.880..4.894 rows=10 loops=1)
+
+        Sort Key: weather_data.temperature DESC
+
+        Sort Method: top-N heapsort  Memory: 25kB
+
+        Buffers: shared hit=219
+
+        ->  Append  (cost=0.00..393.36 rows=8760 width=16) (actual time=0.027..3.184 rows=8760 loops=1)
+
+              Buffers: shared hit=216
+
+              ->  Seq Scan on _hyper_1_2088_chunk  (cost=0.00..6.52 rows=24 width=16) (actual time=0.026..0.033 rows=24 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 144
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2089_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.039 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2090_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2091_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.037 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2092_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2093_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2094_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2095_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2096_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.039 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2097_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.040 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2098_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.042 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2099_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.008..0.046 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2100_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.041 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2101_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.043 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2102_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.041 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2103_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.041 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2104_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.040 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2105_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.041 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2106_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.041 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2107_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.043 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2108_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2109_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.039 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2110_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.039 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2111_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.040 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2112_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.039 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2113_chunk  (cost=0.00..8.52 rows=168 width=16) (actual time=0.003..0.040 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=6
+
+              ->  Seq Scan on _hyper_1_2114_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.040 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2115_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.040 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2116_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2117_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.037 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2118_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2119_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.043 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2120_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2121_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2122_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.039 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2123_chunk  (cost=0.00..8.52 rows=168 width=16) (actual time=0.003..0.039 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=6
+
+              ->  Seq Scan on _hyper_1_2124_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2125_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.037 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2126_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.037 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2127_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2128_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.037 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2129_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.037 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2130_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2131_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.009..0.044 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2132_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.039 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2133_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.037 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2134_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2135_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2136_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.037 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2137_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.040 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2138_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.037 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2139_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.037 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2140_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.038 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+Planning:
+
+  Buffers: shared hit=1025
+
+Planning Time: 4.985 ms
+
+Execution Time: 5.044 ms
+

@@ -1,0 +1,32 @@
+Finalize Aggregate  (cost=12479.50..12479.51 rows=1 width=8) (actual time=740.419..751.170 rows=1 loops=1)
+
+  Buffers: shared hit=73774 read=907
+
+  ->  Gather  (cost=12479.28..12479.49 rows=2 width=8) (actual time=740.254..751.150 rows=3 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=73774 read=907
+
+        ->  Partial Aggregate  (cost=11479.28..11479.29 rows=1 width=8) (actual time=552.065..552.067 rows=1 loops=3)
+
+              Buffers: shared hit=73774 read=907
+
+              ->  Parallel Index Only Scan using _hyper_1_2_chunk_nyc_data_tpep_pickup_datetime_idx on _hyper_1_2_chunk  (cost=0.43..10954.16 rows=210051 width=0) (actual time=2.249..535.828 rows=171850 loops=3)
+
+                    Index Cond: ((tpep_pickup_datetime >= '2015-01-10 00:00:00'::timestamp without time zone) AND (tpep_pickup_datetime <= '2015-01-11 00:00:00'::timestamp without time zone))
+
+                    Heap Fetches: 0
+
+                    Buffers: shared hit=73774 read=907
+
+Planning:
+
+  Buffers: shared hit=14
+
+Planning Time: 0.408 ms
+
+Execution Time: 751.228 ms
+

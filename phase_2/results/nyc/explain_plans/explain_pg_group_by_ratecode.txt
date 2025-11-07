@@ -1,0 +1,54 @@
+Finalize GroupAggregate  (cost=365255.82..365257.13 rows=5 width=20) (actual time=2581.241..2590.856 rows=7 loops=1)
+
+  Group Key: ratecodeid
+
+  Buffers: shared hit=16137 read=255189
+
+  ->  Gather Merge  (cost=365255.82..365256.99 rows=10 width=44) (actual time=2581.218..2590.822 rows=21 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=16137 read=255189
+
+        ->  Sort  (cost=364255.80..364255.81 rows=5 width=44) (actual time=2556.102..2556.105 rows=7 loops=3)
+
+              Sort Key: ratecodeid
+
+              Sort Method: quicksort  Memory: 25kB
+
+              Buffers: shared hit=16137 read=255189
+
+              Worker 0:  Sort Method: quicksort  Memory: 25kB
+
+              Worker 1:  Sort Method: quicksort  Memory: 25kB
+
+              ->  Partial HashAggregate  (cost=364255.69..364255.74 rows=5 width=44) (actual time=2556.057..2556.060 rows=7 loops=3)
+
+                    Group Key: ratecodeid
+
+                    Batches: 1  Memory Usage: 24kB
+
+                    Buffers: shared hit=16123 read=255189
+
+                    Worker 0:  Batches: 1  Memory Usage: 24kB
+
+                    Worker 1:  Batches: 1  Memory Usage: 24kB
+
+                    ->  Parallel Seq Scan on nyc_data  (cost=0.00..324422.68 rows=5311068 width=12) (actual time=0.178..1131.088 rows=4249662 loops=3)
+
+                          Buffers: shared hit=16123 read=255189
+
+Planning Time: 0.112 ms
+
+JIT:
+
+  Functions: 21
+
+  Options: Inlining false, Optimization false, Expressions true, Deforming true
+
+  Timing: Generation 2.990 ms, Inlining 0.000 ms, Optimization 2.469 ms, Emission 39.243 ms, Total 44.703 ms
+
+Execution Time: 2591.937 ms
+

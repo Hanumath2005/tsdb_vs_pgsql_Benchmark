@@ -1,0 +1,54 @@
+Finalize GroupAggregate  (cost=70698.87..75850.88 rows=19942 width=16) (actual time=260.173..265.420 rows=24 loops=1)
+
+  Group Key: (date_trunc('hour'::text, "time"))
+
+  Buffers: shared hit=8462 read=32792
+
+  ->  Gather Merge  (cost=70698.87..75352.33 rows=39884 width=40) (actual time=260.159..265.376 rows=72 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=8462 read=32792
+
+        ->  Sort  (cost=69698.85..69748.70 rows=19942 width=40) (actual time=251.737..251.740 rows=24 loops=3)
+
+              Sort Key: (date_trunc('hour'::text, "time"))
+
+              Sort Method: quicksort  Memory: 26kB
+
+              Buffers: shared hit=8462 read=32792
+
+              Worker 0:  Sort Method: quicksort  Memory: 26kB
+
+              Worker 1:  Sort Method: quicksort  Memory: 26kB
+
+              ->  Partial HashAggregate  (cost=68025.36..68274.64 rows=19942 width=40) (actual time=251.507..251.651 rows=24 loops=3)
+
+                    Group Key: date_trunc('hour'::text, "time")
+
+                    Batches: 1  Memory Usage: 793kB
+
+                    Buffers: shared hit=8448 read=32792
+
+                    Worker 0:  Batches: 1  Memory Usage: 793kB
+
+                    Worker 1:  Batches: 1  Memory Usage: 793kB
+
+                    ->  Parallel Seq Scan on synthetic_data  (cost=0.00..66834.68 rows=238136 width=16) (actual time=0.138..204.246 rows=192000 loops=3)
+
+                          Filter: (("time" >= '2024-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2024-01-02 00:00:00'::timestamp without time zone))
+
+                          Rows Removed by Filter: 1141333
+
+                          Buffers: shared hit=8448 read=32792
+
+Planning:
+
+  Buffers: shared hit=6 read=1
+
+Planning Time: 0.288 ms
+
+Execution Time: 266.319 ms
+

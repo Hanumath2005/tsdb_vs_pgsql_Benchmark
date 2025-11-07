@@ -1,0 +1,48 @@
+Finalize Aggregate  (cost=75940.67..75940.68 rows=1 width=8) (actual time=188.434..194.382 rows=1 loops=1)
+
+  Buffers: shared hit=11194 read=30102
+
+  ->  Gather  (cost=33368.46..75940.66 rows=4 width=32) (actual time=125.238..194.366 rows=5 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=11194 read=30102
+
+        ->  Parallel Append  (cost=32368.46..74940.26 rows=2 width=32) (actual time=140.181..182.236 rows=2 loops=3)
+
+              Buffers: shared hit=11194 read=30102
+
+              ->  Partial Aggregate  (cost=42571.77..42571.78 rows=1 width=32) (actual time=102.046..102.047 rows=1 loops=3)
+
+                    Buffers: shared hit=4908 read=18572
+
+                    ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..42413.33 rows=63373 width=8) (actual time=0.034..96.067 rows=49250 loops=3)
+
+                          Filter: ((temperature > '35'::double precision) AND (pressure > '1020'::double precision) AND ("time" >= '2024-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2024-01-07 00:00:00'::timestamp without time zone))
+
+                          Rows Removed by Filter: 708083
+
+                          Buffers: shared hit=4908 read=18572
+
+              ->  Partial Aggregate  (cost=32368.46..32368.47 rows=1 width=32) (actual time=120.275..120.276 rows=1 loops=2)
+
+                    Buffers: shared hit=6286 read=11530
+
+                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..32216.00 rows=60985 width=8) (actual time=0.040..111.193 rows=73895 loops=2)
+
+                          Filter: ((temperature > '35'::double precision) AND (pressure > '1020'::double precision) AND ("time" >= '2024-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2024-01-07 00:00:00'::timestamp without time zone))
+
+                          Rows Removed by Filter: 790105
+
+                          Buffers: shared hit=6286 read=11530
+
+Planning:
+
+  Buffers: shared hit=45 read=2 dirtied=2
+
+Planning Time: 0.955 ms
+
+Execution Time: 194.442 ms
+

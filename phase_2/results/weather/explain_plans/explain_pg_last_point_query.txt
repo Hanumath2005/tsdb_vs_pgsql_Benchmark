@@ -1,0 +1,40 @@
+Unique  (cost=11399.57..11485.82 rows=725 width=24) (actual time=20.987..26.810 rows=32 loops=1)
+
+  Buffers: shared hit=8072
+
+  ->  Gather Merge  (cost=11399.57..11484.01 rows=725 width=24) (actual time=20.985..26.723 rows=745 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=8072
+
+        ->  Sort  (cost=10399.54..10400.30 rows=302 width=24) (actual time=16.963..16.985 rows=248 loops=3)
+
+              Sort Key: (date_trunc('day'::text, "time")), "time" DESC
+
+              Sort Method: quicksort  Memory: 41kB
+
+              Buffers: shared hit=8072
+
+              Worker 0:  Sort Method: quicksort  Memory: 34kB
+
+              Worker 1:  Sort Method: quicksort  Memory: 34kB
+
+              ->  Parallel Seq Scan on weather_data  (cost=0.00..10387.10 rows=302 width=24) (actual time=14.889..16.689 rows=248 loops=3)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-02-01 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 129584
+
+                    Buffers: shared hit=7952
+
+Planning:
+
+  Buffers: shared hit=4
+
+Planning Time: 0.145 ms
+
+Execution Time: 26.866 ms
+

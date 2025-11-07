@@ -1,0 +1,48 @@
+Finalize Aggregate  (cost=67416.10..67416.11 rows=1 width=8) (actual time=200.932..207.082 rows=1 loops=1)
+
+  Buffers: shared hit=12707 read=28589
+
+  ->  Gather  (cost=29666.72..67416.09 rows=4 width=8) (actual time=131.601..207.064 rows=5 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=12707 read=28589
+
+        ->  Parallel Append  (cost=28666.72..66415.69 rows=2 width=8) (actual time=148.493..194.621 rows=2 loops=3)
+
+              Buffers: shared hit=12707 read=28589
+
+              ->  Partial Aggregate  (cost=37748.94..37748.95 rows=1 width=8) (actual time=110.250..110.251 rows=1 loops=3)
+
+                    Buffers: shared hit=5906 read=17574
+
+                    ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..37680.00 rows=27576 width=0) (actual time=0.045..108.148 rows=22339 loops=3)
+
+                          Filter: ((battery_voltage < '3.5'::double precision) AND (status = 'WARN'::text))
+
+                          Rows Removed by Filter: 734994
+
+                          Buffers: shared hit=5906 read=17574
+
+              ->  Partial Aggregate  (cost=28666.72..28666.73 rows=1 width=8) (actual time=126.546..126.546 rows=1 loops=2)
+
+                    Buffers: shared hit=6801 read=11015
+
+                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..28616.00 rows=20289 width=0) (actual time=0.041..124.158 rows=25551 loops=2)
+
+                          Filter: ((battery_voltage < '3.5'::double precision) AND (status = 'WARN'::text))
+
+                          Rows Removed by Filter: 838449
+
+                          Buffers: shared hit=6801 read=11015
+
+Planning:
+
+  Buffers: shared hit=53 read=8 dirtied=1
+
+Planning Time: 1.545 ms
+
+Execution Time: 207.142 ms
+

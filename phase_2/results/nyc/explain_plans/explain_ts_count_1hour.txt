@@ -1,0 +1,20 @@
+Aggregate  (cost=937.40..937.41 rows=1 width=8) (actual time=13.878..13.879 rows=1 loops=1)
+
+  Buffers: shared hit=3802 read=53
+
+  ->  Index Only Scan using _hyper_1_1_chunk_nyc_data_tpep_pickup_datetime_idx on _hyper_1_1_chunk  (cost=0.43..862.18 rows=30088 width=0) (actual time=0.583..11.281 rows=29881 loops=1)
+
+        Index Cond: ((tpep_pickup_datetime >= '2015-01-15 19:00:00'::timestamp without time zone) AND (tpep_pickup_datetime <= '2015-01-15 20:00:00'::timestamp without time zone))
+
+        Heap Fetches: 0
+
+        Buffers: shared hit=3802 read=53
+
+Planning:
+
+  Buffers: shared hit=144 read=26
+
+Planning Time: 5.431 ms
+
+Execution Time: 13.927 ms
+

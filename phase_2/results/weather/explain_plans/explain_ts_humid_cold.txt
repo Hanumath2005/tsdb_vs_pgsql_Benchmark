@@ -1,0 +1,88 @@
+Finalize Aggregate  (cost=44.33..44.34 rows=1 width=8) (actual time=0.176..0.179 rows=1 loops=1)
+
+  Buffers: shared hit=24
+
+  ->  Append  (cost=7.36..44.31 rows=6 width=32) (actual time=0.038..0.174 rows=6 loops=1)
+
+        Buffers: shared hit=24
+
+        ->  Partial Aggregate  (cost=7.36..7.37 rows=1 width=32) (actual time=0.037..0.038 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2088_chunk  (cost=0.00..7.36 rows=1 width=8) (actual time=0.025..0.030 rows=11 loops=1)
+
+                    Filter: ((relative_humidity > '85'::double precision) AND (temperature < '15'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-01-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 157
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=7.38..7.39 rows=1 width=32) (actual time=0.031..0.031 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2089_chunk  (cost=0.00..7.36 rows=8 width=8) (actual time=0.004..0.027 rows=24 loops=1)
+
+                    Filter: ((relative_humidity > '85'::double precision) AND (temperature < '15'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-01-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 144
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=7.38..7.39 rows=1 width=32) (actual time=0.028..0.028 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2090_chunk  (cost=0.00..7.36 rows=7 width=8) (actual time=0.003..0.025 rows=14 loops=1)
+
+                    Filter: ((relative_humidity > '85'::double precision) AND (temperature < '15'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-01-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 154
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=7.38..7.39 rows=1 width=32) (actual time=0.026..0.027 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2091_chunk  (cost=0.00..7.36 rows=7 width=8) (actual time=0.003..0.024 rows=16 loops=1)
+
+                    Filter: ((relative_humidity > '85'::double precision) AND (temperature < '15'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-01-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 152
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=7.36..7.37 rows=1 width=32) (actual time=0.023..0.023 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2092_chunk  (cost=0.00..7.36 rows=2 width=8) (actual time=0.017..0.022 rows=1 loops=1)
+
+                    Filter: ((relative_humidity > '85'::double precision) AND (temperature < '15'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-01-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 167
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=7.36..7.37 rows=1 width=32) (actual time=0.023..0.023 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2093_chunk  (cost=0.00..7.36 rows=1 width=8) (actual time=0.003..0.022 rows=2 loops=1)
+
+                    Filter: ((relative_humidity > '85'::double precision) AND (temperature < '15'::double precision) AND ("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-01-31 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 166
+
+                    Buffers: shared hit=4
+
+Planning:
+
+  Buffers: shared hit=150
+
+Planning Time: 1.009 ms
+
+Execution Time: 0.246 ms
+

@@ -1,0 +1,36 @@
+Finalize Aggregate  (cost=352508.27..352508.28 rows=1 width=8) (actual time=1315.377..1324.172 rows=1 loops=1)
+
+  Buffers: shared hit=6336 read=264976
+
+  ->  Gather  (cost=352508.06..352508.27 rows=2 width=8) (actual time=1315.037..1324.145 rows=3 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=6336 read=264976
+
+        ->  Partial Aggregate  (cost=351508.06..351508.07 rows=1 width=8) (actual time=1288.042..1288.044 rows=1 loops=3)
+
+              Buffers: shared hit=6336 read=264976
+
+              ->  Parallel Seq Scan on nyc_data  (cost=0.00..350978.02 rows=212015 width=0) (actual time=7.281..1271.650 rows=171850 loops=3)
+
+                    Filter: ((tpep_pickup_datetime >= '2015-01-10 00:00:00'::timestamp without time zone) AND (tpep_pickup_datetime <= '2015-01-11 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 4077812
+
+                    Buffers: shared hit=6336 read=264976
+
+Planning Time: 0.103 ms
+
+JIT:
+
+  Functions: 14
+
+  Options: Inlining false, Optimization false, Expressions true, Deforming true
+
+  Timing: Generation 1.760 ms, Inlining 0.000 ms, Optimization 1.142 ms, Emission 20.037 ms, Total 22.938 ms
+
+Execution Time: 1324.751 ms
+

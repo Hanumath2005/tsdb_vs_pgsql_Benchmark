@@ -1,0 +1,44 @@
+Limit  (cost=288105.21..288762.54 rows=5000 width=16) (actual time=881.793..901.520 rows=5000 loops=1)
+
+  Buffers: shared hit=14445 read=26907, temp read=14220 written=25529
+
+  ->  WindowAgg  (cost=288105.21..813957.32 rows=3999895 width=16) (actual time=870.841..890.158 rows=5000 loops=1)
+
+        Buffers: shared hit=14445 read=26907, temp read=14220 written=25529
+
+        ->  Gather Merge  (cost=288105.21..753958.90 rows=3999895 width=16) (actual time=870.775..883.588 rows=5001 loops=1)
+
+              Workers Planned: 2
+
+              Workers Launched: 2
+
+              Buffers: shared hit=14445 read=26907, temp read=14220 written=25529
+
+              ->  Sort  (cost=287105.19..291271.74 rows=1666623 width=16) (actual time=833.329..833.618 rows=2657 loops=3)
+
+                    Sort Key: "time"
+
+                    Sort Method: external merge  Disk: 35464kB
+
+                    Buffers: shared hit=14445 read=26907, temp read=14220 written=25529
+
+                    Worker 0:  Sort Method: external merge  Disk: 33200kB
+
+                    Worker 1:  Sort Method: external merge  Disk: 33288kB
+
+                    ->  Parallel Seq Scan on synthetic_data  (cost=0.00..57906.23 rows=1666623 width=16) (actual time=3.488..208.722 rows=1333333 loops=3)
+
+                          Buffers: shared hit=14333 read=26907
+
+Planning Time: 0.072 ms
+
+JIT:
+
+  Functions: 13
+
+  Options: Inlining false, Optimization false, Expressions true, Deforming true
+
+  Timing: Generation 0.910 ms, Inlining 0.000 ms, Optimization 0.979 ms, Emission 20.292 ms, Total 22.181 ms
+
+Execution Time: 907.148 ms
+

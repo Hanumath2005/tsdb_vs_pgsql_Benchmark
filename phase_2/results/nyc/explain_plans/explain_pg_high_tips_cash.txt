@@ -1,0 +1,40 @@
+Finalize Aggregate  (cost=352042.18..352042.19 rows=1 width=8) (actual time=1518.436..1527.309 rows=1 loops=1)
+
+  Buffers: shared hit=12672 read=258640
+
+  ->  Gather  (cost=352041.97..352042.18 rows=2 width=8) (actual time=1518.094..1527.291 rows=3 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=12672 read=258640
+
+        ->  Partial Aggregate  (cost=351041.97..351041.98 rows=1 width=8) (actual time=1494.720..1494.723 rows=1 loops=3)
+
+              Buffers: shared hit=12672 read=258640
+
+              ->  Parallel Seq Scan on nyc_data  (cost=0.00..350978.02 rows=25579 width=0) (actual time=76.750..1494.606 rows=12 loops=3)
+
+                    Filter: ((tip_amount > '10'::double precision) AND (payment_type = 2))
+
+                    Rows Removed by Filter: 4249650
+
+                    Buffers: shared hit=12672 read=258640
+
+Planning:
+
+  Buffers: shared hit=6 read=2 dirtied=1
+
+Planning Time: 0.693 ms
+
+JIT:
+
+  Functions: 14
+
+  Options: Inlining false, Optimization false, Expressions true, Deforming true
+
+  Timing: Generation 2.383 ms, Inlining 0.000 ms, Optimization 1.700 ms, Emission 24.530 ms, Total 28.614 ms
+
+Execution Time: 1528.189 ms
+

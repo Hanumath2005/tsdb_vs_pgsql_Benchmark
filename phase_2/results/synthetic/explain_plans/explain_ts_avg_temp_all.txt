@@ -1,0 +1,40 @@
+Finalize Aggregate  (cost=63129.78..63129.79 rows=1 width=8) (actual time=422.560..426.206 rows=1 loops=1)
+
+  Buffers: shared read=41296
+
+  ->  Gather  (cost=27816.00..63129.76 rows=4 width=32) (actual time=275.654..426.190 rows=5 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared read=41296
+
+        ->  Parallel Append  (cost=26816.00..62129.36 rows=2 width=32) (actual time=317.918..415.771 rows=2 loops=3)
+
+              Buffers: shared read=41296
+
+              ->  Partial Aggregate  (cost=35313.33..35313.34 rows=1 width=32) (actual time=235.437..235.438 rows=1 loops=3)
+
+                    Buffers: shared read=23480
+
+                    ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..32946.67 rows=946667 width=8) (actual time=0.671..145.623 rows=757333 loops=3)
+
+                          Buffers: shared read=23480
+
+              ->  Partial Aggregate  (cost=26816.00..26816.01 rows=1 width=32) (actual time=270.490..270.491 rows=1 loops=2)
+
+                    Buffers: shared read=17816
+
+                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..25016.00 rows=720000 width=8) (actual time=0.154..167.373 rows=864000 loops=2)
+
+                          Buffers: shared read=17816
+
+Planning:
+
+  Buffers: shared hit=541 read=85 dirtied=4
+
+Planning Time: 13.104 ms
+
+Execution Time: 426.343 ms
+

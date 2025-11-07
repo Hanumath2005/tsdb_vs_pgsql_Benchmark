@@ -1,0 +1,58 @@
+Finalize HashAggregate  (cost=71554.67..71557.17 rows=200 width=19) (actual time=665.804..673.089 rows=3 loops=1)
+
+  Group Key: synthetic_data.status
+
+  Batches: 1  Memory Usage: 40kB
+
+  Buffers: shared hit=16019 read=25277
+
+  ->  Gather  (cost=31416.00..71548.67 rows=800 width=43) (actual time=433.400..673.055 rows=15 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=16019 read=25277
+
+        ->  Parallel Append  (cost=30416.00..70468.67 rows=400 width=43) (actual time=497.172..652.029 rows=5 loops=3)
+
+              Buffers: shared hit=16019 read=25277
+
+              ->  Partial HashAggregate  (cost=40046.67..40048.67 rows=200 width=43) (actual time=370.004..370.007 rows=3 loops=3)
+
+                    Group Key: _hyper_1_2_chunk.status
+
+                    Batches: 1  Memory Usage: 40kB
+
+                    Buffers: shared hit=7784 read=15696
+
+                    Worker 0:  Batches: 1  Memory Usage: 40kB
+
+                    Worker 1:  Batches: 1  Memory Usage: 40kB
+
+                    ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..32946.67 rows=946667 width=11) (actual time=0.120..161.452 rows=757333 loops=3)
+
+                          Buffers: shared hit=7784 read=15696
+
+              ->  Partial HashAggregate  (cost=30416.00..30418.00 rows=200 width=43) (actual time=423.019..423.023 rows=3 loops=2)
+
+                    Group Key: _hyper_1_1_chunk.status
+
+                    Batches: 1  Memory Usage: 40kB
+
+                    Buffers: shared hit=8235 read=9581
+
+                    Worker 1:  Batches: 1  Memory Usage: 40kB
+
+                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..25016.00 rows=720000 width=11) (actual time=0.165..182.415 rows=864000 loops=2)
+
+                          Buffers: shared hit=8235 read=9581
+
+Planning:
+
+  Buffers: shared hit=21 read=5
+
+Planning Time: 1.723 ms
+
+Execution Time: 673.177 ms
+

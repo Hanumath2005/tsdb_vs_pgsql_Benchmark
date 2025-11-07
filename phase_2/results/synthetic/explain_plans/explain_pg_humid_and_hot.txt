@@ -1,0 +1,32 @@
+Finalize Aggregate  (cost=67370.91..67370.92 rows=1 width=8) (actual time=174.330..180.260 rows=1 loops=1)
+
+  Buffers: shared hit=12672 read=28568
+
+  ->  Gather  (cost=67370.69..67370.90 rows=2 width=8) (actual time=174.078..180.246 rows=3 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=12672 read=28568
+
+        ->  Partial Aggregate  (cost=66370.69..66370.70 rows=1 width=8) (actual time=169.539..169.541 rows=1 loops=3)
+
+              Buffers: shared hit=12672 read=28568
+
+              ->  Parallel Seq Scan on synthetic_data  (cost=0.00..66239.34 rows=52539 width=0) (actual time=0.053..165.504 rows=41175 loops=3)
+
+                    Filter: ((humidity > '85'::double precision) AND (temperature > '35'::double precision))
+
+                    Rows Removed by Filter: 1292158
+
+                    Buffers: shared hit=12672 read=28568
+
+Planning:
+
+  Buffers: shared hit=3 dirtied=1
+
+Planning Time: 0.143 ms
+
+Execution Time: 180.297 ms
+

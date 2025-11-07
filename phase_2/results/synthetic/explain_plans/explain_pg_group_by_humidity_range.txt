@@ -1,0 +1,46 @@
+Finalize GroupAggregate  (cost=76064.80..77774.73 rows=6493 width=20) (actual time=559.311..567.189 rows=4 loops=1)
+
+  Group Key: (width_bucket(humidity, '0'::double precision, '100'::double precision, 5))
+
+  Buffers: shared hit=16176 read=25078
+
+  ->  Gather Merge  (cost=76064.80..77579.94 rows=12986 width=44) (actual time=559.295..567.169 rows=12 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=16176 read=25078
+
+        ->  Sort  (cost=75064.78..75081.01 rows=6493 width=44) (actual time=539.401..539.403 rows=4 loops=3)
+
+              Sort Key: (width_bucket(humidity, '0'::double precision, '100'::double precision, 5))
+
+              Sort Method: quicksort  Memory: 25kB
+
+              Buffers: shared hit=16176 read=25078
+
+              Worker 0:  Sort Method: quicksort  Memory: 25kB
+
+              Worker 1:  Sort Method: quicksort  Memory: 25kB
+
+              ->  Partial HashAggregate  (cost=74572.46..74653.62 rows=6493 width=44) (actual time=539.332..539.361 rows=4 loops=3)
+
+                    Group Key: width_bucket(humidity, '0'::double precision, '100'::double precision, 5)
+
+                    Batches: 1  Memory Usage: 217kB
+
+                    Buffers: shared hit=16162 read=25078
+
+                    Worker 0:  Batches: 1  Memory Usage: 217kB
+
+                    Worker 1:  Batches: 1  Memory Usage: 217kB
+
+                    ->  Parallel Seq Scan on synthetic_data  (cost=0.00..62072.79 rows=1666623 width=12) (actual time=0.030..245.511 rows=1333333 loops=3)
+
+                          Buffers: shared hit=16162 read=25078
+
+Planning Time: 0.125 ms
+
+Execution Time: 567.273 ms
+

@@ -1,0 +1,28 @@
+Finalize Aggregate  (cost=10980.84..10980.85 rows=1 width=8) (actual time=58.353..66.731 rows=1 loops=1)
+
+  Buffers: shared hit=7952
+
+  ->  Gather  (cost=10980.62..10980.84 rows=2 width=8) (actual time=58.117..66.713 rows=3 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=7952
+
+        ->  Partial Aggregate  (cost=9980.62..9980.64 rows=1 width=8) (actual time=52.049..52.052 rows=1 loops=3)
+
+              Buffers: shared hit=7952
+
+              ->  Parallel Seq Scan on weather_data  (cost=0.00..9574.90 rows=162290 width=8) (actual time=0.016..25.366 rows=129832 loops=3)
+
+                    Buffers: shared hit=7952
+
+Planning:
+
+  Buffers: shared hit=6
+
+Planning Time: 0.129 ms
+
+Execution Time: 66.788 ms
+

@@ -1,0 +1,64 @@
+Finalize GroupAggregate  (cost=69381.50..69433.17 rows=200 width=16) (actual time=895.874..903.608 rows=24 loops=1)
+
+  Group Key: (time_bucket('01:00:00'::interval, _hyper_1_4_chunk.tpep_pickup_datetime))
+
+  Buffers: shared hit=16 read=19451
+
+  ->  Gather Merge  (cost=69381.50..69428.17 rows=400 width=40) (actual time=895.862..903.571 rows=72 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=16 read=19451
+
+        ->  Sort  (cost=68381.48..68381.98 rows=200 width=40) (actual time=868.845..868.849 rows=24 loops=3)
+
+              Sort Key: (time_bucket('01:00:00'::interval, _hyper_1_4_chunk.tpep_pickup_datetime))
+
+              Sort Method: quicksort  Memory: 26kB
+
+              Buffers: shared hit=16 read=19451
+
+              Worker 0:  Sort Method: quicksort  Memory: 26kB
+
+              Worker 1:  Sort Method: quicksort  Memory: 26kB
+
+              ->  Partial HashAggregate  (cost=68371.33..68373.83 rows=200 width=40) (actual time=868.787..868.795 rows=24 loops=3)
+
+                    Group Key: time_bucket('01:00:00'::interval, _hyper_1_4_chunk.tpep_pickup_datetime)
+
+                    Batches: 1  Memory Usage: 40kB
+
+                    Buffers: shared hit=2 read=19451
+
+                    Worker 0:  Batches: 1  Memory Usage: 40kB
+
+                    Worker 1:  Batches: 1  Memory Usage: 40kB
+
+                    ->  Result  (cost=7120.98..67598.05 rows=154657 width=16) (actual time=131.842..829.907 rows=127338 loops=3)
+
+                          Buffers: shared hit=2 read=19451
+
+                          ->  Parallel Bitmap Heap Scan on _hyper_1_4_chunk  (cost=7120.98..65664.83 rows=154657 width=16) (actual time=131.838..803.385 rows=127338 loops=3)
+
+                                Recheck Cond: ((tpep_pickup_datetime >= '2015-01-01 00:00:00'::timestamp without time zone) AND (tpep_pickup_datetime < '2015-01-02 00:00:00'::timestamp without time zone))
+
+                                Heap Blocks: exact=6414
+
+                                Buffers: shared hit=2 read=19451
+
+                                ->  Bitmap Index Scan on _hyper_1_4_chunk_nyc_data_tpep_pickup_datetime_idx  (cost=0.00..7028.19 rows=371176 width=0) (actual time=150.601..150.602 rows=382014 loops=1)
+
+                                      Index Cond: ((tpep_pickup_datetime >= '2015-01-01 00:00:00'::timestamp without time zone) AND (tpep_pickup_datetime < '2015-01-02 00:00:00'::timestamp without time zone))
+
+                                      Buffers: shared hit=2 read=924
+
+Planning:
+
+  Buffers: shared hit=11 read=8
+
+Planning Time: 1.847 ms
+
+Execution Time: 903.977 ms
+

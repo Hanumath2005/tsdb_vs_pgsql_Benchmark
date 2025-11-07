@@ -1,0 +1,32 @@
+Unique  (cost=2425910.82..2489643.63 rows=2 width=20) (actual time=15334.214..19935.699 rows=2 loops=1)
+
+  Buffers: shared hit=15332 read=255980, temp read=159076 written=159304
+
+  ->  Sort  (cost=2425910.82..2457777.23 rows=12746563 width=20) (actual time=15334.212..19010.576 rows=12748986 loops=1)
+
+        Sort Key: vendorid, tpep_pickup_datetime DESC
+
+        Sort Method: external merge  Disk: 424240kB
+
+        Buffers: shared hit=15332 read=255980, temp read=159076 written=159304
+
+        ->  Seq Scan on nyc_data  (cost=0.00..398777.63 rows=12746563 width=20) (actual time=148.263..2664.456 rows=12748986 loops=1)
+
+              Buffers: shared hit=15332 read=255980
+
+Planning:
+
+  Buffers: shared hit=2 read=2
+
+Planning Time: 1.768 ms
+
+JIT:
+
+  Functions: 3
+
+  Options: Inlining true, Optimization true, Expressions true, Deforming true
+
+  Timing: Generation 0.607 ms, Inlining 75.265 ms, Optimization 42.936 ms, Emission 29.759 ms, Total 148.567 ms
+
+Execution Time: 19949.031 ms
+

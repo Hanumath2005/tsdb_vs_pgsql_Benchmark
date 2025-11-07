@@ -1,0 +1,58 @@
+Finalize GroupAggregate  (cost=33856.79..33908.46 rows=200 width=16) (actual time=183.096..187.442 rows=24 loops=1)
+
+  Group Key: (date_trunc('hour'::text, _hyper_1_1_chunk."time"))
+
+  Buffers: shared hit=3534 read=14296
+
+  ->  Gather Merge  (cost=33856.79..33903.46 rows=400 width=40) (actual time=183.084..187.403 rows=72 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=3534 read=14296
+
+        ->  Sort  (cost=32856.77..32857.27 rows=200 width=40) (actual time=176.628..176.638 rows=24 loops=3)
+
+              Sort Key: (date_trunc('hour'::text, _hyper_1_1_chunk."time"))
+
+              Sort Method: quicksort  Memory: 26kB
+
+              Buffers: shared hit=3534 read=14296
+
+              Worker 0:  Sort Method: quicksort  Memory: 26kB
+
+              Worker 1:  Sort Method: quicksort  Memory: 26kB
+
+              ->  Partial HashAggregate  (cost=32846.62..32849.12 rows=200 width=40) (actual time=176.567..176.581 rows=24 loops=3)
+
+                    Group Key: date_trunc('hour'::text, _hyper_1_1_chunk."time")
+
+                    Batches: 1  Memory Usage: 40kB
+
+                    Buffers: shared hit=3520 read=14296
+
+                    Worker 0:  Batches: 1  Memory Usage: 40kB
+
+                    Worker 1:  Batches: 1  Memory Usage: 40kB
+
+                    ->  Result  (cost=0.00..31637.88 rows=241750 width=16) (actual time=0.339..131.462 rows=192000 loops=3)
+
+                          Buffers: shared hit=3520 read=14296
+
+                          ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..28616.00 rows=241750 width=16) (actual time=0.114..83.714 rows=192000 loops=3)
+
+                                Filter: (("time" >= '2024-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2024-01-02 00:00:00'::timestamp without time zone))
+
+                                Rows Removed by Filter: 384000
+
+                                Buffers: shared hit=3520 read=14296
+
+Planning:
+
+  Buffers: shared hit=115 read=4 dirtied=3
+
+Planning Time: 1.300 ms
+
+Execution Time: 187.526 ms
+

@@ -1,0 +1,52 @@
+Unique  (cost=2490219.77..2553965.39 rows=200 width=20) (actual time=15567.138..17996.388 rows=2 loops=1)
+
+  Buffers: shared hit=16032 read=255392, temp read=159076 written=159304
+
+  ->  Sort  (cost=2490219.77..2522092.58 rows=12749124 width=20) (actual time=15567.134..17234.874 rows=12748986 loops=1)
+
+        Sort Key: nyc_data.vendorid, nyc_data.tpep_pickup_datetime DESC
+
+        Sort Method: external merge  Disk: 424240kB
+
+        Buffers: shared hit=16032 read=255392, temp read=159076 written=159304
+
+        ->  Append  (cost=0.00..462660.86 rows=12749124 width=20) (actual time=382.177..4350.948 rows=12748986 loops=1)
+
+              Buffers: shared hit=16032 read=255392
+
+              ->  Seq Scan on _hyper_1_1_chunk  (cost=0.00..94254.09 rows=3012609 width=20) (actual time=382.175..1245.000 rows=3013041 loops=1)
+
+                    Buffers: shared hit=2128 read=62000
+
+              ->  Seq Scan on _hyper_1_2_chunk  (cost=0.00..97647.75 rows=3121575 width=20) (actual time=0.381..673.647 rows=3121576 loops=1)
+
+                    Buffers: shared hit=2064 read=64368
+
+              ->  Seq Scan on _hyper_1_3_chunk  (cost=0.00..79438.98 rows=2539098 width=20) (actual time=1.643..543.864 rows=2538579 loops=1)
+
+                    Buffers: shared hit=3889 read=50159
+
+              ->  Seq Scan on _hyper_1_4_chunk  (cost=0.00..82628.14 rows=2640414 width=20) (actual time=1.239..554.100 rows=2640358 loops=1)
+
+                    Buffers: shared hit=5921 read=50303
+
+              ->  Seq Scan on _hyper_1_5_chunk  (cost=0.00..44946.28 rows=1435428 width=20) (actual time=6.236..333.301 rows=1435432 loops=1)
+
+                    Buffers: shared hit=2030 read=28562
+
+Planning:
+
+  Buffers: shared hit=45 read=2
+
+Planning Time: 2.082 ms
+
+JIT:
+
+  Functions: 11
+
+  Options: Inlining true, Optimization true, Expressions true, Deforming true
+
+  Timing: Generation 1.999 ms, Inlining 84.595 ms, Optimization 176.247 ms, Emission 121.096 ms, Total 383.937 ms
+
+Execution Time: 18029.832 ms
+

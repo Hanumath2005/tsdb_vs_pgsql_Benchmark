@@ -1,0 +1,32 @@
+Finalize Aggregate  (cost=76036.42..76036.43 rows=1 width=8) (actual time=489.196..496.077 rows=1 loops=1)
+
+  Buffers: shared hit=3168 read=53056
+
+  ->  Gather  (cost=76036.20..76036.41 rows=2 width=32) (actual time=488.982..496.061 rows=3 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=3168 read=53056
+
+        ->  Partial Aggregate  (cost=75036.20..75036.21 rows=1 width=32) (actual time=466.279..466.282 rows=1 loops=3)
+
+              Buffers: shared hit=3168 read=53056
+
+              ->  Parallel Seq Scan on _hyper_1_4_chunk  (cost=0.00..72726.59 rows=923847 width=8) (actual time=0.437..372.402 rows=736903 loops=3)
+
+                    Filter: ((tpep_pickup_datetime >= '2015-01-01 00:00:00'::timestamp without time zone) AND (tpep_pickup_datetime <= '2015-01-07 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 143216
+
+                    Buffers: shared hit=3168 read=53056
+
+Planning:
+
+  Buffers: shared hit=18
+
+Planning Time: 0.366 ms
+
+Execution Time: 496.125 ms
+

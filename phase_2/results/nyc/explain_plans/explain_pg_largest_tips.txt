@@ -1,0 +1,40 @@
+Limit  (cost=440192.97..440194.14 rows=10 width=20) (actual time=2608.547..2617.788 rows=10 loops=1)
+
+  Buffers: shared hit=15684 read=255740
+
+  ->  Gather Merge  (cost=440192.97..1679528.70 rows=10622136 width=20) (actual time=2603.139..2612.375 rows=10 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=15684 read=255740
+
+        ->  Sort  (cost=439192.95..452470.62 rows=5311068 width=20) (actual time=2579.907..2579.911 rows=8 loops=3)
+
+              Sort Key: tip_amount DESC
+
+              Sort Method: top-N heapsort  Memory: 26kB
+
+              Buffers: shared hit=15684 read=255740
+
+              Worker 0:  Sort Method: top-N heapsort  Memory: 26kB
+
+              Worker 1:  Sort Method: top-N heapsort  Memory: 25kB
+
+              ->  Parallel Seq Scan on nyc_data  (cost=0.00..324422.68 rows=5311068 width=20) (actual time=5.471..1731.527 rows=4249662 loops=3)
+
+                    Buffers: shared hit=15572 read=255740
+
+Planning Time: 0.090 ms
+
+JIT:
+
+  Functions: 7
+
+  Options: Inlining false, Optimization false, Expressions true, Deforming true
+
+  Timing: Generation 1.379 ms, Inlining 0.000 ms, Optimization 1.575 ms, Emission 19.412 ms, Total 22.366 ms
+
+Execution Time: 2618.319 ms
+

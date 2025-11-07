@@ -1,0 +1,76 @@
+Finalize Aggregate  (cost=39.39..39.40 rows=1 width=8) (actual time=0.190..0.192 rows=1 loops=1)
+
+  Buffers: shared hit=22
+
+  ->  Append  (cost=7.40..39.37 rows=5 width=32) (actual time=0.046..0.186 rows=5 loops=1)
+
+        Buffers: shared hit=22
+
+        ->  Partial Aggregate  (cost=7.40..7.41 rows=1 width=32) (actual time=0.045..0.045 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2110_chunk  (cost=0.00..7.36 rows=18 width=8) (actual time=0.029..0.037 rows=6 loops=1)
+
+                    Filter: ((relative_humidity > '80'::double precision) AND (temperature > '25'::double precision) AND ("time" >= '2020-06-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-06-30 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 162
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=7.47..7.48 rows=1 width=32) (actual time=0.032..0.032 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2111_chunk  (cost=0.00..7.36 rows=43 width=8) (actual time=0.004..0.029 rows=7 loops=1)
+
+                    Filter: ((relative_humidity > '80'::double precision) AND (temperature > '25'::double precision) AND ("time" >= '2020-06-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-06-30 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 161
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=7.49..7.50 rows=1 width=32) (actual time=0.036..0.036 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2112_chunk  (cost=0.00..7.36 rows=53 width=8) (actual time=0.005..0.032 rows=25 loops=1)
+
+                    Filter: ((relative_humidity > '80'::double precision) AND (temperature > '25'::double precision) AND ("time" >= '2020-06-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-06-30 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 143
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=9.48..9.49 rows=1 width=32) (actual time=0.033..0.033 rows=1 loops=1)
+
+              Buffers: shared hit=6
+
+              ->  Seq Scan on _hyper_1_2113_chunk  (cost=0.00..9.36 rows=47 width=8) (actual time=0.004..0.030 rows=12 loops=1)
+
+                    Filter: ((relative_humidity > '80'::double precision) AND (temperature > '25'::double precision) AND ("time" >= '2020-06-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-06-30 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 156
+
+                    Buffers: shared hit=6
+
+        ->  Partial Aggregate  (cost=7.46..7.47 rows=1 width=32) (actual time=0.035..0.036 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2114_chunk  (cost=0.00..7.36 rows=39 width=8) (actual time=0.005..0.032 rows=20 loops=1)
+
+                    Filter: ((relative_humidity > '80'::double precision) AND (temperature > '25'::double precision) AND ("time" >= '2020-06-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-06-30 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 148
+
+                    Buffers: shared hit=4
+
+Planning:
+
+  Buffers: shared hit=133
+
+Planning Time: 1.026 ms
+
+Execution Time: 0.263 ms
+

@@ -1,0 +1,80 @@
+Finalize Aggregate  (cost=41.09..41.10 rows=1 width=8) (actual time=0.308..0.311 rows=1 loops=1)
+
+  Buffers: shared hit=24
+
+  ->  Append  (cost=6.58..41.07 rows=6 width=8) (actual time=0.054..0.304 rows=6 loops=1)
+
+        Buffers: shared hit=24
+
+        ->  Partial Aggregate  (cost=6.58..6.59 rows=1 width=8) (actual time=0.053..0.053 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2088_chunk  (cost=0.00..6.52 rows=24 width=0) (actual time=0.036..0.043 rows=24 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-02-01 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 144
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.060..0.060 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2089_chunk  (cost=0.00..6.52 rows=168 width=0) (actual time=0.005..0.043 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-02-01 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.053..0.053 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2090_chunk  (cost=0.00..6.52 rows=168 width=0) (actual time=0.005..0.037 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-02-01 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.049..0.050 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2091_chunk  (cost=0.00..6.52 rows=168 width=0) (actual time=0.004..0.035 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-02-01 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.94..6.95 rows=1 width=8) (actual time=0.051..0.051 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2092_chunk  (cost=0.00..6.52 rows=168 width=0) (actual time=0.004..0.036 rows=168 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-02-01 00:00:00'::timestamp without time zone))
+
+                    Buffers: shared hit=4
+
+        ->  Partial Aggregate  (cost=6.64..6.65 rows=1 width=8) (actual time=0.033..0.033 rows=1 loops=1)
+
+              Buffers: shared hit=4
+
+              ->  Seq Scan on _hyper_1_2093_chunk  (cost=0.00..6.52 rows=49 width=0) (actual time=0.004..0.028 rows=49 loops=1)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-02-01 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 119
+
+                    Buffers: shared hit=4
+
+Planning:
+
+  Buffers: shared hit=122 read=4
+
+Planning Time: 7.008 ms
+
+Execution Time: 0.456 ms
+

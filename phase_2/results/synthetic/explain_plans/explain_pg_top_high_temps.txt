@@ -1,0 +1,36 @@
+Limit  (cost=94921.38..94922.54 rows=10 width=20) (actual time=472.111..488.838 rows=10 loops=1)
+
+  Buffers: shared hit=15561 read=25791
+
+  ->  Gather Merge  (cost=94921.38..483827.23 rows=3333246 width=20) (actual time=472.110..488.832 rows=10 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=15561 read=25791
+
+        ->  Sort  (cost=93921.35..98087.91 rows=1666623 width=20) (actual time=443.113..443.115 rows=10 loops=3)
+
+              Sort Key: temperature DESC
+
+              Sort Method: top-N heapsort  Memory: 26kB
+
+              Buffers: shared hit=15561 read=25791
+
+              Worker 0:  Sort Method: top-N heapsort  Memory: 26kB
+
+              Worker 1:  Sort Method: top-N heapsort  Memory: 26kB
+
+              ->  Parallel Seq Scan on synthetic_data  (cost=0.00..57906.23 rows=1666623 width=20) (actual time=0.024..208.264 rows=1333333 loops=3)
+
+                    Buffers: shared hit=15452 read=25788
+
+Planning:
+
+  Buffers: shared hit=1 read=3
+
+Planning Time: 0.289 ms
+
+Execution Time: 488.872 ms
+

@@ -1,0 +1,28 @@
+Finalize Aggregate  (cost=11387.32..11387.33 rows=1 width=8) (actual time=21.427..27.165 rows=1 loops=1)
+
+  Buffers: shared hit=7952
+
+  ->  Gather  (cost=11387.10..11387.32 rows=2 width=8) (actual time=21.199..27.152 rows=3 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=7952
+
+        ->  Partial Aggregate  (cost=10387.10..10387.11 rows=1 width=8) (actual time=17.017..17.019 rows=1 loops=3)
+
+              Buffers: shared hit=7952
+
+              ->  Parallel Seq Scan on weather_data  (cost=0.00..10386.35 rows=302 width=0) (actual time=14.963..16.981 rows=248 loops=3)
+
+                    Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-02-01 00:00:00'::timestamp without time zone))
+
+                    Rows Removed by Filter: 129584
+
+                    Buffers: shared hit=7952
+
+Planning Time: 0.099 ms
+
+Execution Time: 27.208 ms
+

@@ -1,0 +1,60 @@
+Sort  (cost=27.92..28.28 rows=144 width=16) (actual time=0.274..0.284 rows=144 loops=1)
+
+  Sort Key: (time_bucket('01:00:00'::interval, weather_data."time"))
+
+  Sort Method: quicksort  Memory: 30kB
+
+  Buffers: shared hit=8
+
+  ->  Finalize HashAggregate  (cost=20.60..22.76 rows=144 width=16) (actual time=0.208..0.233 rows=144 loops=1)
+
+        Group Key: (time_bucket('01:00:00'::interval, weather_data."time"))
+
+        Batches: 1  Memory Usage: 64kB
+
+        Buffers: shared hit=8
+
+        ->  Append  (cost=6.70..19.16 rows=288 width=40) (actual time=0.047..0.161 rows=144 loops=1)
+
+              Buffers: shared hit=8
+
+              ->  Partial HashAggregate  (cost=6.70..8.50 rows=144 width=40) (actual time=0.047..0.053 rows=24 loops=1)
+
+                    Group Key: time_bucket('01:00:00'::interval, _hyper_1_2088_chunk."time")
+
+                    Batches: 1  Memory Usage: 40kB
+
+                    Buffers: shared hit=4
+
+                    ->  Seq Scan on _hyper_1_2088_chunk  (cost=0.00..6.58 rows=24 width=16) (actual time=0.016..0.023 rows=24 loops=1)
+
+                          Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-01-07 00:00:00'::timestamp without time zone))
+
+                          Rows Removed by Filter: 144
+
+                          Buffers: shared hit=4
+
+              ->  Partial HashAggregate  (cost=7.42..9.22 rows=144 width=40) (actual time=0.071..0.092 rows=120 loops=1)
+
+                    Group Key: time_bucket('01:00:00'::interval, _hyper_1_2089_chunk."time")
+
+                    Batches: 1  Memory Usage: 64kB
+
+                    Buffers: shared hit=4
+
+                    ->  Seq Scan on _hyper_1_2089_chunk  (cost=0.00..6.82 rows=120 width=16) (actual time=0.002..0.033 rows=120 loops=1)
+
+                          Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-01-07 00:00:00'::timestamp without time zone))
+
+                          Rows Removed by Filter: 48
+
+                          Buffers: shared hit=4
+
+Planning:
+
+  Buffers: shared hit=52
+
+Planning Time: 0.413 ms
+
+Execution Time: 0.334 ms
+

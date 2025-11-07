@@ -1,0 +1,50 @@
+Finalize GroupAggregate  (cost=12202.08..12226.83 rows=94 width=20) (actual time=62.857..68.260 rows=6 loops=1)
+
+  Group Key: (width_bucket(relative_humidity, '0'::double precision, '100'::double precision, 5))
+
+  Buffers: shared hit=7966
+
+  ->  Gather Merge  (cost=12202.08..12224.01 rows=188 width=44) (actual time=62.843..68.239 rows=18 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=7966
+
+        ->  Sort  (cost=11202.06..11202.29 rows=94 width=44) (actual time=58.297..58.299 rows=6 loops=3)
+
+              Sort Key: (width_bucket(relative_humidity, '0'::double precision, '100'::double precision, 5))
+
+              Sort Method: quicksort  Memory: 25kB
+
+              Buffers: shared hit=7966
+
+              Worker 0:  Sort Method: quicksort  Memory: 25kB
+
+              Worker 1:  Sort Method: quicksort  Memory: 25kB
+
+              ->  Partial HashAggregate  (cost=11197.80..11198.98 rows=94 width=44) (actual time=58.237..58.242 rows=6 loops=3)
+
+                    Group Key: width_bucket(relative_humidity, '0'::double precision, '100'::double precision, 5)
+
+                    Batches: 1  Memory Usage: 24kB
+
+                    Buffers: shared hit=7952
+
+                    Worker 0:  Batches: 1  Memory Usage: 24kB
+
+                    Worker 1:  Batches: 1  Memory Usage: 24kB
+
+                    ->  Parallel Seq Scan on weather_data  (cost=0.00..9980.62 rows=162290 width=12) (actual time=0.013..27.622 rows=129832 loops=3)
+
+                          Buffers: shared hit=7952
+
+Planning:
+
+  Buffers: shared hit=9
+
+Planning Time: 0.147 ms
+
+Execution Time: 68.332 ms
+

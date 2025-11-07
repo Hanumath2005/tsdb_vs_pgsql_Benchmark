@@ -1,0 +1,44 @@
+Limit  (cost=1100215.15..1100872.48 rows=5000 width=16) (actual time=3946.082..3974.900 rows=5000 loops=1)
+
+  Buffers: shared hit=15974 read=255450, temp read=42037 written=81318
+
+  ->  WindowAgg  (cost=1100215.15..2775960.91 rows=12746563 width=16) (actual time=3861.492..3889.762 rows=5000 loops=1)
+
+        Buffers: shared hit=15974 read=255450, temp read=42037 written=81318
+
+        ->  Gather Merge  (cost=1100215.15..2584762.46 rows=12746563 width=16) (actual time=3861.417..3882.849 rows=5001 loops=1)
+
+              Workers Planned: 2
+
+              Workers Launched: 2
+
+              Buffers: shared hit=15974 read=255450, temp read=42037 written=81318
+
+              ->  Sort  (cost=1099215.13..1112492.80 rows=5311068 width=16) (actual time=3828.627..3828.944 rows=2576 loops=3)
+
+                    Sort Key: tpep_pickup_datetime
+
+                    Sort Method: external merge  Disk: 113464kB
+
+                    Buffers: shared hit=15974 read=255450, temp read=42037 written=81318
+
+                    Worker 0:  Sort Method: external merge  Disk: 106616kB
+
+                    Worker 1:  Sort Method: external merge  Disk: 104456kB
+
+                    ->  Parallel Seq Scan on nyc_data  (cost=0.00..324422.68 rows=5311068 width=16) (actual time=89.657..1424.522 rows=4249662 loops=3)
+
+                          Buffers: shared hit=15862 read=255450
+
+Planning Time: 0.096 ms
+
+JIT:
+
+  Functions: 13
+
+  Options: Inlining true, Optimization true, Expressions true, Deforming true
+
+  Timing: Generation 1.154 ms, Inlining 196.577 ms, Optimization 93.907 ms, Emission 62.644 ms, Total 354.282 ms
+
+Execution Time: 3986.746 ms
+

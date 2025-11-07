@@ -1,0 +1,54 @@
+Limit  (cost=71415.57..71420.79 rows=20 width=20) (actual time=489.659..497.411 rows=20 loops=1)
+
+  Buffers: shared hit=16195 read=25059 written=2
+
+  ->  Finalize GroupAggregate  (cost=71415.57..71467.74 rows=200 width=20) (actual time=489.658..497.406 rows=20 loops=1)
+
+        Group Key: device_id
+
+        Buffers: shared hit=16195 read=25059 written=2
+
+        ->  Gather Merge  (cost=71415.57..71462.24 rows=400 width=44) (actual time=489.647..497.371 rows=55 loops=1)
+
+              Workers Planned: 2
+
+              Workers Launched: 2
+
+              Buffers: shared hit=16195 read=25059 written=2
+
+              ->  Sort  (cost=70415.55..70416.05 rows=200 width=44) (actual time=470.023..470.034 rows=138 loops=3)
+
+                    Sort Key: device_id
+
+                    Sort Method: quicksort  Memory: 42kB
+
+                    Buffers: shared hit=16195 read=25059 written=2
+
+                    Worker 0:  Sort Method: quicksort  Memory: 41kB
+
+                    Worker 1:  Sort Method: quicksort  Memory: 41kB
+
+                    ->  Partial HashAggregate  (cost=70405.90..70407.90 rows=200 width=44) (actual time=469.879..469.915 rows=198 loops=3)
+
+                          Group Key: device_id
+
+                          Batches: 1  Memory Usage: 64kB
+
+                          Buffers: shared hit=16181 read=25059 written=2
+
+                          Worker 0:  Batches: 1  Memory Usage: 64kB
+
+                          Worker 1:  Batches: 1  Memory Usage: 64kB
+
+                          ->  Parallel Seq Scan on synthetic_data  (cost=0.00..57906.23 rows=1666623 width=20) (actual time=0.034..148.497 rows=1333333 loops=3)
+
+                                Buffers: shared hit=16181 read=25059 written=2
+
+Planning:
+
+  Buffers: shared hit=9 read=3 dirtied=1
+
+Planning Time: 0.802 ms
+
+Execution Time: 497.507 ms
+

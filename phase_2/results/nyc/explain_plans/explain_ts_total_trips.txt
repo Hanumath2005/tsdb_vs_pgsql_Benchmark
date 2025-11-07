@@ -1,0 +1,82 @@
+Finalize Aggregate  (cost=231214.11..231214.12 rows=1 width=8) (actual time=1907.693..1917.912 rows=1 loops=1)
+
+  Buffers: shared hit=1509704 read=24766 written=4
+
+  ->  Gather  (cost=54478.13..231214.09 rows=10 width=8) (actual time=490.734..1917.887 rows=8 loops=1)
+
+        Workers Planned: 2
+
+        Workers Launched: 2
+
+        Buffers: shared hit=1509704 read=24766 written=4
+
+        ->  Parallel Append  (cost=53478.13..230213.09 rows=5 width=8) (actual time=1022.699..1883.272 rows=3 loops=3)
+
+              Buffers: shared hit=1509704 read=24766 written=4
+
+              ->  Partial Aggregate  (cost=55134.51..55134.52 rows=1 width=8) (actual time=1313.500..1313.501 rows=1 loops=1)
+
+                    Buffers: shared hit=479153 read=5783 written=1
+
+                    ->  Parallel Index Only Scan using _hyper_1_2_chunk_nyc_data_tpep_pickup_datetime_idx on _hyper_1_2_chunk  (cost=0.43..51882.87 rows=1300656 width=0) (actual time=9.899..1073.422 rows=3121576 loops=1)
+
+                          Heap Fetches: 0
+
+                          Buffers: shared hit=479153 read=5783 written=1
+
+              ->  Partial Aggregate  (cost=53478.13..53478.14 rows=1 width=8) (actual time=1264.215..1264.216 rows=1 loops=1)
+
+                    Buffers: shared hit=462587 read=5641 written=1
+
+                    ->  Parallel Index Only Scan using _hyper_1_1_chunk_nyc_data_tpep_pickup_datetime_idx on _hyper_1_1_chunk  (cost=0.43..50339.99 rows=1255254 width=0) (actual time=9.698..1029.755 rows=3013041 loops=1)
+
+                          Heap Fetches: 0
+
+                          Buffers: shared hit=462587 read=5641 written=1
+
+              ->  Partial Aggregate  (cost=50702.29..50702.30 rows=1 width=8) (actual time=491.046..491.047 rows=1 loops=3)
+
+                    Buffers: shared hit=182268 read=5875
+
+                    ->  Parallel Index Only Scan using _hyper_1_4_chunk_nyc_data_tpep_pickup_datetime_idx on _hyper_1_4_chunk  (cost=0.43..47951.86 rows=1100172 width=0) (actual time=0.427..419.616 rows=880119 loops=3)
+
+                          Heap Fetches: 0
+
+                          Buffers: shared hit=182268 read=5875
+
+              ->  Partial Aggregate  (cost=45680.35..45680.36 rows=1 width=8) (actual time=554.271..554.271 rows=1 loops=2)
+
+                    Buffers: shared hit=385696 read=4887 written=2
+
+                    ->  Parallel Index Only Scan using _hyper_1_3_chunk_nyc_data_tpep_pickup_datetime_idx on _hyper_1_3_chunk  (cost=0.43..43035.46 rows=1057958 width=0) (actual time=0.324..457.019 rows=1269290 loops=2)
+
+                          Heap Fetches: 0
+
+                          Buffers: shared hit=385696 read=4887 written=2
+
+              ->  Partial Aggregate  (cost=25217.73..25217.74 rows=1 width=8) (actual time=490.377..490.378 rows=1 loops=1)
+
+                    Buffers: shared read=2580
+
+                    ->  Parallel Index Only Scan using _hyper_1_5_chunk_nyc_data_tpep_pickup_datetime_idx on _hyper_1_5_chunk  (cost=0.43..23722.50 rows=598095 width=0) (actual time=9.054..381.891 rows=1435432 loops=1)
+
+                          Heap Fetches: 0
+
+                          Buffers: shared read=2580
+
+Planning:
+
+  Buffers: shared hit=59 read=11 dirtied=4
+
+Planning Time: 3.450 ms
+
+JIT:
+
+  Functions: 47
+
+  Options: Inlining false, Optimization false, Expressions true, Deforming true
+
+  Timing: Generation 2.188 ms, Inlining 0.000 ms, Optimization 1.203 ms, Emission 25.637 ms, Total 29.027 ms
+
+Execution Time: 1919.071 ms
+
