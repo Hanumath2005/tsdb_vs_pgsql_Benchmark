@@ -91,3 +91,6 @@ For enabling timescale extension use the command:
 ```bash
 SELECT create_hypertable('weather_data', 'time');
 ```
+
+
+The complete setup is present at setup.sql
