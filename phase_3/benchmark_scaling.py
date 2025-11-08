@@ -36,7 +36,7 @@ def main():
     for dbkey, dbconf in DBS.items():
         conn = psycopg2.connect(dbname=dbconf["dbname"], user=dbconf["user"], host=dbconf["host"])
         for s in SCALES:
-            print(f"--- Benchmarking {dbkey.upper()} at {s}% scale ---")
+            print(f"Benchmarking {dbkey.upper()} at {s}% scale")
             table = f"weather_{s}pct"
             for query in QUERIES:
                 qname = query["query"]
@@ -53,7 +53,7 @@ def main():
                     writer = csv.writer(f)
                     writer.writerow(["timestamp", "db", "scale", "query_name", "run_index", "elapsed_ms","row_count"])
                     for run in range(RUNS):
-                        if run == 0: drop_caches()
+                        drop_caches()
                         elapsed, row_count = run_query(conn, qsql)
                         writer.writerow([datetime.now().isoformat(), dbkey, s, qname, run+1, f"{elapsed:.3f}", row_count])
                         times.append(elapsed)

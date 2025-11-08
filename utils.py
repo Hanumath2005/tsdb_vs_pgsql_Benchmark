@@ -22,7 +22,7 @@ def run_explain(conn, query, outfile):
             f.write(row[0] + "\n")
             f.write("\n".join(row[1:]) + "\n")
 
-def run_query(conn, query):
+def run_query(conn, query):After all threads complete, the following metrics are computed:
     start_time = time.time()
     cursor = conn.cursor()
     cursor.execute(query)
