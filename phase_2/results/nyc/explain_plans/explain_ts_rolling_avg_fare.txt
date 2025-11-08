@@ -1,20 +1,20 @@
-Limit  (cost=0.43..614.97 rows=5000 width=16) (actual time=0.772..62.437 rows=5000 loops=1)
+Limit  (cost=0.43..614.97 rows=5000 width=16) (actual time=1.070..17.859 rows=5000 loops=1)
 
-  Buffers: shared hit=111 read=360
+  Buffers: shared hit=151 read=320
 
-  ->  WindowAgg  (cost=0.43..1566962.52 rows=12749124 width=16) (actual time=0.770..61.713 rows=5000 loops=1)
+  ->  WindowAgg  (cost=0.43..1566962.52 rows=12749124 width=16) (actual time=1.068..17.305 rows=5000 loops=1)
 
-        Buffers: shared hit=111 read=360
+        Buffers: shared hit=151 read=320
 
-        ->  Custom Scan (ChunkAppend) on nyc_data  (cost=0.43..1375725.66 rows=12749124 width=16) (actual time=0.751..48.571 rows=5001 loops=1)
+        ->  Custom Scan (ChunkAppend) on nyc_data  (cost=0.43..1375725.66 rows=12749124 width=16) (actual time=1.051..7.346 rows=5001 loops=1)
 
               Order: nyc_data.tpep_pickup_datetime
 
-              Buffers: shared hit=111 read=360
+              Buffers: shared hit=151 read=320
 
-              ->  Index Scan Backward using _hyper_1_4_chunk_nyc_data_tpep_pickup_datetime_idx on _hyper_1_4_chunk  (cost=0.43..287616.08 rows=2640414 width=16) (actual time=0.750..47.847 rows=5001 loops=1)
+              ->  Index Scan Backward using _hyper_1_4_chunk_nyc_data_tpep_pickup_datetime_idx on _hyper_1_4_chunk  (cost=0.43..287616.08 rows=2640414 width=16) (actual time=1.049..6.792 rows=5001 loops=1)
 
-                    Buffers: shared hit=111 read=360
+                    Buffers: shared hit=151 read=320
 
               ->  Index Scan Backward using _hyper_1_2_chunk_nyc_data_tpep_pickup_datetime_idx on _hyper_1_2_chunk  (cost=0.43..335753.37 rows=3121575 width=16) (never executed)
 
@@ -28,7 +28,7 @@ Planning:
 
   Buffers: shared hit=43 read=1
 
-Planning Time: 0.734 ms
+Planning Time: 0.718 ms
 
-Execution Time: 62.917 ms
+Execution Time: 18.213 ms
 

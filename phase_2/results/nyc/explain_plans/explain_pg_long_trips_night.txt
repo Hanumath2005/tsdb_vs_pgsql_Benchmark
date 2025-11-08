@@ -1,32 +1,32 @@
-Finalize Aggregate  (cost=391819.57..391819.58 rows=1 width=8) (actual time=2067.858..2081.594 rows=1 loops=1)
+Finalize Aggregate  (cost=391819.57..391819.58 rows=1 width=8) (actual time=1709.372..1719.123 rows=1 loops=1)
 
-  Buffers: shared hit=11616 read=259696
+  Buffers: shared hit=11606 read=259706
 
-  ->  Gather  (cost=391819.35..391819.56 rows=2 width=8) (actual time=2067.462..2081.565 rows=3 loops=1)
+  ->  Gather  (cost=391819.35..391819.56 rows=2 width=8) (actual time=1708.886..1719.082 rows=3 loops=1)
 
         Workers Planned: 2
 
         Workers Launched: 2
 
-        Buffers: shared hit=11616 read=259696
+        Buffers: shared hit=11606 read=259706
 
-        ->  Partial Aggregate  (cost=390819.35..390819.36 rows=1 width=8) (actual time=2033.202..2033.205 rows=1 loops=3)
+        ->  Partial Aggregate  (cost=390819.35..390819.36 rows=1 width=8) (actual time=1682.666..1682.668 rows=1 loops=3)
 
-              Buffers: shared hit=11616 read=259696
+              Buffers: shared hit=11606 read=259706
 
-              ->  Parallel Seq Scan on nyc_data  (cost=0.00..390811.03 rows=3330 width=0) (actual time=2033.109..2033.111 rows=0 loops=3)
+              ->  Parallel Seq Scan on nyc_data  (cost=0.00..390811.03 rows=3330 width=0) (actual time=1682.601..1682.602 rows=0 loops=3)
 
                     Filter: ((trip_distance > '5'::double precision) AND (EXTRACT(hour FROM tpep_pickup_datetime) >= '22'::numeric) AND (EXTRACT(hour FROM tpep_pickup_datetime) <= '5'::numeric))
 
                     Rows Removed by Filter: 4249662
 
-                    Buffers: shared hit=11616 read=259696
+                    Buffers: shared hit=11606 read=259706
 
 Planning:
 
   Buffers: shared hit=5
 
-Planning Time: 0.216 ms
+Planning Time: 0.194 ms
 
 JIT:
 
@@ -34,7 +34,7 @@ JIT:
 
   Options: Inlining false, Optimization false, Expressions true, Deforming true
 
-  Timing: Generation 3.633 ms, Inlining 0.000 ms, Optimization 2.085 ms, Emission 29.101 ms, Total 34.819 ms
+  Timing: Generation 2.423 ms, Inlining 0.000 ms, Optimization 1.840 ms, Emission 25.931 ms, Total 30.193 ms
 
-Execution Time: 2082.457 ms
+Execution Time: 1720.037 ms
 

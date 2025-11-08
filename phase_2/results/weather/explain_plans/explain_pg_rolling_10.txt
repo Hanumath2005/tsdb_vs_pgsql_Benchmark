@@ -1,36 +1,36 @@
-Limit  (cost=27395.17..28052.51 rows=5000 width=16) (actual time=74.596..90.687 rows=5000 loops=1)
+Limit  (cost=27395.17..28052.51 rows=5000 width=16) (actual time=74.271..90.106 rows=5000 loops=1)
 
-  Buffers: shared hit=8064, temp read=1010 written=1248
+  Buffers: shared hit=8064, temp read=1165 written=1247
 
-  ->  WindowAgg  (cost=27395.17..78600.84 rows=389496 width=16) (actual time=74.594..90.200 rows=5000 loops=1)
+  ->  WindowAgg  (cost=27395.17..78600.84 rows=389496 width=16) (actual time=74.269..89.589 rows=5000 loops=1)
 
-        Buffers: shared hit=8064, temp read=1010 written=1248
+        Buffers: shared hit=8064, temp read=1165 written=1247
 
-        ->  Gather Merge  (cost=27395.17..72758.40 rows=389496 width=16) (actual time=74.572..82.017 rows=5001 loops=1)
+        ->  Gather Merge  (cost=27395.17..72758.40 rows=389496 width=16) (actual time=74.246..81.270 rows=5001 loops=1)
 
               Workers Planned: 2
 
               Workers Launched: 2
 
-              Buffers: shared hit=8064, temp read=1010 written=1248
+              Buffers: shared hit=8064, temp read=1165 written=1247
 
-              ->  Sort  (cost=26395.15..26800.88 rows=162290 width=16) (actual time=68.964..69.339 rows=2759 loops=3)
+              ->  Sort  (cost=26395.15..26800.88 rows=162290 width=16) (actual time=69.602..69.978 rows=2759 loops=3)
 
                     Sort Key: "time"
 
-                    Sort Method: external merge  Disk: 3408kB
+                    Sort Method: external merge  Disk: 3840kB
 
-                    Buffers: shared hit=8064, temp read=1010 written=1248
+                    Buffers: shared hit=8064, temp read=1165 written=1247
 
-                    Worker 0:  Sort Method: external merge  Disk: 3272kB
+                    Worker 0:  Sort Method: external merge  Disk: 3048kB
 
-                    Worker 1:  Sort Method: external merge  Disk: 3272kB
+                    Worker 1:  Sort Method: external merge  Disk: 3056kB
 
-                    ->  Parallel Seq Scan on weather_data  (cost=0.00..9574.90 rows=162290 width=16) (actual time=0.016..25.501 rows=129832 loops=3)
+                    ->  Parallel Seq Scan on weather_data  (cost=0.00..9574.90 rows=162290 width=16) (actual time=0.018..28.325 rows=129832 loops=3)
 
                           Buffers: shared hit=7952
 
-Planning Time: 0.096 ms
+Planning Time: 0.105 ms
 
-Execution Time: 91.953 ms
+Execution Time: 91.797 ms
 

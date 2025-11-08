@@ -1,32 +1,32 @@
-Limit  (cost=94921.38..94922.54 rows=10 width=20) (actual time=475.711..483.218 rows=10 loops=1)
+Limit  (cost=94921.38..94922.54 rows=10 width=20) (actual time=547.232..555.360 rows=10 loops=1)
 
-  Buffers: shared hit=16294 read=25060
+  Buffers: shared hit=16335 read=25019
 
-  ->  Gather Merge  (cost=94921.38..483827.23 rows=3333246 width=20) (actual time=475.708..483.213 rows=10 loops=1)
+  ->  Gather Merge  (cost=94921.38..483827.23 rows=3333246 width=20) (actual time=547.229..555.354 rows=10 loops=1)
 
         Workers Planned: 2
 
         Workers Launched: 2
 
-        Buffers: shared hit=16294 read=25060
+        Buffers: shared hit=16335 read=25019
 
-        ->  Sort  (cost=93921.35..98087.91 rows=1666623 width=20) (actual time=456.526..456.528 rows=10 loops=3)
+        ->  Sort  (cost=93921.35..98087.91 rows=1666623 width=20) (actual time=525.952..525.954 rows=10 loops=3)
 
               Sort Key: battery_voltage
 
               Sort Method: top-N heapsort  Memory: 26kB
 
-              Buffers: shared hit=16294 read=25060
+              Buffers: shared hit=16335 read=25019
 
               Worker 0:  Sort Method: top-N heapsort  Memory: 26kB
 
               Worker 1:  Sort Method: top-N heapsort  Memory: 26kB
 
-              ->  Parallel Seq Scan on synthetic_data  (cost=0.00..57906.23 rows=1666623 width=20) (actual time=0.076..215.717 rows=1333333 loops=3)
+              ->  Parallel Seq Scan on synthetic_data  (cost=0.00..57906.23 rows=1666623 width=20) (actual time=0.349..261.249 rows=1333333 loops=3)
 
-                    Buffers: shared hit=16181 read=25059
+                    Buffers: shared hit=16222 read=25018
 
-Planning Time: 0.085 ms
+Planning Time: 0.165 ms
 
-Execution Time: 483.247 ms
+Execution Time: 555.411 ms
 

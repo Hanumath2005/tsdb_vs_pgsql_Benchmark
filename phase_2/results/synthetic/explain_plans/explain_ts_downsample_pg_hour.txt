@@ -1,10 +1,10 @@
-Finalize GroupAggregate  (cost=33856.79..33908.46 rows=200 width=16) (actual time=183.096..187.442 rows=24 loops=1)
+Finalize GroupAggregate  (cost=33856.79..33908.46 rows=200 width=16) (actual time=250.524..256.619 rows=24 loops=1)
 
   Group Key: (date_trunc('hour'::text, _hyper_1_1_chunk."time"))
 
   Buffers: shared hit=3534 read=14296
 
-  ->  Gather Merge  (cost=33856.79..33903.46 rows=400 width=40) (actual time=183.084..187.403 rows=72 loops=1)
+  ->  Gather Merge  (cost=33856.79..33903.46 rows=400 width=40) (actual time=250.499..256.506 rows=72 loops=1)
 
         Workers Planned: 2
 
@@ -12,7 +12,7 @@ Finalize GroupAggregate  (cost=33856.79..33908.46 rows=200 width=16) (actual tim
 
         Buffers: shared hit=3534 read=14296
 
-        ->  Sort  (cost=32856.77..32857.27 rows=200 width=40) (actual time=176.628..176.638 rows=24 loops=3)
+        ->  Sort  (cost=32856.77..32857.27 rows=200 width=40) (actual time=242.135..242.142 rows=24 loops=3)
 
               Sort Key: (date_trunc('hour'::text, _hyper_1_1_chunk."time"))
 
@@ -24,7 +24,7 @@ Finalize GroupAggregate  (cost=33856.79..33908.46 rows=200 width=16) (actual tim
 
               Worker 1:  Sort Method: quicksort  Memory: 26kB
 
-              ->  Partial HashAggregate  (cost=32846.62..32849.12 rows=200 width=40) (actual time=176.567..176.581 rows=24 loops=3)
+              ->  Partial HashAggregate  (cost=32846.62..32849.12 rows=200 width=40) (actual time=242.063..242.076 rows=24 loops=3)
 
                     Group Key: date_trunc('hour'::text, _hyper_1_1_chunk."time")
 
@@ -36,11 +36,11 @@ Finalize GroupAggregate  (cost=33856.79..33908.46 rows=200 width=16) (actual tim
 
                     Worker 1:  Batches: 1  Memory Usage: 40kB
 
-                    ->  Result  (cost=0.00..31637.88 rows=241750 width=16) (actual time=0.339..131.462 rows=192000 loops=3)
+                    ->  Result  (cost=0.00..31637.88 rows=241750 width=16) (actual time=0.402..181.896 rows=192000 loops=3)
 
                           Buffers: shared hit=3520 read=14296
 
-                          ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..28616.00 rows=241750 width=16) (actual time=0.114..83.714 rows=192000 loops=3)
+                          ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..28616.00 rows=241750 width=16) (actual time=0.392..117.835 rows=192000 loops=3)
 
                                 Filter: (("time" >= '2024-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2024-01-02 00:00:00'::timestamp without time zone))
 
@@ -50,9 +50,9 @@ Finalize GroupAggregate  (cost=33856.79..33908.46 rows=200 width=16) (actual tim
 
 Planning:
 
-  Buffers: shared hit=115 read=4 dirtied=3
+  Buffers: shared hit=115 read=4
 
-Planning Time: 1.300 ms
+Planning Time: 2.289 ms
 
-Execution Time: 187.526 ms
+Execution Time: 256.756 ms
 

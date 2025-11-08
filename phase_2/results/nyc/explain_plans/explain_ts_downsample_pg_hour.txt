@@ -1,54 +1,54 @@
-Finalize GroupAggregate  (cost=69381.50..69433.17 rows=200 width=16) (actual time=769.896..778.487 rows=24 loops=1)
+Finalize GroupAggregate  (cost=69381.50..69433.17 rows=200 width=16) (actual time=277.425..287.937 rows=24 loops=1)
 
   Group Key: (date_trunc('hour'::text, _hyper_1_4_chunk.tpep_pickup_datetime))
 
-  Buffers: shared hit=939 read=18528 written=5
+  Buffers: shared hit=939 read=18528
 
-  ->  Gather Merge  (cost=69381.50..69428.17 rows=400 width=40) (actual time=769.881..778.435 rows=72 loops=1)
+  ->  Gather Merge  (cost=69381.50..69428.17 rows=400 width=40) (actual time=277.410..287.889 rows=72 loops=1)
 
         Workers Planned: 2
 
         Workers Launched: 2
 
-        Buffers: shared hit=939 read=18528 written=5
+        Buffers: shared hit=939 read=18528
 
-        ->  Sort  (cost=68381.48..68381.98 rows=200 width=40) (actual time=745.478..745.484 rows=24 loops=3)
+        ->  Sort  (cost=68381.48..68381.98 rows=200 width=40) (actual time=253.586..253.591 rows=24 loops=3)
 
               Sort Key: (date_trunc('hour'::text, _hyper_1_4_chunk.tpep_pickup_datetime))
 
               Sort Method: quicksort  Memory: 26kB
 
-              Buffers: shared hit=939 read=18528 written=5
+              Buffers: shared hit=939 read=18528
 
               Worker 0:  Sort Method: quicksort  Memory: 26kB
 
               Worker 1:  Sort Method: quicksort  Memory: 26kB
 
-              ->  Partial HashAggregate  (cost=68371.33..68373.83 rows=200 width=40) (actual time=745.378..745.388 rows=24 loops=3)
+              ->  Partial HashAggregate  (cost=68371.33..68373.83 rows=200 width=40) (actual time=253.521..253.531 rows=24 loops=3)
 
                     Group Key: date_trunc('hour'::text, _hyper_1_4_chunk.tpep_pickup_datetime)
 
                     Batches: 1  Memory Usage: 40kB
 
-                    Buffers: shared hit=925 read=18528 written=5
+                    Buffers: shared hit=925 read=18528
 
                     Worker 0:  Batches: 1  Memory Usage: 40kB
 
                     Worker 1:  Batches: 1  Memory Usage: 40kB
 
-                    ->  Result  (cost=7120.98..67598.05 rows=154657 width=16) (actual time=11.977..705.649 rows=127338 loops=3)
+                    ->  Result  (cost=7120.98..67598.05 rows=154657 width=16) (actual time=14.841..215.865 rows=127338 loops=3)
 
-                          Buffers: shared hit=925 read=18528 written=5
+                          Buffers: shared hit=925 read=18528
 
-                          ->  Parallel Bitmap Heap Scan on _hyper_1_4_chunk  (cost=7120.98..65664.83 rows=154657 width=16) (actual time=11.960..663.684 rows=127338 loops=3)
+                          ->  Parallel Bitmap Heap Scan on _hyper_1_4_chunk  (cost=7120.98..65664.83 rows=154657 width=16) (actual time=14.832..176.708 rows=127338 loops=3)
 
                                 Recheck Cond: ((tpep_pickup_datetime >= '2015-01-01 00:00:00'::timestamp without time zone) AND (tpep_pickup_datetime < '2015-01-02 00:00:00'::timestamp without time zone))
 
-                                Heap Blocks: exact=6453
+                                Heap Blocks: exact=6699
 
-                                Buffers: shared hit=925 read=18528 written=5
+                                Buffers: shared hit=925 read=18528
 
-                                ->  Bitmap Index Scan on _hyper_1_4_chunk_nyc_data_tpep_pickup_datetime_idx  (cost=0.00..7028.19 rows=371176 width=0) (actual time=28.412..28.413 rows=382014 loops=1)
+                                ->  Bitmap Index Scan on _hyper_1_4_chunk_nyc_data_tpep_pickup_datetime_idx  (cost=0.00..7028.19 rows=371176 width=0) (actual time=30.763..30.764 rows=382014 loops=1)
 
                                       Index Cond: ((tpep_pickup_datetime >= '2015-01-01 00:00:00'::timestamp without time zone) AND (tpep_pickup_datetime < '2015-01-02 00:00:00'::timestamp without time zone))
 
@@ -56,9 +56,9 @@ Finalize GroupAggregate  (cost=69381.50..69433.17 rows=200 width=16) (actual tim
 
 Planning:
 
-  Buffers: shared hit=115 read=4 dirtied=3
+  Buffers: shared hit=115 read=4
 
-Planning Time: 1.690 ms
+Planning Time: 2.240 ms
 
-Execution Time: 778.676 ms
+Execution Time: 288.100 ms
 

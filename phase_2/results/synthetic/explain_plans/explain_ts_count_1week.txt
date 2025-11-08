@@ -1,8 +1,8 @@
-Finalize Aggregate  (cost=65849.80..65849.81 rows=1 width=8) (actual time=291.442..295.658 rows=1 loops=1)
+Finalize Aggregate  (cost=65849.80..65849.81 rows=1 width=8) (actual time=301.241..305.213 rows=1 loops=1)
 
   Buffers: shared hit=4064 read=15705
 
-  ->  Gather  (cost=31416.00..65849.79 rows=4 width=8) (actual time=256.591..295.645 rows=5 loops=1)
+  ->  Gather  (cost=31416.00..65849.79 rows=4 width=8) (actual time=268.338..305.199 rows=5 loops=1)
 
         Workers Planned: 2
 
@@ -10,15 +10,15 @@ Finalize Aggregate  (cost=65849.80..65849.81 rows=1 width=8) (actual time=291.44
 
         Buffers: shared hit=4064 read=15705
 
-        ->  Parallel Append  (cost=30416.00..64849.39 rows=2 width=8) (actual time=261.421..284.562 rows=2 loops=3)
+        ->  Parallel Append  (cost=30416.00..64849.39 rows=2 width=8) (actual time=273.512..295.374 rows=2 loops=3)
 
               Buffers: shared hit=4064 read=15705
 
-              ->  Partial Aggregate  (cost=34433.36..34433.37 rows=1 width=8) (actual time=117.274..117.275 rows=1 loops=3)
+              ->  Partial Aggregate  (cost=34433.36..34433.37 rows=1 width=8) (actual time=119.506..119.507 rows=1 loops=3)
 
                     Buffers: shared hit=1952 read=1
 
-                    ->  Parallel Index Only Scan using _hyper_1_2_chunk_synthetic_data_time_idx on _hyper_1_2_chunk  (cost=0.43..32627.82 rows=722219 width=0) (actual time=0.299..70.782 rows=576067 loops=3)
+                    ->  Parallel Index Only Scan using _hyper_1_2_chunk_synthetic_data_time_idx on _hyper_1_2_chunk  (cost=0.43..32627.82 rows=722219 width=0) (actual time=0.135..73.281 rows=576067 loops=3)
 
                           Index Cond: (("time" >= '2024-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2024-01-07 00:00:00'::timestamp without time zone))
 
@@ -26,11 +26,11 @@ Finalize Aggregate  (cost=65849.80..65849.81 rows=1 width=8) (actual time=291.44
 
                           Buffers: shared hit=1952 read=1
 
-              ->  Partial Aggregate  (cost=30416.00..30416.01 rows=1 width=8) (actual time=250.921..250.922 rows=1 loops=2)
+              ->  Partial Aggregate  (cost=30416.00..30416.01 rows=1 width=8) (actual time=263.791..263.792 rows=1 loops=2)
 
                     Buffers: shared hit=2112 read=15704
 
-                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..28616.00 rows=720000 width=0) (actual time=0.246..178.785 rows=864000 loops=2)
+                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..28616.00 rows=720000 width=0) (actual time=0.187..192.031 rows=864000 loops=2)
 
                           Filter: (("time" >= '2024-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2024-01-07 00:00:00'::timestamp without time zone))
 
@@ -40,7 +40,7 @@ Planning:
 
   Buffers: shared hit=35 read=1
 
-Planning Time: 0.763 ms
+Planning Time: 1.033 ms
 
-Execution Time: 295.713 ms
+Execution Time: 305.325 ms
 

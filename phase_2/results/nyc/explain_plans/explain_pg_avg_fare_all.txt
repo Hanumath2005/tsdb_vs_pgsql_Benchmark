@@ -1,8 +1,8 @@
-Finalize Aggregate  (cost=338700.57..338700.58 rows=1 width=8) (actual time=2217.593..2227.376 rows=1 loops=1)
+Finalize Aggregate  (cost=338700.57..338700.58 rows=1 width=8) (actual time=2158.472..2166.179 rows=1 loops=1)
 
   Buffers: shared read=271312
 
-  ->  Gather  (cost=338700.35..338700.56 rows=2 width=32) (actual time=2217.209..2227.326 rows=3 loops=1)
+  ->  Gather  (cost=338700.35..338700.56 rows=2 width=32) (actual time=2157.970..2166.128 rows=3 loops=1)
 
         Workers Planned: 2
 
@@ -10,19 +10,19 @@ Finalize Aggregate  (cost=338700.57..338700.58 rows=1 width=8) (actual time=2217
 
         Buffers: shared read=271312
 
-        ->  Partial Aggregate  (cost=337700.35..337700.36 rows=1 width=32) (actual time=2179.828..2179.830 rows=1 loops=3)
+        ->  Partial Aggregate  (cost=337700.35..337700.36 rows=1 width=32) (actual time=2137.547..2137.549 rows=1 loops=3)
 
               Buffers: shared read=271312
 
-              ->  Parallel Seq Scan on nyc_data  (cost=0.00..324422.68 rows=5311068 width=8) (actual time=0.182..1279.841 rows=4249662 loops=3)
+              ->  Parallel Seq Scan on nyc_data  (cost=0.00..324422.68 rows=5311068 width=8) (actual time=0.136..1234.850 rows=4249662 loops=3)
 
                     Buffers: shared read=271312
 
 Planning:
 
-  Buffers: shared hit=21 read=11 dirtied=1
+  Buffers: shared hit=20 read=12
 
-Planning Time: 2.069 ms
+Planning Time: 2.088 ms
 
 JIT:
 
@@ -30,7 +30,7 @@ JIT:
 
   Options: Inlining false, Optimization false, Expressions true, Deforming true
 
-  Timing: Generation 2.334 ms, Inlining 0.000 ms, Optimization 2.093 ms, Emission 35.305 ms, Total 39.731 ms
+  Timing: Generation 1.654 ms, Inlining 0.000 ms, Optimization 1.616 ms, Emission 24.655 ms, Total 27.925 ms
 
-Execution Time: 2400.411 ms
+Execution Time: 2340.442 ms
 

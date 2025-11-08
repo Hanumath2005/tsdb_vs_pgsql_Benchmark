@@ -1,50 +1,50 @@
-Finalize GroupAggregate  (cost=71405.98..71406.76 rows=3 width=19) (actual time=613.891..622.016 rows=3 loops=1)
+Finalize GroupAggregate  (cost=71405.98..71406.76 rows=3 width=19) (actual time=651.810..659.915 rows=3 loops=1)
 
   Group Key: status
 
-  Buffers: shared hit=15405 read=25851
+  Buffers: shared hit=15052 read=26204
 
-  ->  Gather Merge  (cost=71405.98..71406.68 rows=6 width=43) (actual time=613.875..621.996 rows=9 loops=1)
+  ->  Gather Merge  (cost=71405.98..71406.68 rows=6 width=43) (actual time=651.767..659.882 rows=9 loops=1)
 
         Workers Planned: 2
 
         Workers Launched: 2
 
-        Buffers: shared hit=15405 read=25851
+        Buffers: shared hit=15052 read=26204
 
-        ->  Sort  (cost=70405.96..70405.96 rows=3 width=43) (actual time=592.612..592.614 rows=3 loops=3)
+        ->  Sort  (cost=70405.96..70405.96 rows=3 width=43) (actual time=633.136..633.139 rows=3 loops=3)
 
               Sort Key: status
 
               Sort Method: quicksort  Memory: 25kB
 
-              Buffers: shared hit=15405 read=25851
+              Buffers: shared hit=15052 read=26204
 
               Worker 0:  Sort Method: quicksort  Memory: 25kB
 
               Worker 1:  Sort Method: quicksort  Memory: 25kB
 
-              ->  Partial HashAggregate  (cost=70405.90..70405.93 rows=3 width=43) (actual time=592.566..592.569 rows=3 loops=3)
+              ->  Partial HashAggregate  (cost=70405.90..70405.93 rows=3 width=43) (actual time=633.086..633.089 rows=3 loops=3)
 
                     Group Key: status
 
                     Batches: 1  Memory Usage: 24kB
 
-                    Buffers: shared hit=15389 read=25851
+                    Buffers: shared hit=15036 read=26204
 
                     Worker 0:  Batches: 1  Memory Usage: 24kB
 
                     Worker 1:  Batches: 1  Memory Usage: 24kB
 
-                    ->  Parallel Seq Scan on synthetic_data  (cost=0.00..57906.23 rows=1666623 width=11) (actual time=0.025..162.870 rows=1333333 loops=3)
+                    ->  Parallel Seq Scan on synthetic_data  (cost=0.00..57906.23 rows=1666623 width=11) (actual time=0.022..184.209 rows=1333333 loops=3)
 
-                          Buffers: shared hit=15389 read=25851
+                          Buffers: shared hit=15036 read=26204
 
 Planning:
 
   Buffers: shared hit=2 read=3
 
-Planning Time: 0.608 ms
+Planning Time: 0.543 ms
 
-Execution Time: 622.085 ms
+Execution Time: 659.980 ms
 

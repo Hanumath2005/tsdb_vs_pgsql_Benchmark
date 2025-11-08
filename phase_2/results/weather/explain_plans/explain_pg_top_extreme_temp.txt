@@ -1,8 +1,8 @@
-Limit  (cost=11460.00..11461.16 rows=10 width=16) (actual time=25.447..31.302 rows=10 loops=1)
+Limit  (cost=11460.00..11461.16 rows=10 width=16) (actual time=25.964..31.169 rows=10 loops=1)
 
   Buffers: shared hit=8064
 
-  ->  Gather Merge  (cost=11460.00..12255.02 rows=6814 width=16) (actual time=25.444..31.295 rows=10 loops=1)
+  ->  Gather Merge  (cost=11460.00..12255.02 rows=6814 width=16) (actual time=25.961..31.162 rows=10 loops=1)
 
         Workers Planned: 2
 
@@ -10,7 +10,7 @@ Limit  (cost=11460.00..11461.16 rows=10 width=16) (actual time=25.447..31.302 ro
 
         Buffers: shared hit=8064
 
-        ->  Sort  (cost=10459.97..10468.49 rows=3407 width=16) (actual time=20.968..20.971 rows=7 loops=3)
+        ->  Sort  (cost=10459.97..10468.49 rows=3407 width=16) (actual time=21.564..21.566 rows=10 loops=3)
 
               Sort Key: temperature DESC
 
@@ -22,7 +22,7 @@ Limit  (cost=11460.00..11461.16 rows=10 width=16) (actual time=25.447..31.302 ro
 
               Worker 1:  Sort Method: top-N heapsort  Memory: 25kB
 
-              ->  Parallel Seq Scan on weather_data  (cost=0.00..10386.35 rows=3407 width=16) (actual time=17.616..20.143 rows=2920 loops=3)
+              ->  Parallel Seq Scan on weather_data  (cost=0.00..10386.35 rows=3407 width=16) (actual time=18.071..20.774 rows=2920 loops=3)
 
                     Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-12-31 00:00:00'::timestamp without time zone))
 
@@ -34,7 +34,7 @@ Planning:
 
   Buffers: shared hit=4
 
-Planning Time: 0.145 ms
+Planning Time: 0.116 ms
 
-Execution Time: 31.344 ms
+Execution Time: 31.204 ms
 

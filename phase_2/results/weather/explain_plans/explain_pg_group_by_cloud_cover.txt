@@ -1,10 +1,10 @@
-Finalize GroupAggregate  (cost=12202.45..12229.30 rows=101 width=20) (actual time=66.588..71.545 rows=5 loops=1)
+Finalize GroupAggregate  (cost=12202.45..12229.30 rows=101 width=20) (actual time=72.441..77.399 rows=5 loops=1)
 
   Group Key: (width_bucket(cloud_cover, '0'::double precision, '100'::double precision, 4))
 
   Buffers: shared hit=7966
 
-  ->  Gather Merge  (cost=12202.45..12226.02 rows=202 width=68) (actual time=66.575..71.525 rows=15 loops=1)
+  ->  Gather Merge  (cost=12202.45..12226.02 rows=202 width=68) (actual time=72.427..77.375 rows=15 loops=1)
 
         Workers Planned: 2
 
@@ -12,7 +12,7 @@ Finalize GroupAggregate  (cost=12202.45..12229.30 rows=101 width=20) (actual tim
 
         Buffers: shared hit=7966
 
-        ->  Sort  (cost=11202.42..11202.68 rows=101 width=68) (actual time=61.838..61.840 rows=5 loops=3)
+        ->  Sort  (cost=11202.42..11202.68 rows=101 width=68) (actual time=67.917..67.919 rows=5 loops=3)
 
               Sort Key: (width_bucket(cloud_cover, '0'::double precision, '100'::double precision, 4))
 
@@ -24,7 +24,7 @@ Finalize GroupAggregate  (cost=12202.45..12229.30 rows=101 width=20) (actual tim
 
               Worker 1:  Sort Method: quicksort  Memory: 25kB
 
-              ->  Partial HashAggregate  (cost=11197.80..11199.06 rows=101 width=68) (actual time=61.793..61.796 rows=5 loops=3)
+              ->  Partial HashAggregate  (cost=11197.80..11199.06 rows=101 width=68) (actual time=67.869..67.873 rows=5 loops=3)
 
                     Group Key: width_bucket(cloud_cover, '0'::double precision, '100'::double precision, 4)
 
@@ -36,7 +36,7 @@ Finalize GroupAggregate  (cost=12202.45..12229.30 rows=101 width=20) (actual tim
 
                     Worker 1:  Batches: 1  Memory Usage: 24kB
 
-                    ->  Parallel Seq Scan on weather_data  (cost=0.00..9980.62 rows=162290 width=20) (actual time=0.016..29.869 rows=129832 loops=3)
+                    ->  Parallel Seq Scan on weather_data  (cost=0.00..9980.62 rows=162290 width=20) (actual time=0.018..34.643 rows=129832 loops=3)
 
                           Buffers: shared hit=7952
 
@@ -44,7 +44,7 @@ Planning:
 
   Buffers: shared hit=2 read=1
 
-Planning Time: 6.037 ms
+Planning Time: 0.413 ms
 
-Execution Time: 71.626 ms
+Execution Time: 77.487 ms
 

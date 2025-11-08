@@ -1,8 +1,8 @@
-Finalize Aggregate  (cost=12198.10..12198.11 rows=1 width=8) (actual time=20.949..26.297 rows=1 loops=1)
+Finalize Aggregate  (cost=12198.10..12198.11 rows=1 width=8) (actual time=26.148..30.961 rows=1 loops=1)
 
   Buffers: shared hit=7952
 
-  ->  Gather  (cost=12197.88..12198.09 rows=2 width=32) (actual time=20.639..26.283 rows=3 loops=1)
+  ->  Gather  (cost=12197.88..12198.09 rows=2 width=32) (actual time=25.905..30.948 rows=3 loops=1)
 
         Workers Planned: 2
 
@@ -10,11 +10,11 @@ Finalize Aggregate  (cost=12198.10..12198.11 rows=1 width=8) (actual time=20.949
 
         Buffers: shared hit=7952
 
-        ->  Partial Aggregate  (cost=11197.88..11197.89 rows=1 width=32) (actual time=16.920..16.922 rows=1 loops=3)
+        ->  Partial Aggregate  (cost=11197.88..11197.89 rows=1 width=32) (actual time=21.734..21.736 rows=1 loops=3)
 
               Buffers: shared hit=7952
 
-              ->  Parallel Seq Scan on weather_data  (cost=0.00..11197.80 rows=33 width=8) (actual time=15.398..16.905 rows=23 loops=3)
+              ->  Parallel Seq Scan on weather_data  (cost=0.00..11197.80 rows=33 width=8) (actual time=19.745..21.717 rows=23 loops=3)
 
                     Filter: ((relative_humidity > '80'::double precision) AND (temperature > '25'::double precision) AND ("time" >= '2020-06-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-06-30 00:00:00'::timestamp without time zone))
 
@@ -26,7 +26,7 @@ Planning:
 
   Buffers: shared hit=6
 
-Planning Time: 0.170 ms
+Planning Time: 0.198 ms
 
-Execution Time: 26.338 ms
+Execution Time: 31.005 ms
 

@@ -1,8 +1,8 @@
-Finalize Aggregate  (cost=12475.54..12475.55 rows=1 width=8) (actual time=56.699..61.116 rows=1 loops=1)
+Finalize Aggregate  (cost=12475.54..12475.55 rows=1 width=8) (actual time=59.394..67.880 rows=1 loops=1)
 
   Buffers: shared hit=653 read=1
 
-  ->  Gather  (cost=12475.33..12475.54 rows=2 width=8) (actual time=56.614..61.107 rows=3 loops=1)
+  ->  Gather  (cost=12475.33..12475.54 rows=2 width=8) (actual time=59.281..67.871 rows=3 loops=1)
 
         Workers Planned: 2
 
@@ -10,11 +10,11 @@ Finalize Aggregate  (cost=12475.54..12475.55 rows=1 width=8) (actual time=56.699
 
         Buffers: shared hit=653 read=1
 
-        ->  Partial Aggregate  (cost=11475.33..11475.34 rows=1 width=8) (actual time=44.257..44.259 rows=1 loops=3)
+        ->  Partial Aggregate  (cost=11475.33..11475.34 rows=1 width=8) (actual time=46.808..46.810 rows=1 loops=3)
 
               Buffers: shared hit=653 read=1
 
-              ->  Parallel Index Only Scan using _hyper_1_1_chunk_synthetic_data_time_idx on _hyper_1_1_chunk  (cost=0.43..10870.75 rows=241833 width=0) (actual time=0.165..26.905 rows=192067 loops=3)
+              ->  Parallel Index Only Scan using _hyper_1_1_chunk_synthetic_data_time_idx on _hyper_1_1_chunk  (cost=0.43..10870.75 rows=241833 width=0) (actual time=1.937..29.384 rows=192067 loops=3)
 
                     Index Cond: (("time" >= '2024-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2024-01-02 00:00:00'::timestamp without time zone))
 
@@ -26,7 +26,7 @@ Planning:
 
   Buffers: shared hit=18
 
-Planning Time: 0.358 ms
+Planning Time: 0.296 ms
 
-Execution Time: 61.155 ms
+Execution Time: 67.917 ms
 

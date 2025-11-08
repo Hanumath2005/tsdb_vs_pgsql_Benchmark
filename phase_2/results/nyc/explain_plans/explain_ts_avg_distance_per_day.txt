@@ -1,112 +1,112 @@
-Sort  (cost=392185.18..392185.68 rows=200 width=16) (actual time=3024.142..3035.336 rows=31 loops=1)
+Sort  (cost=392185.18..392185.68 rows=200 width=16) (actual time=2592.533..2602.306 rows=31 loops=1)
 
   Sort Key: (time_bucket('1 day'::interval, nyc_data.tpep_pickup_datetime))
 
   Sort Method: quicksort  Memory: 26kB
 
-  Buffers: shared hit=15913 read=255511
+  Buffers: shared hit=15881 read=255543
 
-  ->  Finalize HashAggregate  (cost=392174.54..392177.54 rows=200 width=16) (actual time=3024.104..3035.303 rows=31 loops=1)
+  ->  Finalize HashAggregate  (cost=392174.54..392177.54 rows=200 width=16) (actual time=2592.505..2602.283 rows=31 loops=1)
 
         Group Key: (time_bucket('1 day'::interval, nyc_data.tpep_pickup_datetime))
 
         Batches: 1  Memory Usage: 40kB
 
-        Buffers: shared hit=15913 read=255511
+        Buffers: shared hit=15881 read=255543
 
-        ->  Gather  (cost=93371.21..392164.54 rows=2000 width=40) (actual time=996.830..3035.217 rows=52 loops=1)
+        ->  Gather  (cost=93371.21..392164.54 rows=2000 width=40) (actual time=984.840..2602.198 rows=52 loops=1)
 
               Workers Planned: 2
 
               Workers Launched: 2
 
-              Buffers: shared hit=15913 read=255511
+              Buffers: shared hit=15881 read=255543
 
-              ->  Parallel Append  (cost=92371.21..390964.54 rows=1000 width=40) (actual time=1805.070..2993.209 rows=17 loops=3)
+              ->  Parallel Append  (cost=92371.21..390964.54 rows=1000 width=40) (actual time=1565.113..2566.953 rows=17 loops=3)
 
-                    Buffers: shared hit=15913 read=255511
+                    Buffers: shared hit=15881 read=255543
 
-                    ->  Partial HashAggregate  (cost=95696.76..95699.26 rows=200 width=40) (actual time=2216.019..2216.023 rows=7 loops=1)
+                    ->  Partial HashAggregate  (cost=95696.76..95699.26 rows=200 width=40) (actual time=1887.520..1887.525 rows=7 loops=1)
 
                           Group Key: time_bucket('1 day'::interval, _hyper_1_2_chunk.tpep_pickup_datetime)
 
-                          Buffers: shared hit=352 read=66080
-
-                          Worker 0:  Batches: 1  Memory Usage: 40kB
-
-                          ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..89193.48 rows=1300656 width=16) (actual time=48.718..1465.684 rows=3121576 loops=1)
-
-                                Filter: ((tpep_pickup_datetime >= '2015-01-01 00:00:00'::timestamp without time zone) AND (tpep_pickup_datetime < '2015-02-01 00:00:00'::timestamp without time zone))
-
-                                Buffers: shared hit=352 read=66080
-
-                    ->  Partial HashAggregate  (cost=92371.21..92373.71 rows=200 width=40) (actual time=2203.052..2203.057 rows=7 loops=1)
-
-                          Group Key: time_bucket('1 day'::interval, _hyper_1_1_chunk.tpep_pickup_datetime)
-
-                          Buffers: shared hit=352 read=63776
+                          Buffers: shared hit=286 read=66146
 
                           Worker 1:  Batches: 1  Memory Usage: 40kB
 
-                          ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..86094.94 rows=1255254 width=16) (actual time=45.387..1472.927 rows=3013041 loops=1)
+                          ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..89193.48 rows=1300656 width=16) (actual time=35.248..1159.728 rows=3121576 loops=1)
 
                                 Filter: ((tpep_pickup_datetime >= '2015-01-01 00:00:00'::timestamp without time zone) AND (tpep_pickup_datetime < '2015-02-01 00:00:00'::timestamp without time zone))
 
-                                Buffers: shared hit=352 read=63776
+                                Buffers: shared hit=286 read=66146
 
-                    ->  Partial HashAggregate  (cost=80977.88..80980.38 rows=200 width=40) (actual time=609.361..609.366 rows=7 loops=3)
+                    ->  Partial HashAggregate  (cost=92371.21..92373.71 rows=200 width=40) (actual time=1823.463..1823.467 rows=7 loops=1)
+
+                          Group Key: time_bucket('1 day'::interval, _hyper_1_1_chunk.tpep_pickup_datetime)
+
+                          Buffers: shared hit=288 read=63840
+
+                          Worker 0:  Batches: 1  Memory Usage: 40kB
+
+                          ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..86094.94 rows=1255254 width=16) (actual time=36.354..1121.915 rows=3013041 loops=1)
+
+                                Filter: ((tpep_pickup_datetime >= '2015-01-01 00:00:00'::timestamp without time zone) AND (tpep_pickup_datetime < '2015-02-01 00:00:00'::timestamp without time zone))
+
+                                Buffers: shared hit=288 read=63840
+
+                    ->  Partial HashAggregate  (cost=80977.88..80980.38 rows=200 width=40) (actual time=543.534..543.539 rows=7 loops=3)
 
                           Group Key: time_bucket('1 day'::interval, _hyper_1_4_chunk.tpep_pickup_datetime)
 
                           Batches: 1  Memory Usage: 40kB
 
-                          Buffers: shared hit=14152 read=42072
+                          Buffers: shared hit=14473 read=41751
 
                           Worker 0:  Batches: 1  Memory Usage: 40kB
 
                           Worker 1:  Batches: 1  Memory Usage: 40kB
 
-                          ->  Parallel Seq Scan on _hyper_1_4_chunk  (cost=0.00..75477.02 rows=1100172 width=16) (actual time=0.181..414.592 rows=880119 loops=3)
+                          ->  Parallel Seq Scan on _hyper_1_4_chunk  (cost=0.00..75477.02 rows=1100172 width=16) (actual time=0.214..356.451 rows=880119 loops=3)
 
                                 Filter: ((tpep_pickup_datetime >= '2015-01-01 00:00:00'::timestamp without time zone) AND (tpep_pickup_datetime < '2015-02-01 00:00:00'::timestamp without time zone))
 
-                                Buffers: shared hit=14152 read=42072
+                                Buffers: shared hit=14473 read=41751
 
-                    ->  Partial HashAggregate  (cost=77852.05..77854.55 rows=200 width=40) (actual time=868.126..868.130 rows=7 loops=2)
+                    ->  Partial HashAggregate  (cost=77852.05..77854.55 rows=200 width=40) (actual time=687.423..687.427 rows=7 loops=2)
 
                           Group Key: time_bucket('1 day'::interval, _hyper_1_3_chunk.tpep_pickup_datetime)
 
                           Batches: 1  Memory Usage: 40kB
 
-                          Buffers: shared hit=704 read=53344
+                          Buffers: shared hit=544 read=53504
 
-                          Worker 0:  Batches: 1  Memory Usage: 40kB
+                          Worker 1:  Batches: 1  Memory Usage: 40kB
 
-                          ->  Parallel Seq Scan on _hyper_1_3_chunk  (cost=0.00..72562.26 rows=1057958 width=16) (actual time=0.203..572.056 rows=1269290 loops=2)
+                          ->  Parallel Seq Scan on _hyper_1_3_chunk  (cost=0.00..72562.26 rows=1057958 width=16) (actual time=0.165..414.977 rows=1269290 loops=2)
 
                                 Filter: ((tpep_pickup_datetime >= '2015-01-01 00:00:00'::timestamp without time zone) AND (tpep_pickup_datetime < '2015-02-01 00:00:00'::timestamp without time zone))
 
-                                Buffers: shared hit=704 read=53344
+                                Buffers: shared hit=544 read=53504
 
-                    ->  Partial HashAggregate  (cost=44049.14..44051.64 rows=200 width=40) (actual time=996.121..996.126 rows=3 loops=1)
+                    ->  Partial HashAggregate  (cost=44049.14..44051.64 rows=200 width=40) (actual time=984.349..984.354 rows=3 loops=1)
 
                           Group Key: time_bucket('1 day'::interval, _hyper_1_5_chunk.tpep_pickup_datetime)
 
                           Batches: 1  Memory Usage: 40kB
 
-                          Buffers: shared hit=353 read=30239
+                          Buffers: shared hit=290 read=30302
 
-                          ->  Parallel Seq Scan on _hyper_1_5_chunk  (cost=0.00..41058.66 rows=598095 width=16) (actual time=47.359..661.120 rows=1435432 loops=1)
+                          ->  Parallel Seq Scan on _hyper_1_5_chunk  (cost=0.00..41058.66 rows=598095 width=16) (actual time=44.448..627.446 rows=1435432 loops=1)
 
                                 Filter: ((tpep_pickup_datetime >= '2015-01-01 00:00:00'::timestamp without time zone) AND (tpep_pickup_datetime < '2015-02-01 00:00:00'::timestamp without time zone))
 
-                                Buffers: shared hit=353 read=30239
+                                Buffers: shared hit=290 read=30302
 
 Planning:
 
   Buffers: shared hit=95
 
-Planning Time: 0.969 ms
+Planning Time: 1.179 ms
 
 JIT:
 
@@ -114,7 +114,7 @@ JIT:
 
   Options: Inlining false, Optimization false, Expressions true, Deforming true
 
-  Timing: Generation 11.986 ms, Inlining 0.000 ms, Optimization 5.369 ms, Emission 134.561 ms, Total 151.916 ms
+  Timing: Generation 8.765 ms, Inlining 0.000 ms, Optimization 4.140 ms, Emission 111.019 ms, Total 123.924 ms
 
-Execution Time: 3040.022 ms
+Execution Time: 2605.426 ms
 

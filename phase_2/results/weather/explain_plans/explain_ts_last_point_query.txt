@@ -1,8 +1,8 @@
-Unique  (cost=87.70..91.42 rows=200 width=24) (actual time=0.669..0.784 rows=32 loops=1)
+Unique  (cost=87.70..91.42 rows=200 width=24) (actual time=0.676..0.779 rows=32 loops=1)
 
   Buffers: shared hit=24
 
-  ->  Sort  (cost=87.70..89.56 rows=745 width=24) (actual time=0.668..0.715 rows=745 loops=1)
+  ->  Sort  (cost=87.70..89.56 rows=745 width=24) (actual time=0.676..0.717 rows=745 loops=1)
 
         Sort Key: (date_trunc('day'::text, weather_data."time")), weather_data."time" DESC
 
@@ -10,15 +10,15 @@ Unique  (cost=87.70..91.42 rows=200 width=24) (actual time=0.669..0.784 rows=32 
 
         Buffers: shared hit=24
 
-        ->  Result  (cost=0.00..52.16 rows=745 width=24) (actual time=0.025..0.404 rows=745 loops=1)
+        ->  Result  (cost=0.00..52.16 rows=745 width=24) (actual time=0.078..0.441 rows=745 loops=1)
 
               Buffers: shared hit=24
 
-              ->  Append  (cost=0.00..42.84 rows=745 width=16) (actual time=0.021..0.241 rows=745 loops=1)
+              ->  Append  (cost=0.00..42.84 rows=745 width=16) (actual time=0.074..0.303 rows=745 loops=1)
 
                     Buffers: shared hit=24
 
-                    ->  Seq Scan on _hyper_1_2088_chunk  (cost=0.00..6.52 rows=24 width=16) (actual time=0.020..0.025 rows=24 loops=1)
+                    ->  Seq Scan on _hyper_1_2088_chunk  (cost=0.00..6.52 rows=24 width=16) (actual time=0.073..0.079 rows=24 loops=1)
 
                           Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-02-01 00:00:00'::timestamp without time zone))
 
@@ -26,31 +26,31 @@ Unique  (cost=87.70..91.42 rows=200 width=24) (actual time=0.669..0.784 rows=32 
 
                           Buffers: shared hit=4
 
-                    ->  Seq Scan on _hyper_1_2089_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.003..0.032 rows=168 loops=1)
+                    ->  Seq Scan on _hyper_1_2089_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.036 rows=168 loops=1)
 
                           Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-02-01 00:00:00'::timestamp without time zone))
 
                           Buffers: shared hit=4
 
-                    ->  Seq Scan on _hyper_1_2090_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.002..0.031 rows=168 loops=1)
+                    ->  Seq Scan on _hyper_1_2090_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.005..0.034 rows=168 loops=1)
 
                           Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-02-01 00:00:00'::timestamp without time zone))
 
                           Buffers: shared hit=4
 
-                    ->  Seq Scan on _hyper_1_2091_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.002..0.031 rows=168 loops=1)
+                    ->  Seq Scan on _hyper_1_2091_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.034 rows=168 loops=1)
 
                           Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-02-01 00:00:00'::timestamp without time zone))
 
                           Buffers: shared hit=4
 
-                    ->  Seq Scan on _hyper_1_2092_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.002..0.031 rows=168 loops=1)
+                    ->  Seq Scan on _hyper_1_2092_chunk  (cost=0.00..6.52 rows=168 width=16) (actual time=0.004..0.034 rows=168 loops=1)
 
                           Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-02-01 00:00:00'::timestamp without time zone))
 
                           Buffers: shared hit=4
 
-                    ->  Seq Scan on _hyper_1_2093_chunk  (cost=0.00..6.52 rows=49 width=16) (actual time=0.002..0.022 rows=49 loops=1)
+                    ->  Seq Scan on _hyper_1_2093_chunk  (cost=0.00..6.52 rows=49 width=16) (actual time=0.004..0.027 rows=49 loops=1)
 
                           Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2020-02-01 00:00:00'::timestamp without time zone))
 
@@ -62,7 +62,7 @@ Planning:
 
   Buffers: shared hit=130
 
-Planning Time: 0.794 ms
+Planning Time: 0.818 ms
 
-Execution Time: 0.830 ms
+Execution Time: 0.824 ms
 

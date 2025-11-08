@@ -1,84 +1,84 @@
-Finalize Aggregate  (cost=339063.24..339063.25 rows=1 width=8) (actual time=1311.581..1321.295 rows=1 loops=1)
+Finalize Aggregate  (cost=339063.24..339063.25 rows=1 width=8) (actual time=1137.449..1147.879 rows=1 loops=1)
 
-  Buffers: shared hit=16003 read=255421
+  Buffers: shared hit=15616 read=255808
 
-  ->  Gather  (cost=80872.44..339063.21 rows=10 width=8) (actual time=431.109..1321.264 rows=8 loops=1)
+  ->  Gather  (cost=80872.44..339063.21 rows=10 width=8) (actual time=387.094..1147.850 rows=8 loops=1)
 
         Workers Planned: 2
 
         Workers Launched: 2
 
-        Buffers: shared hit=16003 read=255421
+        Buffers: shared hit=15616 read=255808
 
-        ->  Parallel Append  (cost=79872.44..338062.21 rows=5 width=8) (actual time=743.900..1274.437 rows=3 loops=3)
+        ->  Parallel Append  (cost=79872.44..338062.21 rows=5 width=8) (actual time=643.897..1113.368 rows=3 loops=3)
 
-              Buffers: shared hit=16003 read=255421
+              Buffers: shared hit=15616 read=255808
 
-              ->  Partial Aggregate  (cost=82747.43..82747.44 rows=1 width=8) (actual time=935.713..935.714 rows=1 loops=1)
+              ->  Partial Aggregate  (cost=82747.43..82747.44 rows=1 width=8) (actual time=789.739..789.741 rows=1 loops=1)
 
-                    Buffers: shared hit=1313 read=65119
+                    Buffers: shared hit=1095 read=65337
 
-                    ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..82690.20 rows=22892 width=0) (actual time=25.000..928.372 rows=53101 loops=1)
+                    ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..82690.20 rows=22892 width=0) (actual time=23.839..782.595 rows=53101 loops=1)
 
                           Filter: (ratecodeid = 2)
 
                           Rows Removed by Filter: 3068475
 
-                          Buffers: shared hit=1313 read=65119
+                          Buffers: shared hit=1095 read=65337
 
-              ->  Partial Aggregate  (cost=79872.44..79872.45 rows=1 width=8) (actual time=865.330..865.331 rows=1 loops=1)
+              ->  Partial Aggregate  (cost=79872.44..79872.45 rows=1 width=8) (actual time=755.287..755.289 rows=1 loops=1)
 
-                    Buffers: shared hit=1312 read=62816
+                    Buffers: shared hit=490 read=63638
 
-                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..79818.67 rows=21507 width=0) (actual time=23.037..858.693 rows=53389 loops=1)
+                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..79818.67 rows=21507 width=0) (actual time=23.316..748.836 rows=53389 loops=1)
 
                           Filter: (ratecodeid = 2)
 
                           Rows Removed by Filter: 2959652
 
-                          Buffers: shared hit=1312 read=62816
+                          Buffers: shared hit=490 read=63638
 
-              ->  Partial Aggregate  (cost=70036.85..70036.86 rows=1 width=8) (actual time=280.409..280.409 rows=1 loops=3)
+              ->  Partial Aggregate  (cost=70036.85..70036.86 rows=1 width=8) (actual time=270.806..270.807 rows=1 loops=3)
 
-                    Buffers: shared hit=9452 read=46772
+                    Buffers: shared hit=11312 read=44912
 
-                    ->  Parallel Seq Scan on _hyper_1_4_chunk  (cost=0.00..69976.16 rows=24277 width=0) (actual time=0.186..278.110 rows=18902 loops=3)
+                    ->  Parallel Seq Scan on _hyper_1_4_chunk  (cost=0.00..69976.16 rows=24277 width=0) (actual time=0.710..268.582 rows=18902 loops=3)
 
                           Filter: (ratecodeid = 2)
 
                           Rows Removed by Filter: 861217
 
-                          Buffers: shared hit=9452 read=46772
+                          Buffers: shared hit=11312 read=44912
 
-              ->  Partial Aggregate  (cost=67312.76..67312.77 rows=1 width=8) (actual time=375.174..375.175 rows=1 loops=2)
+              ->  Partial Aggregate  (cost=67312.76..67312.77 rows=1 width=8) (actual time=297.977..297.978 rows=1 loops=2)
 
-                    Buffers: shared hit=2592 read=51456
+                    Buffers: shared hit=2280 read=51768
 
-                    ->  Parallel Seq Scan on _hyper_1_3_chunk  (cost=0.00..67272.47 rows=16116 width=0) (actual time=0.603..372.488 rows=20626 loops=2)
+                    ->  Parallel Seq Scan on _hyper_1_3_chunk  (cost=0.00..67272.47 rows=16116 width=0) (actual time=0.797..295.544 rows=20626 loops=2)
 
                           Filter: (ratecodeid = 2)
 
                           Rows Removed by Filter: 1248663
 
-                          Buffers: shared hit=2592 read=51456
+                          Buffers: shared hit=2280 read=51768
 
-              ->  Partial Aggregate  (cost=38092.66..38092.67 rows=1 width=8) (actual time=430.651..430.652 rows=1 loops=1)
+              ->  Partial Aggregate  (cost=38092.66..38092.67 rows=1 width=8) (actual time=386.656..386.657 rows=1 loops=1)
 
-                    Buffers: shared hit=1334 read=29258
+                    Buffers: shared hit=439 read=30153
 
-                    ->  Parallel Seq Scan on _hyper_1_5_chunk  (cost=0.00..38068.19 rows=9789 width=0) (actual time=22.932..427.949 rows=20273 loops=1)
+                    ->  Parallel Seq Scan on _hyper_1_5_chunk  (cost=0.00..38068.19 rows=9789 width=0) (actual time=22.434..384.103 rows=20273 loops=1)
 
                           Filter: (ratecodeid = 2)
 
                           Rows Removed by Filter: 1415159
 
-                          Buffers: shared hit=1334 read=29258
+                          Buffers: shared hit=439 read=30153
 
 Planning:
 
-  Buffers: shared hit=53 read=7 dirtied=5
+  Buffers: shared hit=53 read=7
 
-Planning Time: 2.731 ms
+Planning Time: 1.627 ms
 
 JIT:
 
@@ -86,7 +86,7 @@ JIT:
 
   Options: Inlining false, Optimization false, Expressions true, Deforming true
 
-  Timing: Generation 7.337 ms, Inlining 0.000 ms, Optimization 3.746 ms, Emission 65.663 ms, Total 76.746 ms
+  Timing: Generation 6.532 ms, Inlining 0.000 ms, Optimization 3.662 ms, Emission 64.987 ms, Total 75.180 ms
 
-Execution Time: 1323.519 ms
+Execution Time: 1149.991 ms
 

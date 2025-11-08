@@ -1,50 +1,50 @@
-Finalize GroupAggregate  (cost=351978.21..351980.00 rows=7 width=12) (actual time=2489.326..2498.190 rows=10 loops=1)
+Finalize GroupAggregate  (cost=351978.21..351980.00 rows=7 width=12) (actual time=3085.014..3097.609 rows=10 loops=1)
 
   Group Key: passenger_count
 
-  Buffers: shared hit=15297 read=256029
+  Buffers: shared hit=15290 read=256036
 
-  ->  Gather Merge  (cost=351978.21..351979.84 rows=14 width=36) (actual time=2489.302..2498.153 rows=30 loops=1)
+  ->  Gather Merge  (cost=351978.21..351979.84 rows=14 width=36) (actual time=3084.962..3097.542 rows=30 loops=1)
 
         Workers Planned: 2
 
         Workers Launched: 2
 
-        Buffers: shared hit=15297 read=256029
+        Buffers: shared hit=15290 read=256036
 
-        ->  Sort  (cost=350978.19..350978.20 rows=7 width=36) (actual time=2463.651..2463.653 rows=10 loops=3)
+        ->  Sort  (cost=350978.19..350978.20 rows=7 width=36) (actual time=3060.394..3060.397 rows=10 loops=3)
 
               Sort Key: passenger_count
 
               Sort Method: quicksort  Memory: 25kB
 
-              Buffers: shared hit=15297 read=256029
+              Buffers: shared hit=15290 read=256036
 
               Worker 0:  Sort Method: quicksort  Memory: 25kB
 
               Worker 1:  Sort Method: quicksort  Memory: 25kB
 
-              ->  Partial HashAggregate  (cost=350978.02..350978.09 rows=7 width=36) (actual time=2463.613..2463.616 rows=10 loops=3)
+              ->  Partial HashAggregate  (cost=350978.02..350978.09 rows=7 width=36) (actual time=3060.350..3060.355 rows=10 loops=3)
 
                     Group Key: passenger_count
 
                     Batches: 1  Memory Usage: 24kB
 
-                    Buffers: shared hit=15283 read=256029
+                    Buffers: shared hit=15276 read=256036
 
                     Worker 0:  Batches: 1  Memory Usage: 24kB
 
                     Worker 1:  Batches: 1  Memory Usage: 24kB
 
-                    ->  Parallel Seq Scan on nyc_data  (cost=0.00..324422.68 rows=5311068 width=12) (actual time=0.136..1055.932 rows=4249662 loops=3)
+                    ->  Parallel Seq Scan on nyc_data  (cost=0.00..324422.68 rows=5311068 width=12) (actual time=0.192..1243.746 rows=4249662 loops=3)
 
-                          Buffers: shared hit=15283 read=256029
+                          Buffers: shared hit=15276 read=256036
 
 Planning:
 
-  Buffers: shared read=3 dirtied=1
+  Buffers: shared read=3
 
-Planning Time: 2.066 ms
+Planning Time: 1.737 ms
 
 JIT:
 
@@ -52,7 +52,7 @@ JIT:
 
   Options: Inlining false, Optimization false, Expressions true, Deforming true
 
-  Timing: Generation 2.681 ms, Inlining 0.000 ms, Optimization 2.097 ms, Emission 36.568 ms, Total 41.345 ms
+  Timing: Generation 3.299 ms, Inlining 0.000 ms, Optimization 2.544 ms, Emission 40.713 ms, Total 46.555 ms
 
-Execution Time: 2499.143 ms
+Execution Time: 3099.209 ms
 

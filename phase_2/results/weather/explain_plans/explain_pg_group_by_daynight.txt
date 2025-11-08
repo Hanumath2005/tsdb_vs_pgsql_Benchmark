@@ -1,10 +1,10 @@
-Finalize GroupAggregate  (cost=11792.13..11792.65 rows=2 width=17) (actual time=73.175..78.622 rows=2 loops=1)
+Finalize GroupAggregate  (cost=11792.13..11792.65 rows=2 width=17) (actual time=71.510..77.019 rows=2 loops=1)
 
   Group Key: is_day
 
   Buffers: shared hit=7968
 
-  ->  Gather Merge  (cost=11792.13..11792.60 rows=4 width=41) (actual time=73.162..78.607 rows=6 loops=1)
+  ->  Gather Merge  (cost=11792.13..11792.60 rows=4 width=41) (actual time=71.495..77.002 rows=6 loops=1)
 
         Workers Planned: 2
 
@@ -12,7 +12,7 @@ Finalize GroupAggregate  (cost=11792.13..11792.65 rows=2 width=17) (actual time=
 
         Buffers: shared hit=7968
 
-        ->  Sort  (cost=10792.11..10792.11 rows=2 width=41) (actual time=69.178..69.180 rows=2 loops=3)
+        ->  Sort  (cost=10792.11..10792.11 rows=2 width=41) (actual time=67.937..67.939 rows=2 loops=3)
 
               Sort Key: is_day
 
@@ -24,7 +24,7 @@ Finalize GroupAggregate  (cost=11792.13..11792.65 rows=2 width=17) (actual time=
 
               Worker 1:  Sort Method: quicksort  Memory: 25kB
 
-              ->  Partial HashAggregate  (cost=10792.08..10792.10 rows=2 width=41) (actual time=69.135..69.138 rows=2 loops=3)
+              ->  Partial HashAggregate  (cost=10792.08..10792.10 rows=2 width=41) (actual time=67.898..67.901 rows=2 loops=3)
 
                     Group Key: is_day
 
@@ -36,15 +36,15 @@ Finalize GroupAggregate  (cost=11792.13..11792.65 rows=2 width=17) (actual time=
 
                     Worker 1:  Batches: 1  Memory Usage: 24kB
 
-                    ->  Parallel Seq Scan on weather_data  (cost=0.00..9574.90 rows=162290 width=17) (actual time=0.006..17.208 rows=129832 loops=3)
+                    ->  Parallel Seq Scan on weather_data  (cost=0.00..9574.90 rows=162290 width=17) (actual time=0.009..17.856 rows=129832 loops=3)
 
                           Buffers: shared hit=7952
 
 Planning:
 
-  Buffers: shared hit=10
+  Buffers: shared hit=8 read=2
 
-Planning Time: 0.124 ms
+Planning Time: 0.613 ms
 
-Execution Time: 78.689 ms
+Execution Time: 77.098 ms
 

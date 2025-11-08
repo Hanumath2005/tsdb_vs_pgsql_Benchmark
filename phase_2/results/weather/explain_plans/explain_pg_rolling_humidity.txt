@@ -1,12 +1,12 @@
-Limit  (cost=27395.17..28052.51 rows=5000 width=16) (actual time=80.606..97.490 rows=5000 loops=1)
+Limit  (cost=27395.17..28052.51 rows=5000 width=16) (actual time=69.650..87.636 rows=5000 loops=1)
 
   Buffers: shared hit=8064, temp read=1164 written=1246
 
-  ->  WindowAgg  (cost=27395.17..78600.84 rows=389496 width=16) (actual time=80.604..96.991 rows=5000 loops=1)
+  ->  WindowAgg  (cost=27395.17..78600.84 rows=389496 width=16) (actual time=69.647..87.054 rows=5000 loops=1)
 
         Buffers: shared hit=8064, temp read=1164 written=1246
 
-        ->  Gather Merge  (cost=27395.17..72758.40 rows=389496 width=16) (actual time=80.581..88.571 rows=5001 loops=1)
+        ->  Gather Merge  (cost=27395.17..72758.40 rows=389496 width=16) (actual time=69.626..77.130 rows=5001 loops=1)
 
               Workers Planned: 2
 
@@ -14,23 +14,23 @@ Limit  (cost=27395.17..28052.51 rows=5000 width=16) (actual time=80.606..97.490 
 
               Buffers: shared hit=8064, temp read=1164 written=1246
 
-              ->  Sort  (cost=26395.15..26800.88 rows=162290 width=16) (actual time=75.711..76.104 rows=2759 loops=3)
+              ->  Sort  (cost=26395.15..26800.88 rows=162290 width=16) (actual time=65.460..65.884 rows=2759 loops=3)
 
                     Sort Key: "time"
 
-                    Sort Method: external merge  Disk: 3784kB
+                    Sort Method: external merge  Disk: 3944kB
 
                     Buffers: shared hit=8064, temp read=1164 written=1246
 
-                    Worker 0:  Sort Method: external merge  Disk: 2928kB
+                    Worker 0:  Sort Method: external merge  Disk: 2912kB
 
-                    Worker 1:  Sort Method: external merge  Disk: 3224kB
+                    Worker 1:  Sort Method: external merge  Disk: 3080kB
 
-                    ->  Parallel Seq Scan on weather_data  (cost=0.00..9574.90 rows=162290 width=16) (actual time=0.012..30.462 rows=129832 loops=3)
+                    ->  Parallel Seq Scan on weather_data  (cost=0.00..9574.90 rows=162290 width=16) (actual time=0.012..26.506 rows=129832 loops=3)
 
                           Buffers: shared hit=7952
 
-Planning Time: 0.082 ms
+Planning Time: 0.093 ms
 
-Execution Time: 99.228 ms
+Execution Time: 89.643 ms
 

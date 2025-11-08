@@ -1,36 +1,36 @@
-Limit  (cost=1100215.15..1100872.48 rows=5000 width=16) (actual time=4557.139..4593.355 rows=5000 loops=1)
+Limit  (cost=1100215.15..1100872.48 rows=5000 width=16) (actual time=3937.803..3966.984 rows=5000 loops=1)
 
-  Buffers: shared hit=16257 read=255167, temp read=42037 written=81317
+  Buffers: shared hit=15387 read=256037, temp read=42037 written=81319
 
-  ->  WindowAgg  (cost=1100215.15..2775960.91 rows=12746563 width=16) (actual time=4295.453..4331.179 rows=5000 loops=1)
+  ->  WindowAgg  (cost=1100215.15..2775960.91 rows=12746563 width=16) (actual time=3744.427..3773.213 rows=5000 loops=1)
 
-        Buffers: shared hit=16257 read=255167, temp read=42037 written=81317
+        Buffers: shared hit=15387 read=256037, temp read=42037 written=81319
 
-        ->  Gather Merge  (cost=1100215.15..2584762.46 rows=12746563 width=16) (actual time=4295.338..4323.851 rows=5001 loops=1)
+        ->  Gather Merge  (cost=1100215.15..2584762.46 rows=12746563 width=16) (actual time=3744.352..3767.334 rows=5001 loops=1)
 
               Workers Planned: 2
 
               Workers Launched: 2
 
-              Buffers: shared hit=16257 read=255167, temp read=42037 written=81317
+              Buffers: shared hit=15387 read=256037, temp read=42037 written=81319
 
-              ->  Sort  (cost=1099215.13..1112492.80 rows=5311068 width=16) (actual time=4223.078..4223.437 rows=2633 loops=3)
+              ->  Sort  (cost=1099215.13..1112492.80 rows=5311068 width=16) (actual time=3710.049..3710.350 rows=2619 loops=3)
 
                     Sort Key: tpep_pickup_datetime
 
-                    Sort Method: external merge  Disk: 116168kB
+                    Sort Method: external merge  Disk: 113368kB
 
-                    Buffers: shared hit=16257 read=255167, temp read=42037 written=81317
+                    Buffers: shared hit=15387 read=256037, temp read=42037 written=81319
 
                     Worker 0:  Sort Method: external merge  Disk: 105024kB
 
-                    Worker 1:  Sort Method: external merge  Disk: 103344kB
+                    Worker 1:  Sort Method: external merge  Disk: 106144kB
 
-                    ->  Parallel Seq Scan on nyc_data  (cost=0.00..324422.68 rows=5311068 width=16) (actual time=128.948..1733.558 rows=4249662 loops=3)
+                    ->  Parallel Seq Scan on nyc_data  (cost=0.00..324422.68 rows=5311068 width=16) (actual time=106.451..1393.515 rows=4249662 loops=3)
 
-                          Buffers: shared hit=16151 read=255161
+                          Buffers: shared hit=15281 read=256031
 
-Planning Time: 0.394 ms
+Planning Time: 0.140 ms
 
 JIT:
 
@@ -38,7 +38,7 @@ JIT:
 
   Options: Inlining true, Optimization true, Expressions true, Deforming true
 
-  Timing: Generation 8.718 ms, Inlining 363.219 ms, Optimization 170.355 ms, Emission 114.264 ms, Total 656.556 ms
+  Timing: Generation 1.749 ms, Inlining 265.420 ms, Optimization 142.014 ms, Emission 104.840 ms, Total 514.023 ms
 
-Execution Time: 4613.470 ms
+Execution Time: 3982.511 ms
 

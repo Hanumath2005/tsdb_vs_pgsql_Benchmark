@@ -1,56 +1,56 @@
-Limit  (cost=466899.38..466900.54 rows=10 width=20) (actual time=2989.594..3006.252 rows=10 loops=1)
+Limit  (cost=466899.38..466900.54 rows=10 width=20) (actual time=2966.942..2976.946 rows=10 loops=1)
 
-  Buffers: shared hit=16097 read=255439
+  Buffers: shared hit=15477 read=256059
 
-  ->  Gather Merge  (cost=466899.38..1706484.09 rows=10624270 width=20) (actual time=2971.928..2988.581 rows=10 loops=1)
+  ->  Gather Merge  (cost=466899.38..1706484.09 rows=10624270 width=20) (actual time=2944.457..2954.458 rows=10 loops=1)
 
         Workers Planned: 2
 
         Workers Launched: 2
 
-        Buffers: shared hit=16097 read=255439
+        Buffers: shared hit=15477 read=256059
 
-        ->  Sort  (cost=465899.35..479179.69 rows=5312135 width=20) (actual time=2939.431..2939.436 rows=8 loops=3)
+        ->  Sort  (cost=465899.35..479179.69 rows=5312135 width=20) (actual time=2920.326..2920.331 rows=8 loops=3)
 
               Sort Key: nyc_data.tip_amount DESC
 
               Sort Method: top-N heapsort  Memory: 26kB
 
-              Buffers: shared hit=16097 read=255439
+              Buffers: shared hit=15477 read=256059
 
               Worker 0:  Sort Method: top-N heapsort  Memory: 26kB
 
               Worker 1:  Sort Method: top-N heapsort  Memory: 26kB
 
-              ->  Parallel Append  (cost=0.00..351106.03 rows=5312135 width=20) (actual time=15.975..2107.340 rows=4249662 loops=3)
+              ->  Parallel Append  (cost=0.00..351106.03 rows=5312135 width=20) (actual time=15.940..2049.547 rows=4249662 loops=3)
 
-                    Buffers: shared hit=15985 read=255439
+                    Buffers: shared hit=15365 read=256059
 
-                    ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..79438.56 rows=1300656 width=20) (actual time=22.488..1240.620 rows=3121576 loops=1)
+                    ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..79438.56 rows=1300656 width=20) (actual time=23.424..1173.001 rows=3121576 loops=1)
 
-                          Buffers: shared hit=2001 read=64431
+                          Buffers: shared hit=2159 read=64273
 
-                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..76680.54 rows=1255254 width=20) (actual time=24.274..1176.445 rows=3013041 loops=1)
+                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..76680.54 rows=1255254 width=20) (actual time=23.310..1136.949 rows=3013041 loops=1)
 
-                          Buffers: shared hit=1781 read=62347
+                          Buffers: shared hit=2003 read=62125
 
-                    ->  Parallel Seq Scan on _hyper_1_4_chunk  (cost=0.00..67225.73 rows=1100172 width=20) (actual time=0.537..324.124 rows=880119 loops=3)
+                    ->  Parallel Seq Scan on _hyper_1_4_chunk  (cost=0.00..67225.73 rows=1100172 width=20) (actual time=0.178..316.273 rows=880119 loops=3)
 
-                          Buffers: shared hit=6142 read=50082
+                          Buffers: shared hit=5206 read=51018
 
-                    ->  Parallel Seq Scan on _hyper_1_3_chunk  (cost=0.00..64627.57 rows=1057958 width=20) (actual time=0.236..486.050 rows=1269290 loops=2)
+                    ->  Parallel Seq Scan on _hyper_1_3_chunk  (cost=0.00..64627.57 rows=1057958 width=20) (actual time=0.193..461.491 rows=1269290 loops=2)
 
-                          Buffers: shared hit=4285 read=49763
+                          Buffers: shared hit=4092 read=49956
 
-                    ->  Parallel Seq Scan on _hyper_1_5_chunk  (cost=0.00..36572.95 rows=598095 width=20) (actual time=1.157..570.892 rows=1435432 loops=1)
+                    ->  Parallel Seq Scan on _hyper_1_5_chunk  (cost=0.00..36572.95 rows=598095 width=20) (actual time=1.080..530.766 rows=1435432 loops=1)
 
-                          Buffers: shared hit=1776 read=28816
+                          Buffers: shared hit=1905 read=28687
 
 Planning:
 
   Buffers: shared hit=43
 
-Planning Time: 0.358 ms
+Planning Time: 0.272 ms
 
 JIT:
 
@@ -58,7 +58,7 @@ JIT:
 
   Options: Inlining false, Optimization false, Expressions true, Deforming true
 
-  Timing: Generation 4.350 ms, Inlining 0.000 ms, Optimization 4.251 ms, Emission 59.535 ms, Total 68.135 ms
+  Timing: Generation 4.738 ms, Inlining 0.000 ms, Optimization 4.374 ms, Emission 64.161 ms, Total 73.273 ms
 
-Execution Time: 3007.787 ms
+Execution Time: 2978.631 ms
 

@@ -1,8 +1,8 @@
-Finalize Aggregate  (cost=11395.11..11395.12 rows=1 width=8) (actual time=23.431..29.481 rows=1 loops=1)
+Finalize Aggregate  (cost=11395.11..11395.12 rows=1 width=8) (actual time=23.860..29.105 rows=1 loops=1)
 
   Buffers: shared hit=7952
 
-  ->  Gather  (cost=11394.89..11395.10 rows=2 width=8) (actual time=23.176..29.469 rows=3 loops=1)
+  ->  Gather  (cost=11394.89..11395.10 rows=2 width=8) (actual time=23.615..29.092 rows=3 loops=1)
 
         Workers Planned: 2
 
@@ -10,11 +10,11 @@ Finalize Aggregate  (cost=11395.11..11395.12 rows=1 width=8) (actual time=23.431
 
         Buffers: shared hit=7952
 
-        ->  Partial Aggregate  (cost=10394.89..10394.90 rows=1 width=8) (actual time=18.738..18.741 rows=1 loops=3)
+        ->  Partial Aggregate  (cost=10394.89..10394.90 rows=1 width=8) (actual time=19.233..19.235 rows=1 loops=3)
 
               Buffers: shared hit=7952
 
-              ->  Parallel Seq Scan on weather_data  (cost=0.00..10386.35 rows=3417 width=0) (actual time=16.213..18.435 rows=2928 loops=3)
+              ->  Parallel Seq Scan on weather_data  (cost=0.00..10386.35 rows=3417 width=0) (actual time=16.643..18.947 rows=2928 loops=3)
 
                     Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2021-01-01 00:00:00'::timestamp without time zone))
 
@@ -22,7 +22,7 @@ Finalize Aggregate  (cost=11395.11..11395.12 rows=1 width=8) (actual time=23.431
 
                     Buffers: shared hit=7952
 
-Planning Time: 0.106 ms
+Planning Time: 0.107 ms
 
-Execution Time: 29.526 ms
+Execution Time: 29.148 ms
 

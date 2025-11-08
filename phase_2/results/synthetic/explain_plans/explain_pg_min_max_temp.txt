@@ -1,8 +1,8 @@
-Finalize Aggregate  (cost=67239.56..67239.57 rows=1 width=16) (actual time=350.024..353.933 rows=1 loops=1)
+Finalize Aggregate  (cost=67239.56..67239.57 rows=1 width=16) (actual time=333.451..336.731 rows=1 loops=1)
 
   Buffers: shared hit=1056 read=40184
 
-  ->  Gather  (cost=67239.34..67239.55 rows=2 width=16) (actual time=349.824..353.921 rows=3 loops=1)
+  ->  Gather  (cost=67239.34..67239.55 rows=2 width=16) (actual time=333.237..336.721 rows=3 loops=1)
 
         Workers Planned: 2
 
@@ -10,11 +10,11 @@ Finalize Aggregate  (cost=67239.56..67239.57 rows=1 width=16) (actual time=350.0
 
         Buffers: shared hit=1056 read=40184
 
-        ->  Partial Aggregate  (cost=66239.34..66239.35 rows=1 width=16) (actual time=345.374..345.376 rows=1 loops=3)
+        ->  Partial Aggregate  (cost=66239.34..66239.35 rows=1 width=16) (actual time=329.390..329.392 rows=1 loops=3)
 
               Buffers: shared hit=1056 read=40184
 
-              ->  Parallel Seq Scan on synthetic_data  (cost=0.00..57906.23 rows=1666623 width=8) (actual time=0.032..176.426 rows=1333333 loops=3)
+              ->  Parallel Seq Scan on synthetic_data  (cost=0.00..57906.23 rows=1666623 width=8) (actual time=0.037..170.091 rows=1333333 loops=3)
 
                     Buffers: shared hit=1056 read=40184
 
@@ -22,7 +22,7 @@ Planning:
 
   Buffers: shared hit=12 read=10
 
-Planning Time: 1.819 ms
+Planning Time: 1.187 ms
 
-Execution Time: 353.987 ms
+Execution Time: 336.774 ms
 

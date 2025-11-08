@@ -1,8 +1,8 @@
-Finalize Aggregate  (cost=70839.02..70839.03 rows=1 width=8) (actual time=321.641..326.454 rows=1 loops=1)
+Finalize Aggregate  (cost=70839.02..70839.03 rows=1 width=8) (actual time=384.312..392.973 rows=1 loops=1)
 
   Buffers: shared hit=6336 read=34904
 
-  ->  Gather  (cost=70838.80..70839.01 rows=2 width=8) (actual time=321.330..326.440 rows=3 loops=1)
+  ->  Gather  (cost=70838.80..70839.01 rows=2 width=8) (actual time=384.091..392.961 rows=3 loops=1)
 
         Workers Planned: 2
 
@@ -10,11 +10,11 @@ Finalize Aggregate  (cost=70839.02..70839.03 rows=1 width=8) (actual time=321.64
 
         Buffers: shared hit=6336 read=34904
 
-        ->  Partial Aggregate  (cost=69838.80..69838.81 rows=1 width=8) (actual time=316.828..316.830 rows=1 loops=3)
+        ->  Partial Aggregate  (cost=69838.80..69838.81 rows=1 width=8) (actual time=377.916..377.917 rows=1 loops=3)
 
               Buffers: shared hit=6336 read=34904
 
-              ->  Parallel Seq Scan on synthetic_data  (cost=0.00..66239.34 rows=1439783 width=0) (actual time=0.050..215.915 rows=1152067 loops=3)
+              ->  Parallel Seq Scan on synthetic_data  (cost=0.00..66239.34 rows=1439783 width=0) (actual time=0.194..274.558 rows=1152067 loops=3)
 
                     Filter: (("time" >= '2024-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2024-01-07 00:00:00'::timestamp without time zone))
 
@@ -22,7 +22,7 @@ Finalize Aggregate  (cost=70839.02..70839.03 rows=1 width=8) (actual time=321.64
 
                     Buffers: shared hit=6336 read=34904
 
-Planning Time: 0.184 ms
+Planning Time: 0.111 ms
 
-Execution Time: 326.499 ms
+Execution Time: 393.014 ms
 

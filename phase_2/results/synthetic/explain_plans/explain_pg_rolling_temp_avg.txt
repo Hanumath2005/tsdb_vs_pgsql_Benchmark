@@ -1,36 +1,36 @@
-Limit  (cost=288105.21..288762.54 rows=5000 width=16) (actual time=992.211..1015.134 rows=5000 loops=1)
+Limit  (cost=288105.21..288762.54 rows=5000 width=16) (actual time=1015.166..1045.112 rows=5000 loops=1)
 
-  Buffers: shared hit=13389 read=27963 written=21, temp read=14220 written=25530
+  Buffers: shared hit=13777 read=27575, temp read=14220 written=25530
 
-  ->  WindowAgg  (cost=288105.21..813957.32 rows=3999895 width=16) (actual time=982.572..1004.577 rows=5000 loops=1)
+  ->  WindowAgg  (cost=288105.21..813957.32 rows=3999895 width=16) (actual time=1007.076..1036.556 rows=5000 loops=1)
 
-        Buffers: shared hit=13389 read=27963 written=21, temp read=14220 written=25530
+        Buffers: shared hit=13777 read=27575, temp read=14220 written=25530
 
-        ->  Gather Merge  (cost=288105.21..753958.90 rows=3999895 width=16) (actual time=982.506..997.078 rows=5001 loops=1)
+        ->  Gather Merge  (cost=288105.21..753958.90 rows=3999895 width=16) (actual time=1007.002..1029.152 rows=5001 loops=1)
 
               Workers Planned: 2
 
               Workers Launched: 2
 
-              Buffers: shared hit=13389 read=27963 written=21, temp read=14220 written=25530
+              Buffers: shared hit=13777 read=27575, temp read=14220 written=25530
 
-              ->  Sort  (cost=287105.19..291271.74 rows=1666623 width=16) (actual time=950.392..950.688 rows=2599 loops=3)
+              ->  Sort  (cost=287105.19..291271.74 rows=1666623 width=16) (actual time=962.527..962.856 rows=2632 loops=3)
 
                     Sort Key: "time"
 
-                    Sort Method: external merge  Disk: 35608kB
+                    Sort Method: external merge  Disk: 35712kB
 
-                    Buffers: shared hit=13389 read=27963 written=21, temp read=14220 written=25530
+                    Buffers: shared hit=13777 read=27575, temp read=14220 written=25530
 
-                    Worker 0:  Sort Method: external merge  Disk: 32816kB
+                    Worker 0:  Sort Method: external merge  Disk: 33512kB
 
-                    Worker 1:  Sort Method: external merge  Disk: 33528kB
+                    Worker 1:  Sort Method: external merge  Disk: 32728kB
 
-                    ->  Parallel Seq Scan on synthetic_data  (cost=0.00..57906.23 rows=1666623 width=16) (actual time=3.596..224.549 rows=1333333 loops=3)
+                    ->  Parallel Seq Scan on synthetic_data  (cost=0.00..57906.23 rows=1666623 width=16) (actual time=3.740..253.600 rows=1333333 loops=3)
 
-                          Buffers: shared hit=13277 read=27963 written=21
+                          Buffers: shared hit=13665 read=27575
 
-Planning Time: 0.099 ms
+Planning Time: 0.120 ms
 
 JIT:
 
@@ -38,7 +38,7 @@ JIT:
 
   Options: Inlining false, Optimization false, Expressions true, Deforming true
 
-  Timing: Generation 1.217 ms, Inlining 0.000 ms, Optimization 1.260 ms, Emission 19.003 ms, Total 21.480 ms
+  Timing: Generation 0.988 ms, Inlining 0.000 ms, Optimization 1.161 ms, Emission 17.751 ms, Total 19.900 ms
 
-Execution Time: 1274.222 ms
+Execution Time: 1195.492 ms
 

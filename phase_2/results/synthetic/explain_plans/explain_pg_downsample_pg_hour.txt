@@ -1,10 +1,10 @@
-Finalize GroupAggregate  (cost=70698.87..75850.88 rows=19942 width=16) (actual time=260.173..265.420 rows=24 loops=1)
+Finalize GroupAggregate  (cost=70698.87..75850.88 rows=19942 width=16) (actual time=264.873..269.380 rows=24 loops=1)
 
   Group Key: (date_trunc('hour'::text, "time"))
 
   Buffers: shared hit=8462 read=32792
 
-  ->  Gather Merge  (cost=70698.87..75352.33 rows=39884 width=40) (actual time=260.159..265.376 rows=72 loops=1)
+  ->  Gather Merge  (cost=70698.87..75352.33 rows=39884 width=40) (actual time=264.858..269.337 rows=72 loops=1)
 
         Workers Planned: 2
 
@@ -12,7 +12,7 @@ Finalize GroupAggregate  (cost=70698.87..75850.88 rows=19942 width=16) (actual t
 
         Buffers: shared hit=8462 read=32792
 
-        ->  Sort  (cost=69698.85..69748.70 rows=19942 width=40) (actual time=251.737..251.740 rows=24 loops=3)
+        ->  Sort  (cost=69698.85..69748.70 rows=19942 width=40) (actual time=260.060..260.064 rows=24 loops=3)
 
               Sort Key: (date_trunc('hour'::text, "time"))
 
@@ -24,7 +24,7 @@ Finalize GroupAggregate  (cost=70698.87..75850.88 rows=19942 width=16) (actual t
 
               Worker 1:  Sort Method: quicksort  Memory: 26kB
 
-              ->  Partial HashAggregate  (cost=68025.36..68274.64 rows=19942 width=40) (actual time=251.507..251.651 rows=24 loops=3)
+              ->  Partial HashAggregate  (cost=68025.36..68274.64 rows=19942 width=40) (actual time=259.823..259.981 rows=24 loops=3)
 
                     Group Key: date_trunc('hour'::text, "time")
 
@@ -36,7 +36,7 @@ Finalize GroupAggregate  (cost=70698.87..75850.88 rows=19942 width=16) (actual t
 
                     Worker 1:  Batches: 1  Memory Usage: 793kB
 
-                    ->  Parallel Seq Scan on synthetic_data  (cost=0.00..66834.68 rows=238136 width=16) (actual time=0.138..204.246 rows=192000 loops=3)
+                    ->  Parallel Seq Scan on synthetic_data  (cost=0.00..66834.68 rows=238136 width=16) (actual time=0.785..213.509 rows=192000 loops=3)
 
                           Filter: (("time" >= '2024-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2024-01-02 00:00:00'::timestamp without time zone))
 
@@ -48,7 +48,7 @@ Planning:
 
   Buffers: shared hit=6 read=1
 
-Planning Time: 0.288 ms
+Planning Time: 0.302 ms
 
-Execution Time: 266.319 ms
+Execution Time: 270.164 ms
 

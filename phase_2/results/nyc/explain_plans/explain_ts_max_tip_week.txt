@@ -1,8 +1,8 @@
-Finalize Aggregate  (cost=76036.42..76036.43 rows=1 width=8) (actual time=499.060..505.910 rows=1 loops=1)
+Finalize Aggregate  (cost=76036.42..76036.43 rows=1 width=8) (actual time=334.811..342.674 rows=1 loops=1)
 
   Buffers: shared hit=4224 read=52000
 
-  ->  Gather  (cost=76036.20..76036.41 rows=2 width=8) (actual time=498.856..505.895 rows=3 loops=1)
+  ->  Gather  (cost=76036.20..76036.41 rows=2 width=8) (actual time=334.686..342.663 rows=3 loops=1)
 
         Workers Planned: 2
 
@@ -10,11 +10,11 @@ Finalize Aggregate  (cost=76036.42..76036.43 rows=1 width=8) (actual time=499.06
 
         Buffers: shared hit=4224 read=52000
 
-        ->  Partial Aggregate  (cost=75036.20..75036.21 rows=1 width=8) (actual time=474.014..474.017 rows=1 loops=3)
+        ->  Partial Aggregate  (cost=75036.20..75036.21 rows=1 width=8) (actual time=313.130..313.132 rows=1 loops=3)
 
               Buffers: shared hit=4224 read=52000
 
-              ->  Parallel Seq Scan on _hyper_1_4_chunk  (cost=0.00..72726.59 rows=923847 width=8) (actual time=0.245..399.333 rows=736903 loops=3)
+              ->  Parallel Seq Scan on _hyper_1_4_chunk  (cost=0.00..72726.59 rows=923847 width=8) (actual time=0.036..246.233 rows=736903 loops=3)
 
                     Filter: ((tpep_pickup_datetime >= '2015-01-01 00:00:00'::timestamp without time zone) AND (tpep_pickup_datetime <= '2015-01-07 00:00:00'::timestamp without time zone))
 
@@ -26,7 +26,7 @@ Planning:
 
   Buffers: shared hit=107 read=4
 
-Planning Time: 1.434 ms
+Planning Time: 1.388 ms
 
-Execution Time: 505.957 ms
+Execution Time: 342.713 ms
 

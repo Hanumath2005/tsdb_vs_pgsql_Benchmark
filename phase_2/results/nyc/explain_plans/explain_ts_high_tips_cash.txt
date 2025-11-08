@@ -1,84 +1,84 @@
-Finalize Aggregate  (cost=352174.15..352174.16 rows=1 width=8) (actual time=1857.176..1913.626 rows=1 loops=1)
+Finalize Aggregate  (cost=352174.15..352174.16 rows=1 width=8) (actual time=1414.951..1442.573 rows=1 loops=1)
 
-  Buffers: shared hit=15310 read=256114
+  Buffers: shared hit=14963 read=256461
 
-  ->  Gather  (cost=83972.36..352174.12 rows=10 width=8) (actual time=577.069..1912.183 rows=8 loops=1)
+  ->  Gather  (cost=83972.36..352174.12 rows=10 width=8) (actual time=465.835..1442.545 rows=8 loops=1)
 
         Workers Planned: 2
 
         Workers Launched: 2
 
-        Buffers: shared hit=15310 read=256114
+        Buffers: shared hit=14963 read=256461
 
-        ->  Parallel Append  (cost=82972.36..351173.12 rows=5 width=8) (actual time=1047.378..1744.333 rows=3 loops=3)
+        ->  Parallel Append  (cost=82972.36..351173.12 rows=5 width=8) (actual time=793.157..1379.843 rows=3 loops=3)
 
-              Buffers: shared hit=15310 read=256114
+              Buffers: shared hit=14963 read=256461
 
-              ->  Partial Aggregate  (cost=85958.16..85958.17 rows=1 width=8) (actual time=1295.095..1295.097 rows=1 loops=1)
+              ->  Partial Aggregate  (cost=85958.16..85958.17 rows=1 width=8) (actual time=976.579..976.580 rows=1 loops=1)
 
-                    Buffers: shared hit=704 read=65728
+                    Buffers: shared hit=576 read=65856
 
-                    ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..85941.84 rows=6528 width=0) (actual time=125.101..1294.946 rows=11 loops=1)
+                    ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..85941.84 rows=6528 width=0) (actual time=105.030..976.511 rows=11 loops=1)
 
                           Filter: ((tip_amount > '10'::double precision) AND (payment_type = 2))
 
                           Rows Removed by Filter: 3121565
 
-                          Buffers: shared hit=704 read=65728
+                          Buffers: shared hit=576 read=65856
 
-              ->  Partial Aggregate  (cost=82972.36..82972.37 rows=1 width=8) (actual time=1270.379..1270.380 rows=1 loops=1)
+              ->  Partial Aggregate  (cost=82972.36..82972.37 rows=1 width=8) (actual time=937.649..937.650 rows=1 loops=1)
 
-                    Buffers: shared hit=704 read=63424
+                    Buffers: shared hit=574 read=63554
 
-                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..82956.81 rows=6222 width=0) (actual time=119.768..1270.247 rows=8 loops=1)
+                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..82956.81 rows=6222 width=0) (actual time=94.087..937.579 rows=8 loops=1)
 
                           Filter: ((tip_amount > '10'::double precision) AND (payment_type = 2))
 
                           Rows Removed by Filter: 3013033
 
-                          Buffers: shared hit=704 read=63424
+                          Buffers: shared hit=574 read=63554
 
-              ->  Partial Aggregate  (cost=72742.60..72742.61 rows=1 width=8) (actual time=352.937..352.938 rows=1 loops=3)
+              ->  Partial Aggregate  (cost=72742.60..72742.61 rows=1 width=8) (actual time=335.587..335.587 rows=1 loops=3)
 
-                    Buffers: shared hit=11789 read=44435
+                    Buffers: shared hit=12107 read=44117
 
-                    ->  Parallel Seq Scan on _hyper_1_4_chunk  (cost=0.00..72726.59 rows=6404 width=0) (actual time=133.503..352.879 rows=1 loops=3)
+                    ->  Parallel Seq Scan on _hyper_1_4_chunk  (cost=0.00..72726.59 rows=6404 width=0) (actual time=74.088..335.534 rows=1 loops=3)
 
                           Filter: ((tip_amount > '10'::double precision) AND (payment_type = 2))
 
                           Rows Removed by Filter: 880118
 
-                          Buffers: shared hit=11789 read=44435
+                          Buffers: shared hit=12107 read=44117
 
-              ->  Partial Aggregate  (cost=69929.51..69929.52 rows=1 width=8) (actual time=513.116..513.117 rows=1 loops=2)
+              ->  Partial Aggregate  (cost=69929.51..69929.52 rows=1 width=8) (actual time=376.631..376.632 rows=1 loops=2)
 
-                    Buffers: shared hit=1408 read=52640
+                    Buffers: shared hit=1152 read=52896
 
-                    ->  Parallel Seq Scan on _hyper_1_3_chunk  (cost=0.00..69917.36 rows=4859 width=0) (actual time=131.383..513.013 rows=4 loops=2)
+                    ->  Parallel Seq Scan on _hyper_1_3_chunk  (cost=0.00..69917.36 rows=4859 width=0) (actual time=134.178..376.594 rows=4 loops=2)
 
                           Filter: ((tip_amount > '10'::double precision) AND (payment_type = 2))
 
                           Rows Removed by Filter: 1269286
 
-                          Buffers: shared hit=1408 read=52640
+                          Buffers: shared hit=1152 read=52896
 
-              ->  Partial Aggregate  (cost=39570.42..39570.43 rows=1 width=8) (actual time=576.651..576.653 rows=1 loops=1)
+              ->  Partial Aggregate  (cost=39570.42..39570.43 rows=1 width=8) (actual time=465.236..465.237 rows=1 loops=1)
 
-                    Buffers: shared hit=705 read=29887
+                    Buffers: shared hit=554 read=30038
 
-                    ->  Parallel Seq Scan on _hyper_1_5_chunk  (cost=0.00..39563.43 rows=2796 width=0) (actual time=63.771..576.522 rows=4 loops=1)
+                    ->  Parallel Seq Scan on _hyper_1_5_chunk  (cost=0.00..39563.43 rows=2796 width=0) (actual time=55.595..465.171 rows=4 loops=1)
 
                           Filter: ((tip_amount > '10'::double precision) AND (payment_type = 2))
 
                           Rows Removed by Filter: 1435428
 
-                          Buffers: shared hit=705 read=29887
+                          Buffers: shared hit=554 read=30038
 
 Planning:
 
-  Buffers: shared hit=59 read=11 dirtied=5
+  Buffers: shared hit=59 read=11
 
-Planning Time: 4.227 ms
+Planning Time: 3.168 ms
 
 JIT:
 
@@ -86,7 +86,7 @@ JIT:
 
   Options: Inlining false, Optimization false, Expressions true, Deforming true
 
-  Timing: Generation 11.791 ms, Inlining 0.000 ms, Optimization 5.258 ms, Emission 106.098 ms, Total 123.147 ms
+  Timing: Generation 9.192 ms, Inlining 0.000 ms, Optimization 5.443 ms, Emission 89.054 ms, Total 103.689 ms
 
-Execution Time: 1918.810 ms
+Execution Time: 1446.040 ms
 

@@ -1,24 +1,24 @@
-Unique  (cost=683917.05..703916.52 rows=200 width=20) (actual time=2196.738..2797.959 rows=200 loops=1)
+Unique  (cost=683917.05..703916.52 rows=200 width=20) (actual time=2486.484..3169.177 rows=200 loops=1)
 
-  Buffers: shared hit=16207 read=25033, temp read=33283 written=33354
+  Buffers: shared hit=15363 read=25877, temp read=33283 written=33354
 
-  ->  Sort  (cost=683917.05..693916.79 rows=3999895 width=20) (actual time=2196.736..2575.249 rows=4000000 loops=1)
+  ->  Sort  (cost=683917.05..693916.79 rows=3999895 width=20) (actual time=2486.481..2902.549 rows=4000000 loops=1)
 
         Sort Key: device_id, "time" DESC
 
         Sort Method: external merge  Disk: 133168kB
 
-        Buffers: shared hit=16207 read=25033, temp read=33283 written=33354
+        Buffers: shared hit=15363 read=25877, temp read=33283 written=33354
 
-        ->  Seq Scan on synthetic_data  (cost=0.00..81238.95 rows=3999895 width=20) (actual time=118.272..470.292 rows=4000000 loops=1)
+        ->  Seq Scan on synthetic_data  (cost=0.00..81238.95 rows=3999895 width=20) (actual time=138.934..554.384 rows=4000000 loops=1)
 
-              Buffers: shared hit=16207 read=25033
+              Buffers: shared hit=15363 read=25877
 
 Planning:
 
   Buffers: shared hit=2 read=2
 
-Planning Time: 1.305 ms
+Planning Time: 1.187 ms
 
 JIT:
 
@@ -26,7 +26,7 @@ JIT:
 
   Options: Inlining true, Optimization true, Expressions true, Deforming true
 
-  Timing: Generation 1.004 ms, Inlining 72.667 ms, Optimization 23.814 ms, Emission 21.793 ms, Total 119.279 ms
+  Timing: Generation 0.691 ms, Inlining 76.483 ms, Optimization 30.443 ms, Emission 32.018 ms, Total 139.635 ms
 
-Execution Time: 2812.582 ms
+Execution Time: 3186.434 ms
 

@@ -69,9 +69,7 @@ def main():
                 writer = csv.writer(csvfile)
                 writer.writerow(["timestamp","db","query_name","run_index","elapsed_ms","rowcount"])
                 for run in range(RUNS):
-                    if run == 0:
-                        drop_caches()
-                        print("Dropped Caches for cold-cache runs")
+                    drop_caches()
                     exec_time, rowcount = run_query(conn, qsql)
                     writer.writerow([datetime.now().isoformat(), db_key, qname, run+1, exec_time, rowcount])
                     csvfile.flush()

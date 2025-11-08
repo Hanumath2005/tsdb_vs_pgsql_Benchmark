@@ -1,10 +1,10 @@
-Finalize GroupAggregate  (cost=11399.57..11489.21 rows=724 width=16) (actual time=20.829..26.353 rows=31 loops=1)
+Finalize GroupAggregate  (cost=11399.57..11489.21 rows=724 width=16) (actual time=23.995..28.941 rows=31 loops=1)
 
   Group Key: (date_trunc('day'::text, "time"))
 
   Buffers: shared hit=8064
 
-  ->  Gather Merge  (cost=11399.57..11475.33 rows=604 width=40) (actual time=20.809..26.319 rows=35 loops=1)
+  ->  Gather Merge  (cost=11399.57..11475.33 rows=604 width=40) (actual time=23.976..28.903 rows=35 loops=1)
 
         Workers Planned: 2
 
@@ -12,13 +12,13 @@ Finalize GroupAggregate  (cost=11399.57..11489.21 rows=724 width=16) (actual tim
 
         Buffers: shared hit=8064
 
-        ->  Partial GroupAggregate  (cost=10399.54..10405.58 rows=302 width=40) (actual time=16.336..16.410 rows=12 loops=3)
+        ->  Partial GroupAggregate  (cost=10399.54..10405.58 rows=302 width=40) (actual time=19.735..19.825 rows=12 loops=3)
 
               Group Key: (date_trunc('day'::text, "time"))
 
               Buffers: shared hit=8064
 
-              ->  Sort  (cost=10399.54..10400.30 rows=302 width=16) (actual time=16.316..16.337 rows=248 loops=3)
+              ->  Sort  (cost=10399.54..10400.30 rows=302 width=16) (actual time=19.716..19.741 rows=248 loops=3)
 
                     Sort Key: (date_trunc('day'::text, "time"))
 
@@ -30,7 +30,7 @@ Finalize GroupAggregate  (cost=11399.57..11489.21 rows=724 width=16) (actual tim
 
                     Worker 1:  Sort Method: quicksort  Memory: 32kB
 
-                    ->  Parallel Seq Scan on weather_data  (cost=0.00..10387.10 rows=302 width=16) (actual time=14.304..16.059 rows=248 loops=3)
+                    ->  Parallel Seq Scan on weather_data  (cost=0.00..10387.10 rows=302 width=16) (actual time=16.973..19.464 rows=248 loops=3)
 
                           Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-02-01 00:00:00'::timestamp without time zone))
 
@@ -40,9 +40,9 @@ Finalize GroupAggregate  (cost=11399.57..11489.21 rows=724 width=16) (actual tim
 
 Planning:
 
-  Buffers: shared hit=7
+  Buffers: shared hit=6 read=1
 
-Planning Time: 0.184 ms
+Planning Time: 0.284 ms
 
-Execution Time: 26.465 ms
+Execution Time: 29.052 ms
 

@@ -1,48 +1,48 @@
-Finalize Aggregate  (cost=67425.58..67425.59 rows=1 width=8) (actual time=200.980..210.921 rows=1 loops=1)
+Finalize Aggregate  (cost=67425.58..67425.59 rows=1 width=8) (actual time=250.785..257.481 rows=1 loops=1)
 
-  Buffers: shared hit=15666 read=25630
+  Buffers: shared hit=16008 read=25288
 
-  ->  Gather  (cost=29671.31..67425.57 rows=4 width=8) (actual time=109.093..210.904 rows=5 loops=1)
+  ->  Gather  (cost=29671.31..67425.57 rows=4 width=8) (actual time=175.793..257.464 rows=5 loops=1)
 
         Workers Planned: 2
 
         Workers Launched: 2
 
-        Buffers: shared hit=15666 read=25630
+        Buffers: shared hit=16008 read=25288
 
-        ->  Parallel Append  (cost=28671.31..66425.18 rows=2 width=8) (actual time=133.739..194.861 rows=2 loops=3)
+        ->  Parallel Append  (cost=28671.31..66425.18 rows=2 width=8) (actual time=191.439..241.282 rows=2 loops=3)
 
-              Buffers: shared hit=15666 read=25630
+              Buffers: shared hit=16008 read=25288
 
-              ->  Partial Aggregate  (cost=37753.83..37753.84 rows=1 width=8) (actual time=125.133..125.134 rows=1 loops=3)
+              ->  Partial Aggregate  (cost=37753.83..37753.84 rows=1 width=8) (actual time=129.123..129.124 rows=1 loops=3)
 
-                    Buffers: shared hit=7682 read=15798
+                    Buffers: shared hit=8247 read=15233
 
-                    ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..37680.00 rows=29532 width=0) (actual time=0.032..122.212 rows=23414 loops=3)
+                    ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..37680.00 rows=29532 width=0) (actual time=0.173..126.307 rows=23414 loops=3)
 
                           Filter: ((humidity > '85'::double precision) AND (temperature > '35'::double precision))
 
                           Rows Removed by Filter: 733920
 
-                          Buffers: shared hit=7682 read=15798
+                          Buffers: shared hit=8247 read=15233
 
-              ->  Partial Aggregate  (cost=28671.31..28671.32 rows=1 width=8) (actual time=104.574..104.575 rows=1 loops=2)
+              ->  Partial Aggregate  (cost=28671.31..28671.32 rows=1 width=8) (actual time=168.224..168.225 rows=1 loops=2)
 
-                    Buffers: shared hit=7984 read=9832
+                    Buffers: shared hit=7761 read=10055
 
-                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..28616.00 rows=22126 width=0) (actual time=0.027..102.093 rows=26642 loops=2)
+                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..28616.00 rows=22126 width=0) (actual time=0.056..164.354 rows=26642 loops=2)
 
                           Filter: ((humidity > '85'::double precision) AND (temperature > '35'::double precision))
 
                           Rows Removed by Filter: 837358
 
-                          Buffers: shared hit=7984 read=9832
+                          Buffers: shared hit=7761 read=10055
 
 Planning:
 
-  Buffers: shared hit=25 read=2 dirtied=2
+  Buffers: shared hit=25 read=2
 
-Planning Time: 0.693 ms
+Planning Time: 1.103 ms
 
-Execution Time: 210.983 ms
+Execution Time: 257.551 ms
 

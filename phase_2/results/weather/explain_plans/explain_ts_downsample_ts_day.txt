@@ -1,4 +1,4 @@
-Sort  (cost=82.34..82.84 rows=200 width=16) (actual time=0.361..0.365 rows=31 loops=1)
+Sort  (cost=82.34..82.84 rows=200 width=16) (actual time=0.515..0.521 rows=31 loops=1)
 
   Sort Key: (time_bucket('1 day'::interval, weather_data."time"))
 
@@ -6,7 +6,7 @@ Sort  (cost=82.34..82.84 rows=200 width=16) (actual time=0.361..0.365 rows=31 lo
 
   Buffers: shared hit=24
 
-  ->  Finalize HashAggregate  (cost=71.70..74.70 rows=200 width=16) (actual time=0.345..0.353 rows=31 loops=1)
+  ->  Finalize HashAggregate  (cost=71.70..74.70 rows=200 width=16) (actual time=0.489..0.500 rows=31 loops=1)
 
         Group Key: (time_bucket('1 day'::interval, weather_data."time"))
 
@@ -14,11 +14,11 @@ Sort  (cost=82.34..82.84 rows=200 width=16) (actual time=0.361..0.365 rows=31 lo
 
         Buffers: shared hit=24
 
-        ->  Append  (cost=6.70..65.70 rows=1200 width=40) (actual time=0.030..0.336 rows=31 loops=1)
+        ->  Append  (cost=6.70..65.70 rows=1200 width=40) (actual time=0.050..0.476 rows=31 loops=1)
 
               Buffers: shared hit=24
 
-              ->  Partial HashAggregate  (cost=6.70..9.20 rows=200 width=40) (actual time=0.030..0.031 rows=1 loops=1)
+              ->  Partial HashAggregate  (cost=6.70..9.20 rows=200 width=40) (actual time=0.049..0.050 rows=1 loops=1)
 
                     Group Key: time_bucket('1 day'::interval, _hyper_1_2088_chunk."time")
 
@@ -26,7 +26,7 @@ Sort  (cost=82.34..82.84 rows=200 width=16) (actual time=0.361..0.365 rows=31 lo
 
                     Buffers: shared hit=4
 
-                    ->  Seq Scan on _hyper_1_2088_chunk  (cost=0.00..6.58 rows=24 width=16) (actual time=0.014..0.020 rows=24 loops=1)
+                    ->  Seq Scan on _hyper_1_2088_chunk  (cost=0.00..6.58 rows=24 width=16) (actual time=0.025..0.033 rows=24 loops=1)
 
                           Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-02-01 00:00:00'::timestamp without time zone))
 
@@ -34,7 +34,7 @@ Sort  (cost=82.34..82.84 rows=200 width=16) (actual time=0.361..0.365 rows=31 lo
 
                           Buffers: shared hit=4
 
-              ->  Partial HashAggregate  (cost=7.78..10.28 rows=200 width=40) (actual time=0.067..0.069 rows=7 loops=1)
+              ->  Partial HashAggregate  (cost=7.78..10.28 rows=200 width=40) (actual time=0.090..0.094 rows=7 loops=1)
 
                     Group Key: time_bucket('1 day'::interval, _hyper_1_2089_chunk."time")
 
@@ -42,13 +42,13 @@ Sort  (cost=82.34..82.84 rows=200 width=16) (actual time=0.361..0.365 rows=31 lo
 
                     Buffers: shared hit=4
 
-                    ->  Seq Scan on _hyper_1_2089_chunk  (cost=0.00..6.94 rows=168 width=16) (actual time=0.002..0.033 rows=168 loops=1)
+                    ->  Seq Scan on _hyper_1_2089_chunk  (cost=0.00..6.94 rows=168 width=16) (actual time=0.004..0.046 rows=168 loops=1)
 
                           Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-02-01 00:00:00'::timestamp without time zone))
 
                           Buffers: shared hit=4
 
-              ->  Partial HashAggregate  (cost=7.78..10.28 rows=200 width=40) (actual time=0.065..0.067 rows=7 loops=1)
+              ->  Partial HashAggregate  (cost=7.78..10.28 rows=200 width=40) (actual time=0.090..0.093 rows=7 loops=1)
 
                     Group Key: time_bucket('1 day'::interval, _hyper_1_2090_chunk."time")
 
@@ -56,13 +56,13 @@ Sort  (cost=82.34..82.84 rows=200 width=16) (actual time=0.361..0.365 rows=31 lo
 
                     Buffers: shared hit=4
 
-                    ->  Seq Scan on _hyper_1_2090_chunk  (cost=0.00..6.94 rows=168 width=16) (actual time=0.002..0.032 rows=168 loops=1)
+                    ->  Seq Scan on _hyper_1_2090_chunk  (cost=0.00..6.94 rows=168 width=16) (actual time=0.003..0.046 rows=168 loops=1)
 
                           Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-02-01 00:00:00'::timestamp without time zone))
 
                           Buffers: shared hit=4
 
-              ->  Partial HashAggregate  (cost=7.78..10.28 rows=200 width=40) (actual time=0.065..0.067 rows=7 loops=1)
+              ->  Partial HashAggregate  (cost=7.78..10.28 rows=200 width=40) (actual time=0.092..0.095 rows=7 loops=1)
 
                     Group Key: time_bucket('1 day'::interval, _hyper_1_2091_chunk."time")
 
@@ -70,13 +70,13 @@ Sort  (cost=82.34..82.84 rows=200 width=16) (actual time=0.361..0.365 rows=31 lo
 
                     Buffers: shared hit=4
 
-                    ->  Seq Scan on _hyper_1_2091_chunk  (cost=0.00..6.94 rows=168 width=16) (actual time=0.002..0.033 rows=168 loops=1)
+                    ->  Seq Scan on _hyper_1_2091_chunk  (cost=0.00..6.94 rows=168 width=16) (actual time=0.005..0.048 rows=168 loops=1)
 
                           Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-02-01 00:00:00'::timestamp without time zone))
 
                           Buffers: shared hit=4
 
-              ->  Partial HashAggregate  (cost=7.78..10.28 rows=200 width=40) (actual time=0.064..0.066 rows=7 loops=1)
+              ->  Partial HashAggregate  (cost=7.78..10.28 rows=200 width=40) (actual time=0.090..0.092 rows=7 loops=1)
 
                     Group Key: time_bucket('1 day'::interval, _hyper_1_2092_chunk."time")
 
@@ -84,13 +84,13 @@ Sort  (cost=82.34..82.84 rows=200 width=16) (actual time=0.361..0.365 rows=31 lo
 
                     Buffers: shared hit=4
 
-                    ->  Seq Scan on _hyper_1_2092_chunk  (cost=0.00..6.94 rows=168 width=16) (actual time=0.002..0.032 rows=168 loops=1)
+                    ->  Seq Scan on _hyper_1_2092_chunk  (cost=0.00..6.94 rows=168 width=16) (actual time=0.003..0.046 rows=168 loops=1)
 
                           Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-02-01 00:00:00'::timestamp without time zone))
 
                           Buffers: shared hit=4
 
-              ->  Partial HashAggregate  (cost=6.88..9.38 rows=200 width=40) (actual time=0.031..0.031 rows=2 loops=1)
+              ->  Partial HashAggregate  (cost=6.88..9.38 rows=200 width=40) (actual time=0.044..0.045 rows=2 loops=1)
 
                     Group Key: time_bucket('1 day'::interval, _hyper_1_2093_chunk."time")
 
@@ -98,7 +98,7 @@ Sort  (cost=82.34..82.84 rows=200 width=16) (actual time=0.361..0.365 rows=31 lo
 
                     Buffers: shared hit=4
 
-                    ->  Seq Scan on _hyper_1_2093_chunk  (cost=0.00..6.64 rows=48 width=16) (actual time=0.002..0.020 rows=48 loops=1)
+                    ->  Seq Scan on _hyper_1_2093_chunk  (cost=0.00..6.64 rows=48 width=16) (actual time=0.004..0.030 rows=48 loops=1)
 
                           Filter: (("time" >= '2020-01-01 00:00:00'::timestamp without time zone) AND ("time" < '2020-02-01 00:00:00'::timestamp without time zone))
 
@@ -110,7 +110,7 @@ Planning:
 
   Buffers: shared hit=128
 
-Planning Time: 0.604 ms
+Planning Time: 1.095 ms
 
-Execution Time: 0.473 ms
+Execution Time: 0.685 ms
 

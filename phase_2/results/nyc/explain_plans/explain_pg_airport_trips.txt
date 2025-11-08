@@ -1,32 +1,32 @@
-Finalize Aggregate  (cost=338928.50..338928.51 rows=1 width=8) (actual time=1511.756..1522.359 rows=1 loops=1)
+Finalize Aggregate  (cost=338928.50..338928.51 rows=1 width=8) (actual time=1519.645..1528.219 rows=1 loops=1)
 
-  Buffers: shared hit=14784 read=256528
+  Buffers: shared hit=14774 read=256538
 
-  ->  Gather  (cost=338928.28..338928.49 rows=2 width=8) (actual time=1511.504..1522.339 rows=3 loops=1)
+  ->  Gather  (cost=338928.28..338928.49 rows=2 width=8) (actual time=1519.329..1528.192 rows=3 loops=1)
 
         Workers Planned: 2
 
         Workers Launched: 2
 
-        Buffers: shared hit=14784 read=256528
+        Buffers: shared hit=14774 read=256538
 
-        ->  Partial Aggregate  (cost=337928.28..337928.29 rows=1 width=8) (actual time=1483.056..1483.058 rows=1 loops=3)
+        ->  Partial Aggregate  (cost=337928.28..337928.29 rows=1 width=8) (actual time=1493.691..1493.692 rows=1 loops=3)
 
-              Buffers: shared hit=14784 read=256528
+              Buffers: shared hit=14774 read=256538
 
-              ->  Parallel Seq Scan on nyc_data  (cost=0.00..337700.35 rows=91173 width=0) (actual time=7.229..1473.147 rows=74908 loops=3)
+              ->  Parallel Seq Scan on nyc_data  (cost=0.00..337700.35 rows=91173 width=0) (actual time=9.681..1483.279 rows=74908 loops=3)
 
                     Filter: (ratecodeid = 2)
 
                     Rows Removed by Filter: 4174754
 
-                    Buffers: shared hit=14784 read=256528
+                    Buffers: shared hit=14774 read=256538
 
 Planning:
 
-  Buffers: shared hit=2 read=1 dirtied=1
+  Buffers: shared hit=3
 
-Planning Time: 0.449 ms
+Planning Time: 0.138 ms
 
 JIT:
 
@@ -34,7 +34,7 @@ JIT:
 
   Options: Inlining false, Optimization false, Expressions true, Deforming true
 
-  Timing: Generation 1.833 ms, Inlining 0.000 ms, Optimization 1.303 ms, Emission 20.303 ms, Total 23.439 ms
+  Timing: Generation 1.984 ms, Inlining 0.000 ms, Optimization 1.560 ms, Emission 27.058 ms, Total 30.603 ms
 
-Execution Time: 1522.978 ms
+Execution Time: 1528.966 ms
 

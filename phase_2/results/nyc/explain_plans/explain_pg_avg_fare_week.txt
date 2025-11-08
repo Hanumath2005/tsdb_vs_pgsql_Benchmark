@@ -1,28 +1,28 @@
-Finalize Aggregate  (cost=354236.86..354236.87 rows=1 width=8) (actual time=1443.261..1451.710 rows=1 loops=1)
+Finalize Aggregate  (cost=354236.86..354236.87 rows=1 width=8) (actual time=1631.782..1640.261 rows=1 loops=1)
 
-  Buffers: shared hit=8448 read=262864
+  Buffers: shared hit=8438 read=262874
 
-  ->  Gather  (cost=354236.64..354236.85 rows=2 width=32) (actual time=1442.926..1451.689 rows=3 loops=1)
+  ->  Gather  (cost=354236.64..354236.85 rows=2 width=32) (actual time=1631.475..1640.239 rows=3 loops=1)
 
         Workers Planned: 2
 
         Workers Launched: 2
 
-        Buffers: shared hit=8448 read=262864
+        Buffers: shared hit=8438 read=262874
 
-        ->  Partial Aggregate  (cost=353236.64..353236.65 rows=1 width=32) (actual time=1418.748..1418.750 rows=1 loops=3)
+        ->  Partial Aggregate  (cost=353236.64..353236.65 rows=1 width=32) (actual time=1608.915..1608.916 rows=1 loops=3)
 
-              Buffers: shared hit=8448 read=262864
+              Buffers: shared hit=8438 read=262874
 
-              ->  Parallel Seq Scan on nyc_data  (cost=0.00..350978.02 rows=903449 width=8) (actual time=10.682..1249.662 rows=736903 loops=3)
+              ->  Parallel Seq Scan on nyc_data  (cost=0.00..350978.02 rows=903449 width=8) (actual time=10.392..1421.803 rows=736903 loops=3)
 
                     Filter: ((tpep_pickup_datetime >= '2015-01-01 00:00:00'::timestamp without time zone) AND (tpep_pickup_datetime <= '2015-01-07 00:00:00'::timestamp without time zone))
 
                     Rows Removed by Filter: 3512759
 
-                    Buffers: shared hit=8448 read=262864
+                    Buffers: shared hit=8438 read=262874
 
-Planning Time: 0.103 ms
+Planning Time: 0.120 ms
 
 JIT:
 
@@ -30,7 +30,7 @@ JIT:
 
   Options: Inlining false, Optimization false, Expressions true, Deforming true
 
-  Timing: Generation 2.594 ms, Inlining 0.000 ms, Optimization 1.836 ms, Emission 29.706 ms, Total 34.136 ms
+  Timing: Generation 3.983 ms, Inlining 0.000 ms, Optimization 1.695 ms, Emission 28.819 ms, Total 34.497 ms
 
-Execution Time: 1452.427 ms
+Execution Time: 1640.989 ms
 

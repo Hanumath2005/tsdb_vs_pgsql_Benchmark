@@ -1,6 +1,6 @@
-Aggregate  (cost=0.00..0.01 rows=1 width=8) (actual time=0.005..0.006 rows=1 loops=1)
+Aggregate  (cost=0.00..0.01 rows=1 width=8) (actual time=0.004..0.004 rows=1 loops=1)
 
-  ->  Result  (cost=0.00..0.00 rows=0 width=0) (actual time=0.002..0.002 rows=0 loops=1)
+  ->  Result  (cost=0.00..0.00 rows=0 width=0) (actual time=0.001..0.001 rows=0 loops=1)
 
         One-Time Filter: false
 
@@ -8,7 +8,7 @@ Planning:
 
   Buffers: shared hit=57 read=3
 
-Planning Time: 1.291 ms
+Planning Time: 0.990 ms
 
-Execution Time: 0.075 ms
+Execution Time: 0.027 ms
 

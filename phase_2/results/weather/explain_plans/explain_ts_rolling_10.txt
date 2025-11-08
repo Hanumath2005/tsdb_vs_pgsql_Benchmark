@@ -1,138 +1,138 @@
-Limit  (cost=0.15..604.05 rows=5000 width=16) (actual time=0.494..19.433 rows=5000 loops=1)
+Limit  (cost=0.15..604.05 rows=5000 width=16) (actual time=5.777..22.872 rows=5000 loops=1)
 
   Buffers: shared hit=149 read=31
 
-  ->  WindowAgg  (cost=0.15..47160.33 rows=390464 width=16) (actual time=0.492..18.843 rows=5000 loops=1)
+  ->  WindowAgg  (cost=0.15..47160.33 rows=390464 width=16) (actual time=5.775..22.338 rows=5000 loops=1)
 
         Buffers: shared hit=149 read=31
 
-        ->  Custom Scan (ChunkAppend) on weather_data  (cost=0.15..41303.37 rows=390464 width=16) (actual time=0.477..8.285 rows=5001 loops=1)
+        ->  Custom Scan (ChunkAppend) on weather_data  (cost=0.15..41303.37 rows=390464 width=16) (actual time=5.756..12.686 rows=5001 loops=1)
 
               Order: weather_data."time"
 
               Buffers: shared hit=149 read=31
 
-              ->  Index Scan Backward using _hyper_1_1_chunk_weather_data_time_idx on _hyper_1_1_chunk  (cost=0.15..55.95 rows=520 width=16) (actual time=0.475..0.489 rows=48 loops=1)
+              ->  Index Scan Backward using _hyper_1_1_chunk_weather_data_time_idx on _hyper_1_1_chunk  (cost=0.15..55.95 rows=520 width=16) (actual time=5.753..5.770 rows=48 loops=1)
 
                     Buffers: shared hit=2 read=1
 
-              ->  Index Scan Backward using _hyper_1_2_chunk_weather_data_time_idx on _hyper_1_2_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.347..0.383 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_2_chunk_weather_data_time_idx on _hyper_1_2_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.193..0.268 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_3_chunk_weather_data_time_idx on _hyper_1_3_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.204..0.277 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_3_chunk_weather_data_time_idx on _hyper_1_3_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.457..0.530 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_4_chunk_weather_data_time_idx on _hyper_1_4_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.171..0.221 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_4_chunk_weather_data_time_idx on _hyper_1_4_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.267..0.320 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_5_chunk_weather_data_time_idx on _hyper_1_5_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.249..0.291 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_5_chunk_weather_data_time_idx on _hyper_1_5_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.170..0.221 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_6_chunk_weather_data_time_idx on _hyper_1_6_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.238..0.276 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_6_chunk_weather_data_time_idx on _hyper_1_6_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.156..0.213 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_7_chunk_weather_data_time_idx on _hyper_1_7_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.213..0.252 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_7_chunk_weather_data_time_idx on _hyper_1_7_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.139..0.192 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_8_chunk_weather_data_time_idx on _hyper_1_8_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.074..0.114 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_8_chunk_weather_data_time_idx on _hyper_1_8_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.086..0.139 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_9_chunk_weather_data_time_idx on _hyper_1_9_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.070..0.112 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_9_chunk_weather_data_time_idx on _hyper_1_9_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.086..0.140 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_10_chunk_weather_data_time_idx on _hyper_1_10_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.144..0.187 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_10_chunk_weather_data_time_idx on _hyper_1_10_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.144..0.195 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_11_chunk_weather_data_time_idx on _hyper_1_11_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.236..0.294 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_11_chunk_weather_data_time_idx on _hyper_1_11_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.134..0.183 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_12_chunk_weather_data_time_idx on _hyper_1_12_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.177..0.238 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_12_chunk_weather_data_time_idx on _hyper_1_12_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.206..0.260 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_13_chunk_weather_data_time_idx on _hyper_1_13_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.177..0.247 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_13_chunk_weather_data_time_idx on _hyper_1_13_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.210..0.275 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_14_chunk_weather_data_time_idx on _hyper_1_14_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.238..0.290 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_14_chunk_weather_data_time_idx on _hyper_1_14_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.267..0.321 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_15_chunk_weather_data_time_idx on _hyper_1_15_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.172..0.228 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_15_chunk_weather_data_time_idx on _hyper_1_15_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.178..0.228 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_16_chunk_weather_data_time_idx on _hyper_1_16_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.171..0.222 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_16_chunk_weather_data_time_idx on _hyper_1_16_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.206..0.254 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_17_chunk_weather_data_time_idx on _hyper_1_17_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.108..0.164 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_17_chunk_weather_data_time_idx on _hyper_1_17_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.200..0.267 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_18_chunk_weather_data_time_idx on _hyper_1_18_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.247..0.313 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_18_chunk_weather_data_time_idx on _hyper_1_18_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.237..0.283 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_19_chunk_weather_data_time_idx on _hyper_1_19_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.178..0.237 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_19_chunk_weather_data_time_idx on _hyper_1_19_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.080..0.130 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_20_chunk_weather_data_time_idx on _hyper_1_20_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.190..0.251 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_20_chunk_weather_data_time_idx on _hyper_1_20_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.163..0.212 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_21_chunk_weather_data_time_idx on _hyper_1_21_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.182..0.249 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_21_chunk_weather_data_time_idx on _hyper_1_21_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.091..0.138 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_22_chunk_weather_data_time_idx on _hyper_1_22_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.194..0.256 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_22_chunk_weather_data_time_idx on _hyper_1_22_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.082..0.165 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_23_chunk_weather_data_time_idx on _hyper_1_23_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.236..0.299 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_23_chunk_weather_data_time_idx on _hyper_1_23_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.143..0.183 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_24_chunk_weather_data_time_idx on _hyper_1_24_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.113..0.182 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_24_chunk_weather_data_time_idx on _hyper_1_24_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.083..0.123 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_25_chunk_weather_data_time_idx on _hyper_1_25_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.186..0.249 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_25_chunk_weather_data_time_idx on _hyper_1_25_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.075..0.116 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_26_chunk_weather_data_time_idx on _hyper_1_26_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.258..0.330 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_26_chunk_weather_data_time_idx on _hyper_1_26_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.145..0.186 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_27_chunk_weather_data_time_idx on _hyper_1_27_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.230..0.285 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_27_chunk_weather_data_time_idx on _hyper_1_27_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.128..0.177 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_28_chunk_weather_data_time_idx on _hyper_1_28_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.077..0.128 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_28_chunk_weather_data_time_idx on _hyper_1_28_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.079..0.122 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_29_chunk_weather_data_time_idx on _hyper_1_29_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.132..0.181 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_29_chunk_weather_data_time_idx on _hyper_1_29_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.075..0.120 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_30_chunk_weather_data_time_idx on _hyper_1_30_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.080..0.128 rows=168 loops=1)
+              ->  Index Scan Backward using _hyper_1_30_chunk_weather_data_time_idx on _hyper_1_30_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.078..0.118 rows=168 loops=1)
 
                     Buffers: shared hit=5 read=1
 
-              ->  Index Scan Backward using _hyper_1_31_chunk_weather_data_time_idx on _hyper_1_31_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.078..0.103 rows=81 loops=1)
+              ->  Index Scan Backward using _hyper_1_31_chunk_weather_data_time_idx on _hyper_1_31_chunk  (cost=0.14..17.66 rows=168 width=16) (actual time=0.079..0.098 rows=81 loops=1)
 
                     Buffers: shared hit=2 read=1
 
@@ -4718,7 +4718,7 @@ Planning:
 
   Buffers: shared hit=27903
 
-Planning Time: 204.350 ms
+Planning Time: 217.370 ms
 
-Execution Time: 31.914 ms
+Execution Time: 29.975 ms
 

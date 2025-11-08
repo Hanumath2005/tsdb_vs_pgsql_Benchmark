@@ -1,8 +1,8 @@
-Finalize Aggregate  (cost=67362.48..67362.49 rows=1 width=8) (actual time=214.316..220.991 rows=1 loops=1)
+Finalize Aggregate  (cost=67362.48..67362.49 rows=1 width=8) (actual time=310.336..323.638 rows=1 loops=1)
 
   Buffers: shared hit=10560 read=30680
 
-  ->  Gather  (cost=67362.27..67362.48 rows=2 width=8) (actual time=214.143..220.978 rows=3 loops=1)
+  ->  Gather  (cost=67362.27..67362.48 rows=2 width=8) (actual time=310.123..323.617 rows=3 loops=1)
 
         Workers Planned: 2
 
@@ -10,11 +10,11 @@ Finalize Aggregate  (cost=67362.48..67362.49 rows=1 width=8) (actual time=214.31
 
         Buffers: shared hit=10560 read=30680
 
-        ->  Partial Aggregate  (cost=66362.27..66362.28 rows=1 width=8) (actual time=209.506..209.508 rows=1 loops=3)
+        ->  Partial Aggregate  (cost=66362.27..66362.28 rows=1 width=8) (actual time=304.491..304.494 rows=1 loops=3)
 
               Buffers: shared hit=10560 read=30680
 
-              ->  Parallel Seq Scan on synthetic_data  (cost=0.00..66239.34 rows=49170 width=0) (actual time=0.054..205.589 rows=39373 loops=3)
+              ->  Parallel Seq Scan on synthetic_data  (cost=0.00..66239.34 rows=49170 width=0) (actual time=0.135..299.810 rows=39373 loops=3)
 
                     Filter: ((battery_voltage < '3.5'::double precision) AND (status = 'WARN'::text))
 
@@ -26,7 +26,7 @@ Planning:
 
   Buffers: shared hit=9 read=2
 
-Planning Time: 0.477 ms
+Planning Time: 0.564 ms
 
-Execution Time: 221.039 ms
+Execution Time: 323.685 ms
 

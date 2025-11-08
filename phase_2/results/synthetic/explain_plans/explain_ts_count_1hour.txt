@@ -1,8 +1,8 @@
-Aggregate  (cost=667.47..667.48 rows=1 width=8) (actual time=4.537..4.538 rows=1 loops=1)
+Aggregate  (cost=667.47..667.48 rows=1 width=8) (actual time=6.104..6.106 rows=1 loops=1)
 
   Buffers: shared hit=26
 
-  ->  Index Only Scan using _hyper_1_1_chunk_synthetic_data_time_idx on _hyper_1_1_chunk  (cost=0.43..606.25 rows=24491 width=0) (actual time=0.014..2.724 rows=24200 loops=1)
+  ->  Index Only Scan using _hyper_1_1_chunk_synthetic_data_time_idx on _hyper_1_1_chunk  (cost=0.43..606.25 rows=24491 width=0) (actual time=0.019..3.874 rows=24200 loops=1)
 
         Index Cond: (("time" >= '2024-01-01 00:00:00'::timestamp without time zone) AND ("time" <= '2024-01-01 01:00:00'::timestamp without time zone))
 
@@ -14,7 +14,7 @@ Planning:
 
   Buffers: shared hit=158 read=10
 
-Planning Time: 1.821 ms
+Planning Time: 3.680 ms
 
-Execution Time: 4.565 ms
+Execution Time: 6.146 ms
 

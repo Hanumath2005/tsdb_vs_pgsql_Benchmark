@@ -1,32 +1,32 @@
-Unique  (cost=703993.37..723993.37 rows=200 width=20) (actual time=2494.806..3078.984 rows=200 loops=1)
+Unique  (cost=703993.37..723993.37 rows=200 width=20) (actual time=3180.541..4119.360 rows=200 loops=1)
 
-  Buffers: shared hit=16181 read=25118, temp read=33283 written=33354
+  Buffers: shared hit=16143 read=25153, temp read=33283 written=33354
 
-  ->  Sort  (cost=703993.37..713993.37 rows=4000000 width=20) (actual time=2494.804..2857.998 rows=4000000 loops=1)
+  ->  Sort  (cost=703993.37..713993.37 rows=4000000 width=20) (actual time=3180.538..3763.426 rows=4000000 loops=1)
 
         Sort Key: synthetic_data.device_id, synthetic_data."time" DESC
 
         Sort Method: external merge  Disk: 133168kB
 
-        Buffers: shared hit=16181 read=25118, temp read=33283 written=33354
+        Buffers: shared hit=16143 read=25153, temp read=33283 written=33354
 
-        ->  Append  (cost=0.00..101296.00 rows=4000000 width=20) (actual time=123.295..789.063 rows=4000000 loops=1)
+        ->  Append  (cost=0.00..101296.00 rows=4000000 width=20) (actual time=114.895..901.336 rows=4000000 loops=1)
 
-              Buffers: shared hit=16178 read=25118
+              Buffers: shared hit=16143 read=25153
 
-              ->  Seq Scan on _hyper_1_1_chunk  (cost=0.00..35096.00 rows=1728000 width=20) (actual time=123.294..292.836 rows=1728000 loops=1)
+              ->  Seq Scan on _hyper_1_1_chunk  (cost=0.00..35096.00 rows=1728000 width=20) (actual time=114.894..283.828 rows=1728000 loops=1)
 
-                    Buffers: shared hit=7796 read=10020
+                    Buffers: shared hit=7951 read=9865
 
-              ->  Seq Scan on _hyper_1_2_chunk  (cost=0.00..46200.00 rows=2272000 width=20) (actual time=0.077..220.882 rows=2272000 loops=1)
+              ->  Seq Scan on _hyper_1_2_chunk  (cost=0.00..46200.00 rows=2272000 width=20) (actual time=0.067..290.254 rows=2272000 loops=1)
 
-                    Buffers: shared hit=8382 read=15098
+                    Buffers: shared hit=8192 read=15288
 
 Planning:
 
   Buffers: shared hit=21 read=2
 
-Planning Time: 1.488 ms
+Planning Time: 0.893 ms
 
 JIT:
 
@@ -34,7 +34,7 @@ JIT:
 
   Options: Inlining true, Optimization true, Expressions true, Deforming true
 
-  Timing: Generation 0.981 ms, Inlining 69.531 ms, Optimization 32.113 ms, Emission 21.684 ms, Total 124.308 ms
+  Timing: Generation 0.827 ms, Inlining 66.749 ms, Optimization 26.582 ms, Emission 21.602 ms, Total 115.761 ms
 
-Execution Time: 3242.565 ms
+Execution Time: 4302.243 ms
 

@@ -1,44 +1,44 @@
-Limit  (cost=103312.10..103313.27 rows=10 width=20) (actual time=605.383..614.173 rows=10 loops=1)
+Limit  (cost=103312.10..103313.27 rows=10 width=20) (actual time=632.872..642.361 rows=10 loops=1)
 
-  Buffers: shared hit=16232 read=25178
+  Buffers: shared hit=16226 read=25184
 
-  ->  Gather Merge  (cost=103312.10..492228.22 rows=3333334 width=20) (actual time=598.218..607.005 rows=10 loops=1)
+  ->  Gather Merge  (cost=103312.10..492228.22 rows=3333334 width=20) (actual time=625.252..634.738 rows=10 loops=1)
 
         Workers Planned: 2
 
         Workers Launched: 2
 
-        Buffers: shared hit=16232 read=25178
+        Buffers: shared hit=16226 read=25184
 
-        ->  Sort  (cost=102312.08..106478.74 rows=1666667 width=20) (actual time=576.521..576.524 rows=10 loops=3)
+        ->  Sort  (cost=102312.08..106478.74 rows=1666667 width=20) (actual time=602.681..602.684 rows=10 loops=3)
 
               Sort Key: synthetic_data.battery_voltage
 
               Sort Method: top-N heapsort  Memory: 26kB
 
-              Buffers: shared hit=16232 read=25178
+              Buffers: shared hit=16226 read=25184
 
               Worker 0:  Sort Method: top-N heapsort  Memory: 26kB
 
               Worker 1:  Sort Method: top-N heapsort  Memory: 26kB
 
-              ->  Parallel Append  (cost=0.00..66296.00 rows=1666667 width=20) (actual time=4.977..343.034 rows=1333333 loops=3)
+              ->  Parallel Append  (cost=0.00..66296.00 rows=1666667 width=20) (actual time=5.107..367.609 rows=1333333 loops=3)
 
-                    Buffers: shared hit=16119 read=25177
+                    Buffers: shared hit=16113 read=25183
 
-                    ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..32946.67 rows=946667 width=20) (actual time=2.398..118.435 rows=757333 loops=3)
+                    ->  Parallel Seq Scan on _hyper_1_2_chunk  (cost=0.00..32946.67 rows=946667 width=20) (actual time=3.386..131.337 rows=757333 loops=3)
 
-                          Buffers: shared hit=8495 read=14985
+                          Buffers: shared hit=8488 read=14992
 
-                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..25016.00 rows=720000 width=20) (actual time=3.927..140.582 rows=864000 loops=2)
+                    ->  Parallel Seq Scan on _hyper_1_1_chunk  (cost=0.00..25016.00 rows=720000 width=20) (actual time=3.828..155.811 rows=864000 loops=2)
 
-                          Buffers: shared hit=7624 read=10192
+                          Buffers: shared hit=7625 read=10191
 
 Planning:
 
   Buffers: shared hit=19
 
-Planning Time: 0.198 ms
+Planning Time: 0.229 ms
 
 JIT:
 
@@ -46,7 +46,7 @@ JIT:
 
   Options: Inlining false, Optimization false, Expressions true, Deforming true
 
-  Timing: Generation 1.143 ms, Inlining 0.000 ms, Optimization 1.201 ms, Emission 19.948 ms, Total 22.293 ms
+  Timing: Generation 1.263 ms, Inlining 0.000 ms, Optimization 1.357 ms, Emission 21.419 ms, Total 24.039 ms
 
-Execution Time: 614.650 ms
+Execution Time: 642.886 ms
 

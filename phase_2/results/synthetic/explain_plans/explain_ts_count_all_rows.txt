@@ -1,8 +1,8 @@
-Finalize Aggregate  (cost=60202.57..60202.58 rows=1 width=8) (actual time=453.059..457.052 rows=1 loops=1)
+Finalize Aggregate  (cost=60202.57..60202.58 rows=1 width=8) (actual time=536.628..540.690 rows=1 loops=1)
 
   Buffers: shared hit=4 read=4518
 
-  ->  Gather  (cost=26504.43..60202.56 rows=4 width=8) (actual time=290.620..457.040 rows=5 loops=1)
+  ->  Gather  (cost=26504.43..60202.56 rows=4 width=8) (actual time=383.347..540.680 rows=5 loops=1)
 
         Workers Planned: 2
 
@@ -10,25 +10,25 @@ Finalize Aggregate  (cost=60202.57..60202.58 rows=1 width=8) (actual time=453.05
 
         Buffers: shared hit=4 read=4518
 
-        ->  Parallel Append  (cost=25504.43..59202.16 rows=2 width=8) (actual time=338.353..446.598 rows=2 loops=3)
+        ->  Parallel Append  (cost=25504.43..59202.16 rows=2 width=8) (actual time=428.166..530.196 rows=2 loops=3)
 
               Buffers: shared hit=4 read=4518
 
-              ->  Partial Aggregate  (cost=33697.70..33697.71 rows=1 width=8) (actual time=256.104..256.105 rows=1 loops=3)
+              ->  Partial Aggregate  (cost=33697.70..33697.71 rows=1 width=8) (actual time=277.799..277.800 rows=1 loops=3)
 
                     Buffers: shared hit=3 read=2558
 
-                    ->  Parallel Index Only Scan using _hyper_1_2_chunk_synthetic_data_time_idx on _hyper_1_2_chunk  (cost=0.43..31331.04 rows=946667 width=0) (actual time=0.395..202.710 rows=757333 loops=3)
+                    ->  Parallel Index Only Scan using _hyper_1_2_chunk_synthetic_data_time_idx on _hyper_1_2_chunk  (cost=0.43..31331.04 rows=946667 width=0) (actual time=0.313..219.512 rows=757333 loops=3)
 
                           Heap Fetches: 0
 
                           Buffers: shared hit=3 read=2558
 
-              ->  Partial Aggregate  (cost=25504.43..25504.44 rows=1 width=8) (actual time=285.730..285.731 rows=1 loops=2)
+              ->  Partial Aggregate  (cost=25504.43..25504.44 rows=1 width=8) (actual time=378.584..378.585 rows=1 loops=2)
 
                     Buffers: shared hit=1 read=1960
 
-                    ->  Parallel Index Only Scan using _hyper_1_1_chunk_synthetic_data_time_idx on _hyper_1_1_chunk  (cost=0.43..23704.43 rows=720000 width=0) (actual time=0.398..220.429 rows=864000 loops=2)
+                    ->  Parallel Index Only Scan using _hyper_1_1_chunk_synthetic_data_time_idx on _hyper_1_1_chunk  (cost=0.43..23704.43 rows=720000 width=0) (actual time=0.453..296.493 rows=864000 loops=2)
 
                           Heap Fetches: 0
 
@@ -38,7 +38,7 @@ Planning:
 
   Buffers: shared hit=33 read=3
 
-Planning Time: 1.512 ms
+Planning Time: 0.675 ms
 
-Execution Time: 457.238 ms
+Execution Time: 540.872 ms
 
