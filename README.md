@@ -16,6 +16,3 @@
 
 [phase_4](phase_4/README.md)
 
-## 5. Compression and continuous aggregates
-
-[phase_5](phase_5/README.md)
