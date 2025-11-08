@@ -1,0 +1,9 @@
+timestamp,db,threads,query_name,elapsed_ms,row_count
+2025-11-08T16:18:13.641081,ts,1,downsample_ts_day,11.743,31
+2025-11-08T16:18:13.641113,ts,1,humid_hot,3.868,1
+2025-11-08T16:18:13.641121,ts,1,downsample_ts_day,2.458,31
+2025-11-08T16:18:13.641127,ts,1,count_1day,1.419,1
+2025-11-08T16:18:13.641134,ts,1,humid_hot,1.753,1
+2025-11-08T16:18:13.641139,ts,1,downsample_ts_day,2.190,31
+2025-11-08T16:18:13.641146,ts,1,count_1day,1.029,1
+2025-11-08T16:18:13.641152,ts,1,humid_hot,1.144,1

@@ -1,0 +1,28 @@
+{
+    "weather": [
+        {
+            "query": "count_1day",
+            "sql": "SELECT COUNT(*) FROM weather_100pct WHERE time BETWEEN '2020-01-01' AND '2020-01-02'"
+        },
+        {
+            "query": "count_1month",
+            "sql": "SELECT COUNT(*) FROM weather_100pct WHERE time BETWEEN '2020-01-01' AND '2020-02-01'"
+        },
+        {
+            "query": "humid_hot",
+            "sql": "SELECT AVG(temperature) FROM weather_100pct WHERE relative_humidity > 80 AND time BETWEEN '2020-06-01' AND '2020-06-30'"
+        },
+        {
+            "query": "humid_cold",
+            "sql": "SELECT AVG(temperature) FROM weather_100pct WHERE relative_humidity > 85 AND time BETWEEN '2020-01-01' AND '2020-01-31'"
+        },
+        {
+            "query": "downsample_pg_day",
+            "sql": "SELECT date_trunc('day', time) AS day, AVG(temperature) FROM weather_100pct WHERE time >= '2020-01-01' AND time < '2020-02-01' GROUP BY day ORDER BY day"
+        },
+        {
+            "query": "downsample_ts_day",
+            "sql": "SELECT time_bucket('1 day', time) AS day, AVG(temperature) FROM weather_100pct WHERE time >= '2020-01-01' AND time < '2020-02-01' GROUP BY day ORDER BY day"
+        }
+    ]
+}
