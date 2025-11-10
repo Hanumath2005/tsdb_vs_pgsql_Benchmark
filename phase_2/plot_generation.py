@@ -3,7 +3,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def summarize(base_path: str = None):
-    # Collect all CSV result files in the given directory
     all_csvs = [os.path.join(base_path, f) for f in os.listdir(base_path) if f.endswith(".csv")]
 
     dfs = []
@@ -11,7 +10,6 @@ def summarize(base_path: str = None):
         try:
             df = pd.read_csv(file)
 
-            # Drop repeated header rows (common when appending benchmark runs)
             if "elapsed_ms" in df.columns:
                 df = df[df["elapsed_ms"] != "elapsed_ms"]
 
@@ -24,14 +22,12 @@ def summarize(base_path: str = None):
             print(f"⚠️ Skipping {file}: {e}")
 
     if not dfs:
-        print("❌ No result files found. Please run benchmarks first.")
+        print("No result files found. Please run benchmarks first.")
         return
 
     # Combine all CSVs into one DataFrame
     df = pd.concat(dfs, ignore_index=True)
 
-    # Print quick summary for debug
-    print(f"✅ Loaded {len(df)} total benchmark entries.")
     print(f"Databases present: {df['db'].unique().tolist()}")
     print(f"Queries present: {df['query_name'].unique().tolist()}")
 
@@ -59,9 +55,8 @@ def summarize(base_path: str = None):
     # Save summary to CSV
     summary_path = os.path.join(base_path, "benchmark_summary.csv")
     merged.to_csv(summary_path)
-    print(f"✅ Saved summary CSV → {summary_path}")
+    print(f"Saved summary CSV → {summary_path}")
 
-    # Create a horizontal bar chart for speedup visualization
     plt.figure(figsize=(12, 6))
     merged["color"] = merged["speedup_category"].apply(
         lambda x: "green" if x == "Timescale Faster"
@@ -82,4 +77,4 @@ def summarize(base_path: str = None):
 
     plot_path = os.path.join(out_dir, "speedup_plot_weather.png")
     plt.savefig(plot_path)
-    print(f"📈 Speedup plot saved → {plot_path}")
+    print(f"Speedup plot saved → {plot_path}")
