@@ -45,7 +45,7 @@ The characteristics of the datasets are present in the below table
 | Dataset Name         | Rows (approx.) | Columns | Source         | Type       |
 | -------------------- | -------------- | ------- | -------------- | ---------- |
 | Weather Dataset      | 380,000+        | 5       | Kaggle         | Real-world |
-| NYC Yellow Taxi Data | 30M+           | 18+     | Kaggle         | Real-world |
+| NYC Yellow Taxi Data | 12M+           | 18+     | Kaggle         | Real-world |
 | Synthetic IoT Data   | 4,000,000      | 7       | Local (Python) | Synthetic  |
 
 For benchmarking two databases per dataset are used
