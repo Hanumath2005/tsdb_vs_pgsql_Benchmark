@@ -80,7 +80,7 @@ def main():
         print(f"Completed benchmarks for database: {db_key}\n")
     
     # Analysis of results
-    summarize(base_path=RESULTS_DB)
+    summarize(base_path=RESULTS_DB, dataset_name=dataset)
 
 if __name__ == "__main__":
     main()

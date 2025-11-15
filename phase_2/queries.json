@@ -4,100 +4,110 @@
             "query": "avg_temp_all",
             "sql": "SELECT AVG(temperature) FROM weather_data;"
         },
+
         {
             "query": "min_max_temp",
             "sql": "SELECT MIN(temperature), MAX(temperature) FROM weather_data;"
         },
+
         {
             "query": "sum_precipitation",
-            "sql": "SELECT SUM(\"precipitation_mm\") FROM weather_data;"
+            "sql": "SELECT SUM(precipitation_mm) FROM weather_data;"
         },
+
         {
             "query": "count_all_rows",
             "sql": "SELECT COUNT(*) FROM weather_data;"
         },
+
         {
             "query": "count_1day",
-            "sql": "SELECT COUNT(*) FROM weather_data WHERE \"time\" BETWEEN '2020-01-01' AND '2020-01-02';"
+            "sql": "SELECT COUNT(*) FROM weather_data WHERE time BETWEEN '2020-01-01' AND '2020-01-02';"
         },
+
         {
             "query": "count_1month",
-            "sql": "SELECT COUNT(*) FROM weather_data WHERE \"time\" BETWEEN '2020-01-01' AND '2020-02-01';"
+            "sql": "SELECT COUNT(*) FROM weather_data WHERE time BETWEEN '2020-01-01' AND '2020-02-01';"
         },
+
         {
             "query": "count_1year",
-            "sql": "SELECT COUNT(*) FROM weather_data WHERE \"time\" BETWEEN '2020-01-01' AND '2021-01-01';"
+            "sql": "SELECT COUNT(*) FROM weather_data WHERE time BETWEEN '2020-01-01' AND '2021-01-01';"
         },
+
         {
             "query": "avg_temp_2020",
-            "sql": "SELECT AVG(temperature) FROM weather_data WHERE \"time\" BETWEEN '2020-01-01' AND '2020-12-31';"
+            "sql": "SELECT AVG(temperature) FROM weather_data WHERE time BETWEEN '2020-01-01' AND '2020-12-31';"
         },
+
         {
             "query": "downsample_pg_day",
-            "sql": "SELECT date_trunc('day', \"time\") AS day, AVG(temperature) FROM weather_data WHERE \"time\" >= '2020-01-01' AND \"time\" < '2020-02-01' GROUP BY day ORDER BY day;"
+            "sql": "SELECT date_trunc('day', time) AS day, AVG(temperature) FROM weather_data WHERE time >= '2020-01-01' AND time < '2020-02-01' GROUP BY day ORDER BY day;"
         },
+
         {
             "query": "downsample_ts_day",
-            "sql": "SELECT time_bucket('1 day', \"time\") AS day, AVG(temperature) FROM weather_data WHERE \"time\" >= '2020-01-01' AND \"time\" < '2020-02-01' GROUP BY day ORDER BY day;"
-        },
-        {
-            "query": "downsample_ts_hour", 
-            "sql": "SELECT time_bucket('1 hour', \"time\") AS hour, AVG(temperature) FROM weather_data WHERE \"time\" >= '2020-01-01' AND \"time\" < '2020-01-07' GROUP BY hour ORDER BY hour;"
+            "sql": "SELECT time_bucket('1 day', time) AS day, AVG(temperature) FROM weather_data WHERE time >= '2020-01-01' AND time < '2020-02-01' GROUP BY day ORDER BY day;"
         },
 
         {
-            "query": "humid_hot", 
-            "sql": "SELECT AVG(temperature) FROM weather_data WHERE relative_humidity > 80 AND temperature > 25 AND \"time\" BETWEEN '2020-06-01' AND '2020-06-30';"
+            "query": "downsample_ts_hour",
+            "sql": "SELECT time_bucket('1 hour', time) AS hour, AVG(temperature) FROM weather_data WHERE time >= '2020-01-01' AND time < '2020-01-07' GROUP BY hour ORDER BY hour;"
         },
 
         {
-            "query": "humid_cold", 
-            "sql": "SELECT AVG(temperature) FROM weather_data WHERE relative_humidity > 85 AND temperature < 15 AND \"time\" BETWEEN '2020-01-01' AND '2020-01-31';"
+            "query": "humid_hot",
+            "sql": "SELECT AVG(temperature) FROM weather_data WHERE relative_humidity > 80 AND temperature > 25 AND time BETWEEN '2020-06-01' AND '2020-06-30';"
         },
 
         {
-            "query": "rainy_days", 
-            "sql": "SELECT COUNT(*) FROM weather_data WHERE \"rain_mm\" > 5 AND \"time\" BETWEEN '2020-01-01' AND '2020-12-31';"
+            "query": "humid_cold",
+            "sql": "SELECT AVG(temperature) FROM weather_data WHERE relative_humidity > 85 AND temperature < 15 AND time BETWEEN '2020-01-01' AND '2020-01-31';"
         },
 
         {
-            "query": "low_pressure", 
-            "sql": "SELECT COUNT(*) FROM weather_data WHERE \"pressure_msl_hpa\" < 1000 AND \"time\" BETWEEN '2020-01-01' AND '2020-12-31';"
+            "query": "rainy_days",
+            "sql": "SELECT COUNT(*) FROM weather_data WHERE rain_mm > 5 AND time BETWEEN '2020-01-01' AND '2020-12-31';"
         },
 
         {
-            "query": "rolling_10", 
-            "sql": "SELECT \"time\", AVG(temperature) OVER (ORDER BY \"time\" ROWS BETWEEN 9 PRECEDING AND CURRENT ROW) FROM weather_data ORDER BY \"time\" LIMIT 5000;"
+            "query": "low_pressure",
+            "sql": "SELECT COUNT(*) FROM weather_data WHERE pressure_msl_hPa < 1000 AND time BETWEEN '2020-01-01' AND '2020-12-31';"
         },
 
         {
-            "query": "rolling_humidity", 
-            "sql": "SELECT \"time\", AVG(relative_humidity) OVER (ORDER BY \"time\" ROWS BETWEEN 9 PRECEDING AND CURRENT ROW) FROM weather_data ORDER BY \"time\" LIMIT 5000;"
+            "query": "rolling_10",
+            "sql": "SELECT time, AVG(temperature) OVER (ORDER BY time ROWS BETWEEN 9 PRECEDING AND CURRENT ROW) FROM weather_data ORDER BY time LIMIT 5000;"
         },
 
         {
-            "query": "group_by_daynight", 
+            "query": "rolling_humidity",
+            "sql": "SELECT time, AVG(relative_humidity) OVER (ORDER BY time ROWS BETWEEN 9 PRECEDING AND CURRENT ROW) FROM weather_data ORDER BY time LIMIT 5000;"
+        },
+
+        {
+            "query": "group_by_daynight",
             "sql": "SELECT is_day, AVG(temperature) AS avg_temp, MAX(relative_humidity) AS max_hum FROM weather_data GROUP BY is_day;"
         },
 
         {
-            "query": "group_by_humidity_range", 
+            "query": "group_by_humidity_range",
             "sql": "SELECT width_bucket(relative_humidity, 0, 100, 5) AS hum_bucket, AVG(temperature) AS avg_temp, COUNT(*) AS samples FROM weather_data GROUP BY hum_bucket ORDER BY hum_bucket;"
         },
 
         {
-            "query": "group_by_cloud_cover", 
-            "sql": "SELECT width_bucket(cloud_cover, 0, 100, 4) AS cloud_group, AVG(temperature), AVG(relative_humidity) FROM weather_data GROUP BY cloud_group ORDER BY cloud_group;"
+            "query": "group_by_cloud_cover",
+            "sql": "SELECT width_bucket(cloud_cover_pct, 0, 100, 4) AS cloud_group, AVG(temperature), AVG(relative_humidity) FROM weather_data GROUP BY cloud_group ORDER BY cloud_group;"
         },
 
         {
-            "query": "last_point_query", 
-            "sql": "SELECT DISTINCT ON (date_trunc('day', \"time\")) \"time\", temperature FROM weather_data WHERE \"time\" BETWEEN '2020-01-01' AND '2020-02-01' ORDER BY date_trunc('day', \"time\"), \"time\" DESC;"
+            "query": "last_point_query",
+            "sql": "SELECT DISTINCT ON (date_trunc('day', time)) time, temperature FROM weather_data WHERE time BETWEEN '2020-01-01' AND '2020-02-01' ORDER BY date_trunc('day', time), time DESC;"
         },
 
         {
-            "query": "top_extreme_temp", 
-            "sql": "SELECT \"time\", temperature FROM weather_data WHERE \"time\" >= '2020-01-01' AND \"time\" < '2020-12-31' ORDER BY temperature DESC LIMIT 10;"
+            "query": "top_extreme_temp",
+            "sql": "SELECT time, temperature FROM weather_data WHERE time >= '2020-01-01' AND time < '2020-12-31' ORDER BY temperature DESC LIMIT 10;"
         }
     ],
     "synthetic": [

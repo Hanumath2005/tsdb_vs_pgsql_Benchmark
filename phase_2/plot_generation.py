@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def summarize(base_path: str = None):
+def summarize(base_path: str = None,dataset_name: str = "weather"):
     all_csvs = [os.path.join(base_path, f) for f in os.listdir(base_path) if f.endswith(".csv")]
 
     dfs = []
@@ -72,9 +72,9 @@ def summarize(base_path: str = None):
     plt.axvline(1.0, color="black", linestyle="--", linewidth=1)
     plt.xlabel("Speedup (PostgreSQL Median / TimescaleDB Median)")
     plt.ylabel("Query Name")
-    plt.title("TimescaleDB Speedup over PostgreSQL (Phase 2 Weather Benchmark)")
+    plt.title(f"TimescaleDB Speedup over PostgreSQL (Phase 2 {dataset_name} Benchmark)")
     plt.tight_layout()
 
-    plot_path = os.path.join(out_dir, "speedup_plot_weather.png")
+    plot_path = os.path.join(out_dir, f"speedup_plot_{dataset_name}.png")
     plt.savefig(plot_path)
     print(f"Speedup plot saved → {plot_path}")

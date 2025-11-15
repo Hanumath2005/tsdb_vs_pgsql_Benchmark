@@ -93,4 +93,4 @@ SELECT create_hypertable('weather_data', 'time');
 ```
 
 
-The complete setup is present at setup.sql
+The complete setup is present at [setup_benchmark.sql](setup_benchmark.sql)
