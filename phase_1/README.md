@@ -93,4 +93,4 @@ SELECT create_hypertable('weather_data', 'time');
 ```
 
 
-The complete setup is present at [setup_benchmark.sql](setup_benchmark.sql)
+The complete setup is present at [setup_benchmark.sql](setup_benchmark.sql). Before setting up the benchmark add the paths to the corresponding datasets.
